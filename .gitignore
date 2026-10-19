@@ -32,6 +32,10 @@ test-results/
 coverage/
 docs/rendered/
 docs/qa-render/
+.presentation-build/
+.codex-finalizer/
+.chart-data-*/
+node_modules/
 
 # Editors and operating systems
 .vscode/

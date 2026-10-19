@@ -1,85 +1,96 @@
 # AirConnect India
-### A small, offline MLDS laboratory project
 
-**Status:** Working academic prototype • **Version:** 1.0.0 • **Date:** 19 October 2026
+AirConnect India v2.0 is a reproducible, offline MDI4001 Machine Learning for Data Science project about Indian airport passenger traffic. It combines validated DGCA-derived data, chronological forecasting, supervised classification, K-Means clustering, PCA, and a static academic website.
 
-## Open the website (Windows)
+## Headline result
 
-1. Unzip the whole folder. **Do not extract only the HTML file.**
-2. Double-click `START_AIRCONNECT.bat`, or open `site/index.html` in Chrome, Edge or Firefox.
-3. Use **Overview**, **Airport explorer**, **Machine learning**, and **Methodology** in the navigation.
+The redesigned airport-month pipeline reduces the selected Random Forest's held-out 2025 MAE to **17,479 passenger movements**, compared with approximately **451,552** for the original annual model. The **previous-month naive forecast remains slightly better at 16,481 MAE**, so v2.0 retains the baseline as the strongest tested one-step forecasting method rather than making an unsupported model-win claim.
 
-There is **no server, login, API key, npm, cloud account or Jupyter installation** needed to view the site. The charts and fitted model results are pre-generated and work offline.
+The validation-selected Logistic Regression classifier achieves **0.781 balanced accuracy**, **0.739 F1**, and **0.886 ROC-AUC** on the untouched 2025 test set. Its confusion matrix is TN 688, FP 81, FN 196, TP 392.
 
-## Re-run the machine learning (optional)
+## Open the website
 
-Install Python 3.10+ and the dependencies shown in `requirements.txt`:
-
-```powershell
-cd AirConnect-India
-py -m venv .venv
-.\.venv\Scripts\Activate.ps1
-python -m pip install -r requirements.txt
-python src/build.py
-python -m pytest -q
-```
-
-If you prefer Command Prompt, use `.venv\Scripts\activate.bat` instead. `src/build.py` consumes bundled verified DGCA-derived data and overwrites `site/assets/data.js` with newly trained results. **You do not need network connectivity** to train it.
-
-If you want to run on an HTTP URL rather than opening the HTML file, execute:
+On Windows, double-click `START_AIRCONNECT.bat`. Alternatively:
 
 ```powershell
 python -m http.server 8080 --directory site
 ```
 
-Then open <http://localhost:8080>.
+Then open <http://localhost:8080>. The packaged site also works by opening `site/index.html` directly and has no runtime network dependency.
 
-## What is included
+## Install and reproduce
 
-| Folder | Purpose |
+```powershell
+py -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+python -m pip install -r requirements-docs.txt
+python src/build.py
+python src/build_charts.py
+python src/build_documents.py
+python -m pytest -q
+```
+
+The editable slide deck is generated with the bundled Codex presentation runtime:
+
+```powershell
+$env:RUNTIME_NODE_MODULES='C:\Users\kasin\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\node_modules'
+$env:CODEX_PRIMARY_RUNTIME_NODE_MODULES=$env:RUNTIME_NODE_MODULES
+node src/build_presentation.mjs
+```
+
+Optional browser smoke testing requires Playwright and Chromium:
+
+```powershell
+python -m pip install playwright
+python -m playwright install chromium
+python tests/browser_smoke.py
+```
+
+## Dataset
+
+- Source: [India Aviation Stats](https://github.com/mkubicek/india-aviation-stats), a cleaned DGCA-derived dataset, MIT licensed.
+- Pinned upstream commit: `bce8fc78f2be1de88154c1d8e62d13ffc0d8e171`.
+- Domestic monthly data: 13,599 records, 144 airports, April 2015 through partial 2026.
+- Modelling window: April 2016 through December 2025; partial 2026 is excluded.
+- Final test: January–December 2025, 1,357 eligible airport-month observations.
+- Missing targets are never imputed. Exact-calendar lag gaps remain missing. Numeric feature imputation is fitted only inside each training fold.
+
+Passenger movements mean arrivals plus departures, not unique travellers. Traffic-reporting airports are not the same as all operational airports, heliports, or water aerodromes.
+
+## Methods
+
+Regression compares Ridge, Decision Tree, Random Forest, and Histogram Gradient Boosting with previous-month, same-month-previous-year, and airport historical-mean baselines. Hyperparameters are selected on expanding 2022, 2023, and 2024 validation folds. Metrics are MAE, RMSE, R², WAPE, and median absolute error.
+
+Classification predicts whether target-month domestic traffic is at least 10% above the same month one year earlier. Logistic Regression, CART, and Random Forest are compared with a majority-class dummy using the same chronological design.
+
+K-Means evaluates k from 2 through 6 over six scaled 2025 airport features. A solution must contain at least five airports per cluster; when silhouette scores are within 0.02, the smaller k is preferred. PCA visualises the same feature space.
+
+## Project structure
+
+| Path | Purpose |
 |---|---|
-| `site/` | Static interactive website, no build tools |
-| `data/raw/` | DGCA-derived airport-year data (2022–2025), official national totals (2016–2025), geographic coordinates |
-| `data/processed/` | Airport-level feature table and JSON model output |
-| `src/` | Data transcription, preprocessing, reproducible ML training |
-| `tests/` | Structural and data/ML validation tests |
-| `docs/` | Requirements, design, methodology, syllabus mapping, report and slide materials |
+| `data/external/` | Unmodified pinned upstream CSVs and licence |
+| `data/raw/` | Original v1 compact annual and coordinate inputs |
+| `data/processed/analysis.json` | Canonical numerical source for site and documents |
+| `src/pipeline.py` | Validation and exact-calendar feature construction |
+| `src/modeling.py` | Chronological tuning, evaluation, K-Means, and PCA |
+| `src/build.py` | Rebuild canonical analysis and browser data |
+| `src/build_charts.py` | Generate figures from canonical results |
+| `src/build_documents.py` | Generate the editable Word report |
+| `src/build_presentation.mjs` | Generate and validate the editable PowerPoint deck |
+| `site/` | Offline HTML, CSS, JavaScript website |
+| `tests/` | Data, leakage, metric, model-output, and browser checks |
+| `docs/` | Engineering plan, report, QA evidence, figures, DOCX, PPTX, PDFs |
 
-## Research question
+## Limitations
 
-How have Indian airport passenger movements evolved, how do annual airport traffic patterns differ, and can a small ML model predict annual domestic traffic more accurately than a simple baseline?
+- The forecast is one step ahead and assumes actual observations become available each month; it is not a recursive long-horizon forecast.
+- COVID-19 creates substantial distribution shift in early validation history.
+- Strong autocorrelation makes the previous-month baseline difficult to beat.
+- Passenger counts alone do not measure capacity utilisation or explain route regulation.
+- The 10% classification threshold is an analysis choice, not a government-defined class.
 
-### Models
+## Licence and attribution
 
-- **K-Means (k=3):** 2025 airport grouping based on scaled log domestic and international passenger movements. Silhouette Score **0.6235** on 129 airports.
-- **Random Forest regression:** annual year-ahead domestic traffic prediction with lag-one and lag-two features. Trained on 106 airport observations for 2024, tested on 116 held-out 2025 observations.
-- **Prior-year baseline:** predicts that 2025 traffic equals 2024 traffic; the baseline **outperformed Random Forest on test MAE and RMSE**. The project explicitly reports this negative ML result.
-
-### Definitions
-
-- Passenger movements = passengers arriving **plus** departing, not unique travellers.
-- Reporting airports in the DGCA data are not identical to government counts of operational airports, heliports and water aerodromes.
-- Low recorded traffic does not itself prove capacity underutilisation.
-- A zero recorded international passenger count does not establish an international route restriction.
-
-## Sources and attribution
-
-1. Kubicek, M. (2026). *India Aviation Stats*, cleaned DGCA passenger traffic. MIT licence. https://github.com/mkubicek/india-aviation-stats
-2. Ministry of Civil Aviation, Government of India. Operational airport listing (165 as of 7 July 2026). https://www.civilaviation.gov.in/index.php/node/4628
-3. Ministry of Civil Aviation. Airport expansion from 74 in 2014. https://www.civilaviation.gov.in/node/7425
-4. Brandon Himpfen, *Airports Dataset*: code and coordinates, MIT. https://github.com/brandonhimpfen/airports
-5. Natural Earth (public domain), low-resolution India geographic outline. https://www.naturalearthdata.com/
-
-The distributed data include a **four-year full airport-level subset** (2022–2025), while the national series spans 2016–2025. The website does not claim to reproduce the attached visualized.in hexagonal proximity study; that would require a separate historical network-distance dataset.
-
-## Scope choices
-
-The software intentionally uses only four website sections, two ML techniques, and no authentication, web backend, dynamic map tiles, flight route policy inference or aircraft/seat capacity model. This is designed for a short course laboratory project, not production aviation planning.
-
-## Local validation
-
-`pytest` exercises source data consistency, reproducibility, regression split integrity, metric consistency and web asset presence. The website was additionally exercised using a headless Chromium browser at desktop and mobile widths, including filter changes and CSV-related code checks.
-
-## Team and academic report
-
-Use the editable placeholders in `docs/PROJECT_REPORT.md` and the accompanying presentation before submission. Do not submit with placeholder team/member fields.
+The upstream cleaned dataset is MIT licensed and attributes its raw public source to India's Directorate General of Civil Aviation. See `data/external/india-aviation-stats/LICENSE` and `data/external/india-aviation-stats/README.md`. Project references and methodological details are in `docs/PROJECT_REPORT.md`.

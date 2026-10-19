@@ -1,10 +1,15 @@
-# MDI4001 syllabus alignment
+# MDI4001 Syllabus Alignment
 
-| Syllabus module | Demonstrated project component |
+| Learning area | AirConnect India v2.0 evidence |
 |---|---|
-| Module 1: Data acquisition, visualisation, preprocessing, inadequacies | Input validity, airport-year pivot, source/grain comparison, missingness and caveats |
-| Module 2: Supervised learning, regression, performance measures | Annual passenger traffic forecasting, MAE, RMSE and R² |
-| Module 5: Decision trees and Random Forests | RandomForestRegressor with feature importance and chronological holdout |
-| Module 7: K-Means and limitations | 3-cluster K-Means using StandardScaler and log transformation; Silhouette Score |
-
-The corresponding practical experiments are classification of tabular data, clustering and outlier analysis, ensembles, and regression practice. No neural-network training is required to satisfy the instructor's invitation to apply one or more ML algorithms.
+| Data preparation | Schema, key, range, reconciliation, exact lag, missingness, and leakage checks |
+| Exploratory analysis | Annual trends, rankings, distributions, map, and concentration discussion |
+| Regression | Ridge, CART, Random Forest, Histogram Gradient Boosting, three baselines, five metrics |
+| Classification | Logistic Regression, CART, Random Forest, DummyClassifier, confusion matrix, precision, recall, F1, ROC-AUC, average precision |
+| Unsupervised learning | K-Means k = 2–6, inertia, Silhouette Score, cluster profiles |
+| Dimensionality reduction | Standardised six-feature PCA, explained variance, loadings, PC1–PC2 plot |
+| Model validation | Expanding chronological validation plus untouched final test |
+| Hyperparameter tuning | Bounded deterministic candidate grids selected only on validation folds |
+| Visualisation | Regression, classification, clustering, PCA, exploratory, and interactive browser figures |
+| Software engineering | Modular pipeline, canonical artifact, automated tests, CI, version control, offline interface |
+| Responsible interpretation | Baseline retained when stronger; no capacity or regulatory inference from counts |

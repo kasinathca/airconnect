@@ -1,59 +1,87 @@
-"""Fast, network-free tests for project input and trained output."""
-import sys, json
+"""Fast, offline data, model-output and website consistency tests."""
+import json
+import sys
 from pathlib import Path
+
 import numpy as np
 import pandas as pd
-
-ROOT=Path(__file__).resolve().parents[1]
-sys.path.insert(0,str(ROOT/'src'))
-from build import run
+from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 
 
-def test_input_rows_and_uniqueness():
-    df=pd.read_csv(ROOT/'data/raw/airport_yearly_2022_2025.csv')
-    assert len(df)==614
-    assert sorted(df.year.unique().tolist())==[2022,2023,2024,2025]
-    assert not df.duplicated(['year','airport','category']).any()
-    assert df.passengers.ge(0).all()
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "src"))
+from pipeline import build_monthly_features, load_and_validate
 
 
-def test_national_totals():
-    df=pd.read_csv(ROOT/'data/raw/airport_yearly_2022_2025.csv')
-    expected=pd.read_csv(ROOT/'data/raw/national_2016_2025.csv').set_index('year')
-    for year in range(2022,2026):
-        actual=df[df.year==year].groupby('category').passengers.sum()
-        assert int(actual.domestic)==int(expected.loc[year,'domestic'])
-        assert int(actual.international)==int(expected.loc[year,'international'])
+def analysis():
+    return json.loads((ROOT / "data/processed/analysis.json").read_text(encoding="utf-8"))
 
 
-def test_output_and_model_consistency():
-    d=json.loads((ROOT/'data/processed/analysis.json').read_text())
-    assert d['clustering']['n']==129
-    assert sum(c['count'] for c in d['clusters'])==129
-    assert -1 <= d['clustering']['silhouette'] <= 1
-    assert d['regression']['train_year']!=d['regression']['test_year']
-    assert d['regression']['train_n']>=100
-    p=d['regression']['predictions']
-    assert len(p)==d['regression']['test_n']==116
-    assert all(np.isfinite(r['predicted']) and r['predicted']>=0 for r in p)
-    from sklearn.metrics import mean_absolute_error
-    actual=[x['actual'] for x in p]
-    predicted=[x['predicted'] for x in p]
-    assert abs(mean_absolute_error(actual,predicted)-d['regression']['forest']['mae'])<1
+def test_external_sources_and_reconciliation():
+    source = load_and_validate(ROOT)
+    assert len(source["monthly"]) == 13599
+    assert source["monthly"].airport.nunique() == 144
+    assert set(source["yearly"].category) == {"domestic", "international"}
+    assert all(len(value) == 64 for value in source["hashes"].values())
 
 
-def test_generation_determinism():
-    before=(ROOT/'site/assets/data.js').read_bytes()
-    run()
-    after=(ROOT/'site/assets/data.js').read_bytes()
-    assert before==after
+def test_exact_calendar_lags_and_no_target_leakage():
+    monthly = pd.read_csv(ROOT / "data/external/india-aviation-stats/airport_monthly.csv")
+    panel = build_monthly_features(monthly)
+    assert len(panel) == 10444
+    assert not panel.duplicated(["airport", "date"]).any()
+    lookup = monthly.assign(date=pd.to_datetime(dict(year=monthly.year, month=monthly.month, day=1))).set_index(["airport", "date"]).passengers
+    sample = panel.sample(100, random_state=37)
+    for row in sample.itertuples():
+        assert row.lag1 == lookup.loc[(row.airport, row.date - pd.offsets.MonthBegin(1))]
+        assert row.lag12 == lookup.loc[(row.airport, row.date - pd.offsets.MonthBegin(12))]
+    assert "target" not in analysis()["regression"]["features"]
 
 
-def test_static_site_and_source_disclosure():
-    h=(ROOT/'site/index.html').read_text()
-    js=(ROOT/'site/assets/app.js').read_text()
-    assert all(x in h for x in ['page-overview','page-explorer','page-models','page-method'])
-    assert all(x in js for x in ['renderTable','renderMap','trend','downloadCSV'])
-    assert 'data.js' in h and 'app.js' in h
-    assert 'Kubicek' in h
-    assert not any(s in h for s in ['https://cdn.', 'googletagmanager', 'google-analytics'])
+def test_regression_metrics_and_common_test_rows():
+    data = analysis()["regression"]
+    records = data["predictions"]
+    actual = np.array([r["actual"] for r in records], dtype=float)
+    pred = np.array([r["selected_prediction"] for r in records], dtype=float)
+    result = next(r for r in data["test"] if r["model"] == data["selected_model"])
+    assert len(records) == data["test_n"]
+    assert np.isfinite(pred).all() and (pred >= 0).all()
+    assert abs(mean_absolute_error(actual, pred) - result["mae"]) < 0.02
+    assert abs(np.sqrt(mean_squared_error(actual, pred)) - result["rmse"]) < 0.02
+    assert abs(r2_score(actual, pred) - result["r2"]) < 0.0001
+    assert all(row["model"] for row in data["test"])
+    assert len({data["test_n"]}) == 1
+
+
+def test_classification_counts_and_metrics():
+    data = analysis()["classification"]
+    assert data["growth_threshold"] == 0.10
+    for row in data["test"]:
+        assert row["tn"] + row["fp"] + row["fn"] + row["tp"] == data["test_n"]
+        assert 0 <= row["accuracy"] <= 1
+        assert 0 <= row["balanced_accuracy"] <= 1
+    selected = next(row for row in data["test"] if row["model"] == data["selected_model"])
+    assert selected["roc_auc"] is not None
+    assert selected["tp"] + selected["fn"] == data["test_positive"]
+
+
+def test_clustering_and_pca_dimensions():
+    data = analysis()["clustering"]
+    assert 2 <= data["k"] <= 6
+    assert sum(row["count"] for row in data["clusters"]) == data["n"]
+    assert len(data["pca"]["points"]) == data["n"]
+    assert len(data["pca"]["loadings"]) == len(data["features"])
+    assert all(0 <= value <= 1 for value in data["pca"]["explained_variance_ratio"])
+    assert data["pca"]["cumulative_explained_variance"][1] <= 1
+
+
+def test_generated_artifact_and_static_site():
+    raw = (ROOT / "data/processed/analysis.json").read_text(encoding="utf-8")
+    script = (ROOT / "site/assets/data.js").read_text(encoding="utf-8")
+    assert script.endswith(";\n") and json.loads(raw)["metadata"]["version"] == "2.0.0"
+    html = (ROOT / "site/index.html").read_text(encoding="utf-8")
+    app = (ROOT / "site/assets/app.js").read_text(encoding="utf-8")
+    assert all(token in html for token in ["page-overview", "page-explorer", "page-models", "page-method", "ml-regression", "ml-classification", "ml-clustering"])
+    assert all(token in app for token in ["renderTable", "renderMap", "confusionMatrix", "rocChart", "pcaChart", "downloadCSV"])
+    assert "data.js" in html and "app.js" in html and "Kubicek" in html
+    assert not any(token in html for token in ["https://cdn.", "googletagmanager", "google-analytics"])

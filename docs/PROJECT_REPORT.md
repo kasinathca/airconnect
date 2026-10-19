@@ -1,163 +1,219 @@
-# AIRCONNECT INDIA
+# AirConnect India
+
 ## Machine Learning-Based Analysis of Indian Airport Passenger Traffic and Connectivity
 
-**Course:** MDI4001 — Machine Learning for Data Science (Laboratory)  
+**Course:** MDI4001 Machine Learning for Data Science
 **Institution:** Vellore Institute of Technology, Vellore  
-**Team members:** [Enter the participating student names, register numbers and university email addresses]  
-**Academic year:** 2026–2027
+**Team members:** [Enter names, register numbers, and university email addresses]
+**Version:** 2.0.0
+**Date:** 19 October 2026
 
 ## Abstract
 
-India's aviation infrastructure has expanded rapidly, but airport openings and airport utilisation cannot be evaluated solely from headline totals. This project analyses the growth in passenger traffic in Indian airports and uses two classical machine learning algorithms to identify airport traffic patterns and evaluate annual passenger-volume forecasting. A curated Directorate General of Civil Aviation (DGCA)-derived dataset supplies 2016–2025 national domestic and international passenger movement totals, with 2022–2025 airport-level annual records used for machine learning. Data are processed into airport–year observations, and a K-Means model classifies 129 airports by their 2025 annual domestic and international passenger movements. A Random Forest regressor is evaluated on a chronological 2025 test year against a prior-year baseline. The three-cluster model achieves a Silhouette Score of **0.6235**, while the baseline outperforms Random Forest on the 2025 test set. Results are presented in an offline HTML research website featuring historical charts, a simplified India airport map, search, filters and downloadable data. The study distinguishes observed traffic from capacity utilisation and administrative international-airport classifications.
+AirConnect India studies airport passenger movements using a reproducible offline machine learning workflow. Version 2.0 replaces a small annual forecast with a one-step airport-month task constructed from 13,599 validated domestic records. Exact-calendar lags, shifted rolling statistics, seasonal terms, and airport identity are evaluated with expanding chronological validation and an untouched 2025 test period. The selected Random Forest achieves a 2025 MAE of 17,479 passenger movements, a substantial reduction from the original annual model's approximately 451,552, but the previous-month naive forecast remains stronger at 16,481 MAE. A supervised classifier predicts whether traffic is at least 10% above the same month one year earlier; validation selects Logistic Regression, which records 0.781 balanced accuracy and 0.886 ROC-AUC on 2025. K-Means selects four airport groups under a minimum-size and parsimony rule, with Silhouette Score 0.492. PCA represents 63.9% of standardised feature variance in two components. The principal conclusion is methodological: chronological evidence and strong baselines matter more than algorithm complexity.
 
-**Keywords:** India aviation; airport passenger movements; K-Means; Random Forest; time-aware validation; regression; passenger traffic; data visualisation.
+**Keywords:** Indian aviation, passenger movements, time-series regression, classification, K-Means, PCA, chronological validation
 
 ## 1. Introduction
 
-Airport infrastructure provides transport connectivity and supports economic activity, but counting operational airports does not directly measure the volume of passenger services. India's Ministry of Civil Aviation reports an increase from **74 operational facilities in 2014** to **165 as of 7 July 2026**. These counts include facilities whose reporting definitions differ from the airports contributing passenger movement records. This project examines airport-level traffic instead of inferring utilisation from infrastructure counts.
+Indian aviation has expanded rapidly, but several quantities are often confused: operational facilities, airports reporting passenger traffic, airports recording international movements, and airports designated for international service. This project analyses recorded passenger movements without treating those categories as interchangeable. Passenger movements equal arrivals plus departures and therefore do not count unique travellers.
 
-### 1.1 Problem statement
+The original project provided a useful descriptive website and honest negative annual-forecast result, but its supervised dataset contained only about one hundred training observations. Version 2.0 uses monthly records to create a larger chronological panel while preserving the offline, small-project architecture.
 
-Investigate changes in domestic and international passenger movement totals; segment airports with similar annual traffic; test the accuracy of a simple ML prediction model using held-out calendar-year records.
+## 2. Problem formulation and objectives
 
-### 1.2 Objectives
+The primary regression question is: predict domestic passenger movements for airport A in month T using information available strictly before month T. This is a one-step-ahead evaluation. It assumes observed history becomes available each month and is not equivalent to recursive multi-month forecasting.
 
-1. Prepare, audit and visualise DGCA-derived traffic data.
-2. Contrast national traffic patterns with reported operational-airport growth.
-3. Apply K-Means clustering to traffic variables and interpret the resulting airport groups.
-4. Train Random Forest regression using lagged annual passenger movements.
-5. Benchmark the regression against the preceding year's traffic and report MAE, RMSE and R².
-6. Present interactive results through a local HTML/CSS/JavaScript application.
+The classification question is: will target-month domestic traffic be at least 10% higher than the same month in the previous year? The threshold is an analytical choice for a compact syllabus-aligned problem, not an official government class.
 
-## 2. Related work and background
+Additional objectives are to identify interpretable airport groups, visualise multivariate structure with PCA, communicate uncertainty, and keep every numerical output reproducible.
 
-The Ministry of Civil Aviation maintains operational aviation facility counts and descriptions of the regional connectivity programme (RCS-UDAN). DGCA statistical tables report observed airport and airline passenger traffic. The independently maintained India Aviation Stats repository (Kubicek, 2026) normalises those DGCA workbooks into consistent CSV tables and documents decisions needed to reconcile airport codes and spelling variants. The project's classification of airports according to their passenger movements is therefore based on observed transport activity rather than airport designation. K-Means provides transparent exploratory segmentation, while Random Forest represents a syllabus-aligned nonlinear regression approach suitable for numerical features.
+## 3. Related work and data provenance
 
-The accessibility map published at Visualized.in motivated the research question but is not reproduced by this project, because historical weekly service and geospatial coverage data are different from the annual passenger dataset.
+The source is Kubicek's *India Aviation Stats*, which cleans public DGCA workbooks into single-grain tables and documents difficult airport-identity decisions. AirConnect pins upstream commit `bce8fc78f2be1de88154c1d8e62d13ffc0d8e171` and preserves the MIT licence and SHA-256 hashes. Ministry of Civil Aviation figures are used only for broad expansion context, not as directly comparable traffic-reporting counts.
 
-## 3. Dataset and preprocessing
+## 4. Dataset description
 
-| Input | Coverage | Purpose |
-|---|---|---|
-| National annual passenger totals | 2016–2025 | Long-run movement comparison |
-| Airport yearly domestic and international records | 2022–2025; 614 category rows | Airport-level analyses and ML |
-| Airport coordinate records | 93 of 129 domestic reporting airports matched for 2025 | Geographic view |
-| Government airport counts | 2014 and 7 July 2026 | Contextual infrastructure comparison |
+| Dataset | Grain | Rows | Airports | Coverage |
+|---|---|---:|---:|---|
+| Domestic monthly | Airport × month | 13,599 | 144 | April 2015 to partial 2026 |
+| Airport yearly | Airport × year × category | 1,388 | 140 | 2015–2025 |
+| International quarterly | Airport × quarter | 1,248 | 35 | 2015 to partial 2026 |
 
-**Data unit:** Number of passenger movements, where arrivals and departures both contribute. The counts must not be interpreted as unique travellers. The 2022–2025 input contains **614 airport–year–category rows**. These are pivoted into **491 airport–year observations**. A missing international category is filled with zero for model features but is interpreted conservatively as no corresponding annual international record in the input, not evidence of a legal prohibition.
+Core fields have no missing values, duplicate keys, or negative passenger counts. The pipeline verifies that passengers equal departures plus arrivals and reconciles complete domestic years between monthly and yearly tables. Partial 2026 is excluded from modelling. Eligible modelling rows run from April 2016 through December 2025.
 
-**Preparation workflow:**
+## 5. System architecture
 
-1. Validate the fields `year`, `airport`, `category` and `passengers`.
-2. Check for nonnegative passenger values and duplicate (`year`, `airport`, `category`) keys.
-3. Verify category sums exactly against the separately derived annual source totals.
-4. Pivot domestic and international counts into numerical airport–year columns.
-5. For K-Means, apply `log(1 + passengers)` separately to both traffic types, followed by standard scaling.
-6. For regression, construct preceding-year and two-years-prior domestic passenger predictors only when all requisite years are available.
+```text
+Pinned CSV source and licence
+            |
+            v
+validation and reconciliation
+            |
+            v
+exact-calendar lag feature panel
+      |             |             |
+      v             v             v
+ regression    classification  clustering/PCA
+      \             |             /
+       +------ canonical JSON ----+
+                  |       |
+                  v       v
+              website   documents
+```
 
-### 3.1 National passenger volume
+Python performs validation, feature engineering, training, model selection, evaluation, chart generation, and document preparation. The website is static HTML, CSS, JavaScript, and SVG reading precomputed data.
 
-| Year | Domestic movements | International movements |
-|---|---:|---:|
-| 2016 | 198,946,866 | 53,673,140 |
-| 2019 | 287,472,512 | 63,661,178 |
-| 2020 | 125,704,022 | 17,092,876 |
-| 2022 | 246,484,028 | 46,920,910 |
-| 2023 | 304,080,934 | 63,881,888 |
-| 2024 | 322,650,506 | 72,210,403 |
-| 2025 | 333,873,006 | 77,979,936 |
+## 6. Data preprocessing
 
-Domestic movement volume increased by **67.8% from 2016 to 2025**. The 2020 fall is consistent with the pandemic period, and it demonstrates why this time series should not be represented as uninterrupted policy-driven growth.
+Rows are ordered chronologically by airport. Each lag uses an exact date join rather than a simple previous-row shift. Missing months therefore remain missing. Targets are never imputed. For models requiring complete numeric inputs, median imputation is fitted only within the current training fold; airport identity uses one-hot encoding with unknown-category handling.
 
-## 4. Methods
+## 7. Feature engineering
 
-### 4.1 K-Means airport segmentation
+The fifteen predictors are airport identity; lags 1, 2, 3, and 12; shifted rolling means over 3, 6, and 12 preceding months; counts of observed preceding months; one-month and lagged year-on-year growth; sine and cosine month terms; and a chronological index. Internally generated lag 13 supports the lagged year-on-year growth feature but is not directly supplied as a separate model feature.
 
-**Input observations:** 129 airports with a 2025 domestic passenger record.  
-**Feature vector:** `X_i = [log(1 + domestic_i), log(1 + international_i)]`.  
-**Scaling:** StandardScaler applied to the 2025 feature matrix.  
-**Algorithm:** KMeans(`n_clusters=3`, `random_state=37`, `n_init=20`).  
-**Evaluation:** Silhouette Score; group frequencies and median passenger volumes.  
-**Post-fit labelling:** Relabel groups by ascending median total movements as Lower traffic, Intermediate traffic and Major gateways. These names are descriptive interpretations, not training labels.
+For a target month t, the three-month rolling feature is:
 
-### 4.2 Random Forest domestic passenger regression
+`rolling3(t) = mean(y(t-1), y(t-2), y(t-3))`
 
-**Prediction task:** Predict annual domestic passenger movements for a given airport, one calendar year ahead.  
-**Inputs:** `lag1 = traffic(year − 1)` and `lag2 = traffic(year − 2)`, transformed with `log1p`.  
-**Model target:** `log1p(traffic(year))` for numeric stability.  
-**Training:** Airports with complete 2022–2024 data, predicting 2024.  
-**Testing:** Airports with complete 2023–2025 data, predicting 2025.  
-**Hyperparameters:** 120 estimators, max depth 9, minimum leaf 2, random seed 37.  
-**Inverse transform:** `expm1` returns forecasts in passenger movement units.  
-**Baseline:** The preceding year's domestic passenger count without fitted parameters.
+Every term is before t. No target-year or target-month value enters the predictors.
 
-**Metric definitions:**
+## 8. Validation strategy
 
-- Mean Absolute Error: `MAE = mean(|actual − predicted|)`.
-- Root Mean Squared Error: `RMSE = sqrt(mean((actual − predicted)^2))`.
-- Coefficient of determination: `R² = 1 − sum((actual − predicted)^2) / sum((actual − actual_mean)^2)`.
+The final test period is January through December 2025 with 1,357 eligible airport-month observations. Expanding validation uses 2022, 2023, and 2024 as successive validation years; each fold trains only on earlier records. Hyperparameters are chosen from bounded grids using validation results. The final test is not used for selection.
 
-A chronological split is necessary because randomly mixing airport-year rows would overstate the validity of a historical forecasting exercise.
+This design exposes distribution shift, particularly the pandemic and recovery period. It also prevents the optimistic estimates that would result from randomly mixing future and past months.
 
-## 5. Experimental results
+## 9. Regression methodology
 
-### 5.1 Clustering
+Candidates are Ridge Regression, Decision Tree Regressor, Random Forest Regressor, and Histogram Gradient Boosting. All predict `log(1 + traffic)` and are inverted to original passenger units. Baselines are previous month, same month previous year, and airport historical mean.
 
-**Silhouette Score = 0.6235**, with **k = 3**, **n = 129**.
+The metrics are:
 
-| Interpreted group | Airports | Median domestic movements | Median international movements | Examples |
-|---|---:|---:|---:|---|
-| Lower traffic | 36 | 13,795 | 0 | CDP, JGB, HJR |
-| Intermediate traffic | 62 | 408,804 | 0 | GOI, PAT, SXR |
-| Major gateways | 31 | 4,196,156 | 555,408 | DEL, BOM, BLR |
+- `MAE = mean(|y - y_hat|)`
+- `RMSE = sqrt(mean((y - y_hat)^2))`
+- `R² = 1 - sum((y - y_hat)^2) / sum((y - mean(y))^2)`
+- `WAPE = sum(|y - y_hat|) / sum(|y|)` when the denominator is nonzero
+- Median absolute error
 
-The third cluster captures larger airports with recorded international traffic. The smaller groups exhibit far lower median movement volumes and typically no international row. The Silhouette Score shows reasonably clear separation in the chosen transformed two-feature space; it is not a classification accuracy measure.
+Random Forest is selected among trained models by validation MAE with 180 trees, depth 16, minimum leaf size 5, and all transformed features considered per split.
 
-### 5.2 Regression versus baseline
+## 10. Regression results
 
-| Measure | Random Forest | Prior-year baseline | Better |
-|---|---:|---:|---|
-| Training airport observations | 106 | No training | — |
-| Test airport observations | 116 | 116 | — |
-| MAE | 451,551.93 | 182,476.34 | Baseline |
-| RMSE | 2,044,383.36 | 354,819.58 | Baseline |
-| R² | 0.9282 | 0.9978 | Baseline |
+| Method | Type | Validation MAE | Test MAE | Test RMSE | Test R² | Test WAPE |
+|---|---|---:|---:|---:|---:|---:|
+| Ridge Regression | Trained | 135,038 | 162,333 | 1,721,109 | -6.1304 | 66.06% |
+| Decision Tree | Trained | 28,749 | 21,434 | 61,018 | 0.9910 | 8.72% |
+| Random Forest | Trained | 24,769 | 17,479 | 50,430 | 0.9939 | 7.11% |
+| Histogram Gradient Boosting | Trained | 39,217 | 20,977 | 67,784 | 0.9889 | 8.54% |
+| Previous month naive | Baseline | 17,880 | 16,481 | 46,579 | 0.9948 | 6.71% |
+| Seasonal naive | Baseline | 49,576 | 22,668 | 55,234 | 0.9927 | 9.22% |
+| Airport historical mean | Baseline | 58,337 | 62,708 | 172,392 | 0.9285 | 25.52% |
 
-The Random Forest produced plausible overall ranking but made substantially larger errors than the persistence baseline. Limited annual training observations and the difficulty of extrapolating unusually large hub volumes are possible reasons. Therefore, the study does **not** claim a practical forecasting improvement. The numerical result is still useful for demonstrating the importance of baselines, metric choice and chronological holdouts.
+The Random Forest improves dramatically over the original annual model but does not beat the previous-month baseline. The short horizon and strong traffic persistence explain why lag 1 dominates permutation importance. This is a defensible negative result, not a failure to report.
 
-### 5.3 Feature contribution
+## 11. Regression error analysis
 
-Random Forest training feature importances were approximately **0.745** for the preceding year's traffic and **0.255** for two-years-prior traffic. These are fitted model importances, not causal explanations. No claim of a capacity-utilisation threshold is drawn from the cluster labels.
+| Prior-year traffic segment | Random Forest MAE | Previous-month MAE | Test rows |
+|---|---:|---:|---:|
+| Lower | 1,431 | 1,314 | 436 |
+| Middle | 6,616 | 6,438 | 446 |
+| Higher | 42,409 | 39,834 | 475 |
 
-## 6. Software design and validation
+Large airports dominate aggregate passenger error even when proportional error is moderate. Median absolute error for Random Forest is 3,265, which is far below its MAE because a small number of high-volume observations carry large absolute residuals.
 
-The software follows a simple offline data pipeline: preserved source CSV → validation → feature construction → fitted scikit-learn models → generated static JSON → HTML/CSS/JavaScript visualisation. The web app uses semantic HTML, keyboard-accessible navigation and map markers, native hover tooltips, local vector graphics, responsive layout and downloadable CSV export. No registration, map tile service, cloud account or server is necessary to demonstrate the project.
+## 12. Classification methodology
 
-**Verification performed:**
+Class 1 is assigned only when the actual target-month value is at least 1.10 times the actual same month one year earlier and that denominator is positive. Predictors remain pre-target. Logistic Regression, Decision Tree Classifier, and Random Forest Classifier are compared with a majority-class dummy. Selection maximises mean validation balanced accuracy at decision threshold 0.50.
 
-- Five automated Python tests passed, checking input counts, duplicate absence, year totals, metric consistency, static assets and reproducible regeneration.
-- Browser interaction smoke checks at 1440px desktop and 390px mobile widths passed with no JavaScript page errors and no page-level horizontal overflow.
-- Airport search, year filter, group filtering, table pagination and clickable map marker interactions were exercised.
-- Documentation states the feature coverage and source differences explicitly.
+The positive class is at least 10% growth. Precision measures the share of predicted growth cases that truly meet the threshold; recall measures the share of true growth cases detected; F1 balances both. True negatives and true positives are correct predictions, while false positives and false negatives are the corresponding error types.
 
-## 7. Conclusions, limitations and extensions
+## 13. Classification results
 
-**Conclusions:** (i) recorded passenger movements increased during the 2016–2025 period, despite the COVID-era interruption; (ii) airports exhibit distinct domestic/international traffic profiles that K-Means can segment; (iii) a naive persistence predictor can outperform a substantially more complex fitted regressor on near-term annual passenger totals; and (iv) airport-growth counts and airport traffic statistics are related but not interchangeable.
+| Model | Accuracy | Balanced accuracy | Precision | Recall | F1 | ROC-AUC | Average precision |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Logistic Regression | 0.7959 | 0.7807 | 0.8288 | 0.6667 | 0.7389 | 0.8862 | 0.8445 |
+| Decision Tree | 0.8040 | 0.7920 | 0.8194 | 0.7024 | 0.7564 | 0.8780 | 0.8190 |
+| Random Forest | 0.8224 | 0.8169 | 0.8071 | 0.7755 | 0.7910 | 0.9079 | 0.8834 |
+| Majority dummy | 0.4333 | 0.5000 | 0.4333 | 1.0000 | 0.6046 | — | — |
 
-**Limitations:** National facility counts are not an annual construction series. The geographic map covers only airports with matched coordinates. International passenger volumes cannot identify bilateral point-of-call permissions or airline route approvals. Neither the source data nor the models measure terminal capacity, runway utilisation, available seats, pilot supply, or population within 100 km of service. Reported airport-year data begins in 2022 for the distributed airport-level subset, limiting the supervised training sample.
+Validation selected Logistic Regression before the test was opened. Its test confusion counts are TN 688, FP 81, FN 196, and TP 392. Random Forest scores higher on the final test but is reported as a comparison rather than retroactively selected.
 
-**Potential future extensions:** Include reliable month-level histories and airline seat-capacity data, rerun comparisons with more training years, use suitable temporal cross-validation, and add accurate time-indexed active route coverage maps. These additions are outside the current laboratory scope.
+## 14. K-Means clustering
+
+Six 2025 airport features are median-imputed where required and standardised: log domestic traffic, log international traffic, domestic growth, monthly seasonality coefficient of variation, international share, and active months. K values from 2 through 6 are evaluated.
+
+| k | Inertia | Silhouette | Minimum cluster size |
+|---:|---:|---:|---:|
+| 2 | 521.42 | 0.4284 | 31 |
+| 3 | 367.19 | 0.4640 | 26 |
+| 4 | 274.58 | 0.4916 | 7 |
+| 5 | 215.88 | 0.5021 | 4 |
+| 6 | 173.47 | 0.4852 | 4 |
+
+Although k = 5 has the highest silhouette, its smallest cluster contains only four airports and fails the declared viability rule. Therefore k = 4 is selected.
+
+| Cluster | Airports | Median domestic | Median international | Median annual growth | Median seasonality CV |
+|---|---:|---:|---:|---:|---:|
+| Small airports | 21 | 15,702 | 0 | -48.60% | 0.6550 |
+| Regional airports | 7 | 40,966 | 0 | 375.08% | 0.5998 |
+| Large airports | 70 | 295,450 | 0 | 7.44% | 0.1450 |
+| Major gateways | 31 | 4,196,156 | 555,408 | 5.94% | 0.0804 |
+
+Names are post-fit summaries based on medians, not normative labels. The high-growth seven-airport group likely captures rapid ramp-up and should not be interpreted as proof of capacity utilisation.
+
+## 15. Principal component analysis
+
+PCA is fitted to the same standardised six-feature matrix. PC1 explains 44.85% and PC2 explains 19.02%, for cumulative explained variance of 63.87%. PC1 loads positively on domestic scale, international scale, and international share, and negatively on seasonality. PC2 loads most positively on international share and seasonality and negatively on active months. PCA visualises a compressed feature space; it does not create the K-Means labels.
+
+## 16. Hyperparameter tuning
+
+The search is bounded and reproducible. Ridge considers three regularisation values. Decision trees consider four depth/leaf combinations. Random Forest considers four configurations for depth, leaf size, and feature sampling with 180 estimators. Histogram Gradient Boosting considers four learning-rate, leaf-node, leaf-size, and L2 configurations. Classification applies similarly small grids. Seed 37 is fixed where supported.
+
+## 17. Model evaluation and selection
+
+Selection and final reporting are separated. The test set is used once after validation choice. The project distinguishes a selected ML model from the strongest overall forecasting method: Random Forest is the trained-model choice, while the previous-month naive method is the overall winner on 2025 MAE.
+
+## 18. Visual analysis
+
+The generated figures include annual traffic, regression model comparison, actual-versus-predicted values, residual scatter and histogram, traffic-size errors, permutation importance, confusion matrix, ROC and precision-recall curves, classifier metrics, K-Means inertia and silhouette, cluster sizes, PCA projection, and explained variance. Website SVG marks provide focusable tooltips, and tables provide numerical alternatives.
+
+## 19. Website implementation
+
+The website retains Overview, Airport Explorer, Machine Learning, and Methodology. Machine Learning uses three sub-tabs instead of expanding the main navigation. Filters support year, cluster, airport search, and CSV export. Custom tooltips work on hover, keyboard focus, and touch and are dismissed with Escape. The interface uses local assets and operates offline.
+
+## 20. Reproducibility and software engineering
+
+Responsibilities are separated across source validation, feature construction, modelling, artifact export, charts, documents, and browser presentation. `analysis.json` is the numerical source of truth. Tests independently recalculate metrics, verify confusion totals, inspect PCA dimensions, and exercise the site. GitHub Actions runs the offline test suite.
+
+## 21. Ablation note
+
+A formal feature ablation study was not performed. Permutation importance was calculated on the held-out test predictions only for explanation, not for feature selection. Therefore the project does not claim causal feature contribution or an ablation result.
+
+## 22. Findings and discussion
+
+Monthly granularity solves much of the original sample-size problem and materially improves trained-model error. It does not guarantee that a complex model will beat a correctly chosen baseline. The selected Random Forest relies overwhelmingly on the immediately preceding month, which is consistent with stable airport traffic series. Classification is more successful relative to its dummy benchmark and provides a legitimate setting for confusion-matrix analysis.
+
+The four clusters reveal scale, international participation, seasonality, and growth differences, while PCA shows that two components retain roughly two-thirds of standardised variance. Neither method establishes causal explanations.
+
+## 23. Limitations
+
+- The one-step evaluation uses actual lagged observations and does not test recursive forecasts.
+- Pandemic disruption affects the historical folds.
+- Airport openings, closures, and coding changes may cause structural breaks.
+- Missing rows are not zeros; eligibility can favour airports with more continuous reporting.
+- Absolute error is dominated by large airports, while proportional metrics can overemphasise small denominators.
+- The classifier threshold is analytically chosen.
+- Passenger data alone cannot establish capacity utilisation, service accessibility, or regulation.
+
+## 24. Conclusion
+
+AirConnect India v2.0 provides a technically sound and presentation-ready academic case study without overstating its evidence. Monthly data, exact-calendar features, chronological validation, real classification, defensible clustering, and a canonical result artifact substantially improve the original implementation. The strongest one-step forecast remains a simple previous-month baseline. Reporting that result is central to the project's methodological value.
 
 ## References
 
-[1] M. Kubicek, *India Aviation Stats: a cleaned DGCA passenger-traffic dataset*, 2026. https://github.com/mkubicek/india-aviation-stats
-
-[2] Ministry of Civil Aviation, Government of India, *Airports*, operational airport count through 7 July 2026. https://www.civilaviation.gov.in/index.php/node/4628
-
-[3] Ministry of Civil Aviation, Government of India, *India had 74 operational airports in 2014*, June 2026. https://www.civilaviation.gov.in/node/7425
-
-[4] B. Himpfen, *Airports Dataset*, GitHub, MIT. https://github.com/brandonhimpfen/airports
-
-[5] Natural Earth, *Free vector and raster map data*, public domain. https://www.naturalearthdata.com/
-
-[6] *Visualized.in*, *India's airport accessibility*, background research reference. https://visualized.in/airports
+1. Kubicek, M. (2026). *India Aviation Stats: a cleaned DGCA passenger-traffic dataset*. GitHub. https://github.com/mkubicek/india-aviation-stats
+2. Directorate General of Civil Aviation, Government of India. Public aviation traffic workbooks, as transformed and documented by the source repository.
+3. Ministry of Civil Aviation, Government of India. Operational airport listings and aviation expansion releases. https://www.civilaviation.gov.in/
+4. Pedregosa, F. et al. (2011). Scikit-learn: Machine Learning in Python. *Journal of Machine Learning Research*, 12, 2825–2830.
+5. Rousseeuw, P. J. (1987). Silhouettes: a graphical aid to the interpretation and validation of cluster analysis. *Journal of Computational and Applied Mathematics*, 20, 53–65.

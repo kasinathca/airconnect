@@ -1,90 +1,97 @@
-# Software Engineering Plan — AirConnect India
+# AirConnect India v2.0 Engineering Plan
 
-**Document control:** v1.0 | 19 October 2026 | MDI4001 course project
+## Purpose and scope
 
-## 1. Purpose and scope
+The project must remain a small, offline university laboratory application while making its data processing, model selection, numerical claims, and submission artifacts reproducible. Python prepares all data and results; the browser only reads precomputed assets. No authentication, server database, cloud runtime, or front-end framework is required.
 
-A locally executable, offline static website presents Indian passenger airport traffic and ML findings for a small academic laboratory evaluation. Training uses Python; the web app only visualises precomputed data, improving reproducibility and reducing operational failure modes.
+## Functional requirements
 
-### Functional requirements
+1. Validate pinned domestic monthly, annual domestic/international, and quarterly international source tables.
+2. Build exact-calendar lag and rolling features without converting absent observations to zero.
+3. Compare regression candidates and naive baselines on identical chronological observations.
+4. Train a defensible binary growth classifier and publish its actual confusion counts.
+5. Evaluate K-Means for k = 2–6 and use PCA to visualise a multi-feature airport space.
+6. Export one canonical JSON artifact consumed by the website, charts, report, and presentation.
+7. Preserve four website sections with accessible filters, maps, tables, charts, sub-tabs, and CSV export.
+8. Produce editable DOCX and PPTX outputs plus current PDF exports.
 
-| ID | Requirement | Acceptance |
-|---|---|---|
-| FR-01 | Show source-qualified national aviation indicators | Counts, periods and definitions displayed |
-| FR-02 | Visualise national passenger traffic 2016–2025 | Historical chart with hover titles |
-| FR-03 | Explore airport-level annual records 2022–2025 | Year switch, search and table ranking |
-| FR-04 | Show a geographic view | Local map, hover descriptions, accessible marker interaction |
-| FR-05 | Explain K-Means output | Cluster count, group sizes, centroids/medians, Silhouette Score |
-| FR-06 | Evaluate supervised model | Test split, MAE/RMSE/R², baseline comparison, actual/predicted plot |
-| FR-07 | Export selected airport records | Download filtered CSV |
-| FR-08 | Explain provenance and limitations | Accessible methodology page and bundled research notes |
+## Nonfunctional requirements
 
-### Nonfunctional requirements
+- Deterministic seed 37 for stochastic estimators.
+- Complete offline demonstration after generated assets are packaged.
+- UTF-8 and LF-stable generated text.
+- WCAG 2.2 AA-oriented keyboard interaction, visible focus, accessible chart labels, data tables, reduced motion, and viewport-aware tooltips.
+- No unsupported performance, capacity-utilisation, or route-policy claims.
+- CI runtime appropriate for a small assignment.
 
-| ID | Requirement | Design decision |
-|---|---|---|
-| NFR-01 | Offline-first | No network requests, CDN, analytics or login |
-| NFR-02 | Short setup | Double-click index.html / batch launcher |
-| NFR-03 | Reproducibility | Fixed seed 37; bundled numeric records; generated JSON |
-| NFR-04 | Accessibility | Semantic HTML, labels, focus states, chart descriptions, keyboard marker activation, reduced motion |
-| NFR-05 | Responsive design | Desktop and narrow mobile viewport layout |
-| NFR-06 | Academic appearance | Neutral palette, Segoe UI and Cambria, restrained typography, compact interaction |
-| NFR-07 | Data honesty | Definitions stated; no inferred causality or made-up airport openings |
-
-## 2. Architecture
+## Architecture
 
 ```text
-DGCA-derived annual CSV   Government series   Airport coordinates
-           \                 |                 /
-                    input validation
-                           |
-                  airport-year features
-                           |
-             +-------------+--------------+
-             |                            |
-       K-Means 2025               RF year-ahead regression
-        k=3 / scaling              2024 train / 2025 test
-             |                            |
-             +-------------+--------------+
-                           |
-            data/processed/analysis.json
-                           |
-                   site/assets/data.js
-                           |
-                 Offline HTML / CSS / JS
+Pinned DGCA-derived CSVs
+          |
+          v
+schema, key, range and reconciliation checks
+          |
+          v
+exact-calendar airport-month feature panel
+          |
+          +--> chronological regression and classification
+          |
+          +--> annual multifeature K-Means and PCA
+          |
+          v
+data/processed/analysis.json
+     |          |           |
+     v          v           v
+offline site   figures   report and deck
 ```
 
-The static viewer has no privileged operations and stores no user data. Every screen can be viewed without Python, because the models have already been trained. To reproduce, run `python src/build.py`.
+## Data workflow
 
-## 3. Modules and responsibilities
+The unmodified upstream files are stored under `data/external/india-aviation-stats/` with licence, source commit, and SHA-256 fingerprints. Validation checks exact schemas, unique keys, period ranges, nonnegative passenger values, `passengers = departures + arrivals`, and complete-year monthly-to-annual domestic reconciliation.
 
-- `src/seed_data.py`: source-preserving base36 encoding and CSV unpacking; provides source-defined annual national series.
-- `src/build.py`: input validation, pivoting, feature construction, unsupervised clustering, chronological regression evaluation, static JSON generation.
-- `site/index.html`: semantic structure and page content.
-- `site/assets/style.css`: responsive Microsoft Fluent-inspired visual language.
-- `site/assets/app.js`: user-facing filters, charts, map interactions, data export and explanations.
-- `site/assets/data.js`: generated data artifact; do not modify manually.
+Feature construction uses exact month offsets. For example, lag 12 for airport A in March 2025 is joined only from airport A in March 2024. If that source row is absent, the lag remains missing. Rolling means use pre-target lag columns. Targets are never imputed. Numeric preprocessing and categorical encoding are fitted separately inside every training fold.
 
-## 4. Data governance
+## ML workflow
 
-- Reuse the exact airport passenger-movement definitions supplied by the clean DGCA-derived source.
-- Retain the full annual four-year source subset and separately calculated earlier national aggregates, without inventing missing airport rows.
-- Interpret missing international records as *not reported in the input table*, represented as zero for the charting feature, not as proof of legal restrictions.
-- Use an explicit chronological train/test split and avoid target-year features in the forecast.
-- Review and cite third-party licence terms in the README.
+Regression and classification use expanding validation folds with 2022, 2023, and 2024 as validation years. The 2025 period remains untouched until the selected configuration is fixed. Candidate grids are deliberately bounded. Regression selection minimises mean validation MAE; classification selection maximises mean validation balanced accuracy.
 
-## 5. Evaluation gates
+The one-step-ahead setting assumes the previous month's actual observation is available. Longer recursive forecasting is not evaluated and must not be inferred from the results.
 
-1. Every input category count matches the archived annual source totals exactly.
-2. One and only one record per year–airport–category.
-3. Cluster membership totals equal the number of 2025 airports used for clustering.
-4. Regression train and test years are disjoint; no target-year feature leakage.
-5. Predicted values and metric calculations are finite and numerically consistent.
-6. Site opens without a backend; tab navigation, search, year switching, CSV export and tooltip/title elements are functional.
-7. Desktop and mobile renderings have no horizontal document overflow.
+K-Means uses six features: log domestic volume, log international volume, domestic annual growth, monthly seasonality coefficient of variation, international share, and active months. Candidate k values require a minimum cluster size of five. Within 0.02 of the best viable silhouette, the smaller k is preferred for interpretability.
 
-## 6. Known limitations and deferred work
+## Acceptance criteria
 
-Excluded: hexagonal network-distance map, yearly lists of airport opening dates, geographic population accessibility, slot utilisation, bilateral aviation treaty simulation, forecasting beyond the held-out historical year, interactive cloud database and live API calls.
+- Source files and hashes are present and validated.
+- No target or post-target field appears among predictive features.
+- All regression methods use 1,357 common 2025 rows.
+- Regression metrics independently recalculate from exported predictions.
+- Classification confusion counts total 1,357 and reproduce reported metrics.
+- Cluster counts total 129; PCA has two components and six loadings.
+- Website functions offline with no CDN request.
+- Desktop, tablet, and mobile views have no horizontal overflow outside intentional chart/table scroll regions.
+- DOCX, PPTX, and PDFs render without overlap or clipping.
+- Automated tests pass, or a failure and its cause are recorded.
 
-These exclusions are deliberate scope controls, not incomplete code paths.
+## Risks and mitigations
+
+| Risk | Mitigation |
+|---|---|
+| Pandemic distribution shift | Preserve chronological folds and discuss 2020–2022 instability |
+| Strong autocorrelation | Compare directly with previous-month and seasonal naive forecasts |
+| Large-airport error dominance | Report WAPE, median AE, and traffic-size segments |
+| Missing airport-months | Exact joins, missing indicators, train-only imputation |
+| Upstream revisions | Pin commit and checksums; preserve unmodified files |
+| Classification imbalance | Balanced accuracy, per-positive precision/recall/F1, ROC and PR analysis |
+| Degenerate clusters | Minimum-size rule plus silhouette and inertia review |
+| Stale submission artifacts | Generate figures and documents from canonical analysis JSON |
+
+## Implementation map
+
+- `src/pipeline.py`: validation and feature construction.
+- `src/modeling.py`: tuning, evaluation, clustering, and PCA.
+- `src/build.py`: canonical result export.
+- `src/build_charts.py`: numerical figures.
+- `src/build_documents.py`: academic outputs.
+- `site/`: dependency-free presentation layer.
+- `tests/`: data, leakage, metric, structure, and browser checks.

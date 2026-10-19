@@ -1,0 +1,73 @@
+import fs from "node:fs/promises";
+import path from "node:path";
+import { fileURLToPath, pathToFileURL } from "node:url";
+import { Presentation, PresentationFile } from "file:///C:/Users/kasin/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/@oai/artifact-tool/dist/artifact_tool.mjs";
+
+const workspaceDir=path.resolve(path.dirname(fileURLToPath(import.meta.url)),"..");
+const SKILL_DIR="C:\\Users\\kasin\\.codex\\plugins\\cache\\openai-primary-runtime\\presentations\\26.1015.12040\\skills\\presentations";
+const RUNTIME_PYTHON="C:\\Users\\kasin\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe";
+const buildDir=path.join(workspaceDir,".presentation-build");
+const FINAL_PPTX=path.join(workspaceDir,"docs","AirConnect_India_Presentation.pptx");
+const data=JSON.parse(await fs.readFile(path.join(workspaceDir,"data","processed","analysis.json"),"utf8"));
+await fs.mkdir(buildDir,{recursive:true});
+
+const ppt=Presentation.create({slideSize:{width:1280,height:720}});
+const FONT="Times New Roman",NAVY="#173B58",BLUE="#17679A",TEAL="#557F84",INK="#263847",MUTED="#617381",LINE="#D6DEE5",PALE="#EDF3F7";
+
+function box(slide,text,left,top,width,height,size=20,bold=false,color=INK,align="left",fill="none",line="none"){
+  const shape=slide.shapes.add({geometry:"rect",position:{left,top,width,height},fill,line:{style:"solid",fill:line,width:line==="none"?0:1}});
+  shape.text=text;shape.text.style={typeface:FONT,fontSize:size,bold,color,alignment:align,verticalAlignment:"middle",autoFit:"shrinkText",wrap:true};return shape;
+}
+function addBase(title,number){
+  const slide=ppt.slides.add();slide.background.fill="#FFFFFF";
+  box(slide,title,62,38,1125,52,30,true,NAVY);
+  box(slide,"AirConnect India  |  MDI4001",62,676,520,20,11,false,MUTED);
+  box(slide,String(number).padStart(2,"0"),1160,676,58,20,11,false,MUTED,"right");
+  slide.shapes.add({geometry:"line",position:{left:62,top:103,width:1156,height:0},fill:"none",line:{style:"solid",fill:LINE,width:1}});
+  return slide;
+}
+function addPoints(slide,items,left=82,top=140,width=1100,gap=20,size=20){
+  let y=top;for(const item of items){box(slide,item,left,y,width,52,size,false,INK);slide.shapes.add({geometry:"ellipse",position:{left:left-22,top:y+21,width:8,height:8},fill:BLUE,line:{style:"solid",fill:BLUE,width:0}});y+=52+gap;}
+}
+function note(slide,text){slide.speakerNotes.text=text;}
+async function addImage(slide,file,left,top,width,height,alt){const bytes=await fs.readFile(path.join(workspaceDir,file));slide.images.add({blob:bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength),contentType:"image/png",alt,fit:"contain",position:{left,top,width,height}});}
+
+let s=ppt.slides.add();s.background.fill="#FFFFFF";box(s,"AIRCONNECT INDIA",70,86,560,34,15,true,BLUE);box(s,"Machine Learning-Based Analysis of Indian Airport Passenger Traffic and Connectivity",70,146,1090,176,43,true,NAVY);box(s,"MDI4001  Machine Learning for Data Science",72,350,850,40,23,false,INK);box(s,"Version 2.0  |  19 October 2026",72,414,700,30,18,false,MUTED);box(s,"Team members: [Names and register numbers]",72,570,900,30,17,false,MUTED);note(s,"Source: Kubicek (2026), India Aviation Stats, cleaned DGCA-derived data. Pinned upstream commit bce8fc78f2be1de88154c1d8e62d13ffc0d8e171.");
+
+s=addBase("Problem statement",2);addPoints(s,["Annual airport samples were too small for reliable supervised learning.","A previous-year baseline outperformed the original Random Forest.","Random train/test splits would leak future traffic patterns.","The project needs classification, PCA, and a real confusion matrix."],82,142,1080,27,23);note(s,"Version 1.0 annual Random Forest test MAE was approximately 451,552; the previous-year annual baseline MAE was approximately 182,476.");
+
+s=addBase("Objectives",3);addPoints(s,["Build an airport-month panel from validated DGCA-derived records.","Predict next-month domestic passenger movements using only prior information.","Classify at least 10% year-on-year growth with chronological evaluation.","Evaluate K-Means groups and visualise the feature space with PCA.","Publish consistent results in an offline website, report, and presentation."],82,132,1090,18,20);
+
+s=addBase("Dataset and coverage",4);box(s,"13,599",84,145,250,80,38,true,BLUE,"center",PALE,LINE);box(s,"domestic airport-month rows",84,228,250,34,16,false,INK,"center");box(s,"144",390,145,250,80,38,true,TEAL,"center",PALE,LINE);box(s,"airports in monthly source",390,228,250,34,16,false,INK,"center");box(s,"2015–2026",696,145,250,80,34,true,NAVY,"center",PALE,LINE);box(s,"partial endpoints",696,228,250,34,16,false,INK,"center");box(s,"Pinned source",1002,145,190,80,24,true,INK,"center",PALE,LINE);box(s,"commit + SHA-256",1002,228,190,34,16,false,INK,"center");addPoints(s,["Model window ends in December 2025. Partial 2026 is excluded.","Targets remain observed. Missing calendar months never become zero.","Complete domestic years reconcile between monthly and annual tables."],102,330,1040,18,19);note(s,"Source files: airport_monthly.csv, airport_yearly.csv, airport_international_quarterly.csv from India Aviation Stats.");
+
+s=addBase("System architecture",5);const flow=["Pinned CSVs","Validation","Exact lags","Model selection","Canonical JSON","Site and documents"];flow.forEach((label,i)=>{box(s,label,66+i*198,245,158,84,17,true,i===4?"#FFFFFF":NAVY,"center",i===4?BLUE:PALE,i===4?BLUE:LINE);if(i<flow.length-1)s.shapes.add({geometry:"rightArrow",position:{left:229+i*198,top:270,width:27,height:34},fill:TEAL,line:{style:"solid",fill:TEAL,width:0}});});box(s,"Python prepares all results before the browser opens. The website has no runtime server, login, database, CDN, or cloud dependency.",118,405,1040,94,22,false,INK,"center");
+
+s=addBase("Data processing and feature engineering",6);const steps=["Exact lags: 1, 2, 3, and 12 months","Shifted rolling means: 3, 6, and 12 months","Lagged growth, seasonal sine/cosine, airport identity","Train-only imputation and encoding inside each fold"];steps.forEach((t,i)=>{box(s,String(i+1).padStart(2,"0"),88,142+i*104,72,72,22,true,"#FFFFFF","center",BLUE,BLUE);box(s,t,184,142+i*104,965,72,21,i===0,NAVY,"left",i%2?"#F7F9FB":PALE,LINE);});
+
+s=addBase("Regression methodology",7);addPoints(s,["Task: predict airport A in month T from information available before T.","Candidates: Ridge, CART, Random Forest, Histogram Gradient Boosting.","Baselines: previous month, same month previous year, airport historical mean.","Expanding validation years: 2022, 2023, 2024. Final test: 2025.","Selection metric: validation MAE. Reporting: MAE, RMSE, R², WAPE, median AE."],82,128,1100,15,19);
+
+s=addBase("Regression results",8);const rtests=data.regression.test;s.charts.add("bar",{position:{left:70,top:140,width:760,height:460},categories:rtests.map(r=>r.model.replace("Histogram Gradient Boosting","HistGradientBoosting")),series:[{name:"2025 MAE",values:rtests.map(r=>r.mae),fill:BLUE}],hasLegend:false,dataLabels:{showValue:true,position:"outEnd"},xAxis:{title:"Mean absolute error (passenger movements)",majorGridlines:{style:"solid",fill:LINE,width:1}},yAxis:{reverseOrder:true}});box(s,"Selected ML",875,160,300,33,16,true,MUTED);box(s,"Random Forest",875,198,300,48,27,true,NAVY);box(s,"17,479 MAE",875,252,300,42,25,true,BLUE);box(s,"Best overall",875,352,300,33,16,true,MUTED);box(s,"Previous month",875,390,300,48,27,true,NAVY);box(s,"16,481 MAE",875,444,300,42,25,true,TEAL);box(s,"The baseline remains stronger on the untouched test.",875,528,300,70,18,true,INK,"left",PALE,LINE);note(s,"All methods use the same 1,357 eligible 2025 airport-month observations. Values come from data/processed/analysis.json.");box(s,"Regression results",62,30,1125,66,30,true,NAVY,"left","#FFFFFF","#FFFFFF");
+
+s=addBase("Classification methodology",9);box(s,"Class 1",80,150,230,90,32,true,"#FFFFFF","center",BLUE,BLUE);box(s,"Target traffic ≥ 1.10 × same month one year earlier",340,150,840,90,24,true,NAVY,"center",PALE,LINE);addPoints(s,["Candidates: Logistic Regression, CART, Random Forest.","Majority-class DummyClassifier provides the baseline.","Validation balanced accuracy selects the classifier.","Decision threshold 0.50. 2025 contains 588 positive cases from 1,357 rows."],100,300,1030,18,20);
+
+s=addBase("Classification results",10);box(s,"Actual 0",90,190,120,35,17,true,MUTED,"right");box(s,"Actual 1",90,355,120,35,17,true,MUTED,"right");box(s,"Predicted 0",275,130,180,35,17,true,MUTED,"center");box(s,"Predicted 1",505,130,180,35,17,true,MUTED,"center");const cm=[[688,81],[196,392]],labels=[["True negative","False positive"],["False negative","True positive"]];for(let i=0;i<2;i++)for(let j=0;j<2;j++){box(s,String(cm[i][j]),265+j*230,175+i*165,200,120,34,true,NAVY,"center",(i===j)?"#DCEAF3":"#F5EFE5",LINE);box(s,labels[i][j],265+j*230,270+i*165,200,22,14,false,MUTED,"center");}box(s,"Logistic Regression",790,165,360,42,25,true,NAVY);box(s,"Balanced accuracy  0.781",790,235,360,32,20,false,INK);box(s,"F1 score  0.739",790,287,360,32,20,false,INK);box(s,"ROC-AUC  0.886",790,339,360,32,20,false,INK);box(s,"Random Forest scores higher on the final test, but validation selected Logistic Regression before the test was opened.",790,420,360,120,18,false,INK,"left",PALE,LINE);note(s,"Class 1 means at least 10% year-on-year growth. The threshold is an analysis decision, not an official category.");
+
+s=addBase("K-Means clustering",11);const kev=data.clustering.evaluations;s.charts.add("line",{position:{left:70,top:145,width:650,height:420},categories:kev.map(r=>String(r.k)),series:[{name:"Silhouette Score",values:kev.map(r=>r.silhouette),fill:BLUE}],hasLegend:false,dataLabels:{showValue:true,position:"top"},xAxis:{title:"Number of clusters k"},yAxis:{title:"Silhouette Score",minimumScale:0.40,maximumScale:0.52,majorGridlines:{style:"solid",fill:LINE,width:1}}});box(s,"Selected k = 4",790,160,350,58,30,true,NAVY);box(s,"Silhouette 0.492",790,230,350,45,24,true,BLUE);const cls=data.clustering.clusters;cls.forEach((c,i)=>{box(s,c.name,790,305+i*62,230,42,17,true,INK);box(s,String(c.count),1040,305+i*62,90,42,20,true,["#A8B8C6","#729AB8",BLUE,NAVY][i],"center",PALE,LINE);});box(s,"k = 5 has a slightly higher score but fails the minimum cluster-size rule.",790,566,350,68,17,false,INK,"left",PALE,LINE);note(s,"K-Means uses six standardised 2025 airport features. Candidate solutions require at least five airports per cluster.");box(s,"K-Means clustering",62,30,1125,66,30,true,NAVY,"left","#FFFFFF","#FFFFFF");
+
+s=addBase("PCA visualisation",12);await addImage(s,"docs/charts/pca_clusters.png",65,128,780,500,"PCA scatter plot of airports coloured by four K-Means clusters");box(s,"PC1",895,165,245,34,18,true,MUTED);box(s,"44.85%",895,205,245,55,32,true,BLUE);box(s,"PC2",895,300,245,34,18,true,MUTED);box(s,"19.02%",895,340,245,55,32,true,TEAL);box(s,"Cumulative variance",895,435,245,34,18,true,MUTED);box(s,"63.87%",895,475,245,55,32,true,NAVY);note(s,"PCA uses the same standardised six-feature matrix as K-Means. It visualises structure and does not create cluster labels.");
+
+s=addBase("Offline website",13);box(s,"Overview",85,150,250,90,25,true,NAVY,"center",PALE,LINE);box(s,"Airport Explorer",365,150,250,90,25,true,NAVY,"center",PALE,LINE);box(s,"Machine Learning",645,150,250,90,25,true,NAVY,"center",PALE,LINE);box(s,"Methodology",925,150,250,90,25,true,NAVY,"center",PALE,LINE);addPoints(s,["Regression, Classification, and Clustering/PCA sub-tabs","Interactive SVG charts with keyboard-accessible data points","Year, traffic group, airport search, map selection, and CSV export","Viewport-aware tooltips for mouse, keyboard, and touch","Static HTML, CSS, and JavaScript with local generated data"],105,305,1040,15,19);
+
+s=addBase("Findings and limitations",14);box(s,"Findings",78,140,515,48,24,true,NAVY);addPoints(s,["Monthly data materially reduces trained-model error.","The previous-month baseline remains the strongest forecast.","Classification provides useful discrimination beyond the dummy.","Four clusters balance separation and minimum group size."],102,205,475,14,18);box(s,"Limitations",686,140,515,48,24,true,NAVY);addPoints(s,["One-step evaluation uses actual lagged observations.","Pandemic disruption creates distribution shift.","Continuity requirements affect eligible airport-months.","Passenger counts do not measure capacity utilisation."],710,205,475,14,18);
+
+s=addBase("Conclusion and references",15);box(s,"AirConnect India v2.0 demonstrates that careful temporal validation and strong baselines matter more than model complexity.",86,145,1090,105,30,true,NAVY,"center",PALE,LINE);addPoints(s,["Primary source: Kubicek (2026), India Aviation Stats, cleaned DGCA data.","Methods: scikit-learn 1.7; deterministic seed 37.","Full reproducibility: source hashes, canonical JSON, tests, website, report, and deck."],110,315,1025,22,20);box(s,"Repository  github.com/kasinathca/airconnect",110,570,1025,36,18,true,BLUE,"center");note(s,"References: Kubicek (2026), India Aviation Stats; DGCA public workbooks; Pedregosa et al. (2011), scikit-learn; Rousseeuw (1987), Silhouettes.");
+
+const requirements={explicitTotalSlideCount:15,requiredNativeTableOwnerSlides:[],requiredNativeChartOwnerSlides:[8,11],requiredEmbeddedWorkbookChartOwnerSlides:[],materializeLiteralChartWorkbooks:true};
+const fontPolicy={basis:"user_request",families:[FONT]};
+const {finalizePresentation,applyPresentationChartFont}=await import(pathToFileURL(path.join(SKILL_DIR,"container_tools","artifact_tool_utils.mjs")).href);
+for(const slide of ppt.slides.items){for(const chart of slide.charts.items){applyPresentationChartFont(chart,{fontFamily:FONT});}}
+const stagingDir=path.join(workspaceDir,".codex-finalizer");await fs.mkdir(stagingDir,{recursive:true});const candidatePath=path.join(stagingDir,"candidate.pptx");await (await PresentationFile.exportPptx(ppt)).save(candidatePath);
+await fs.rm(FINAL_PPTX,{force:true});
+const receiptPath=path.join(stagingDir,"AirConnect_India_Presentation.validation.json");await fs.rm(receiptPath,{force:true});
+await finalizePresentation({...requirements,workspaceDir,candidatePath,finalPath:FINAL_PPTX,pythonExecutable:RUNTIME_PYTHON,integrityValidatorPath:path.join(SKILL_DIR,"container_tools","inspect_presentation_package_integrity.py"),layoutValidatorPath:path.join(SKILL_DIR,"container_tools","inspect_presentation_layout_geometry.py"),layoutArgs:["--expected-slide-size-emu","12192000,6858000","--validate-bullet-geometry","--validate-heading-fit"],requiredNativeTableOwnerSlides:[],fontPolicy,verifyArtifactToolImport:true,receiptPath});
+console.log(`PPTX: ${FINAL_PPTX}`);
