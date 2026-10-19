@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <meta name="theme-color" content="#f9fafb" />
+ <meta name="description" content="AirConnect India — an offline academic aviation traffic and machine learning case study." />
+ <title>AirConnect India | Aviation Data Research</title>
+ <link rel="stylesheet" href="assets/style.css" />
+ <script src="assets/data.js" defer></script>
+ <script src="assets/india-map.js" defer></script>
+ <script src="assets/app.js" defer></script>
+</head>
+<body>
+ <a class="skip-link" href="#main">Skip to main content</a>
+ <header class="topbar">
+  <a class="brand" href="#overview" title="Open AirConnect India overview" aria-label="AirConnect India, home">
+   <span class="brand-symbol" aria-hidden="true">A<span class="brand-cut"></span></span>
+   <span class="brand-type">AirConnect<span class="brand-muted"> India</span></span>
+  </a>
+  <span class="top-meta">AVIATION RESEARCH / MLDS</span>
+  <span class="version" title="Offline academic prototype. Generated from DGCA-derived annual records."><span class="status-dot"></span> Offline research edition <b>1.0</b></span>
+ </header>
+ <div class="app-shell">
+  <aside class="sidebar" aria-label="Primary navigation">
+   <div class="nav-heading">RESEARCH WORKSPACE</div>
+   <nav id="nav" aria-label="Research sections">
+    <button type="button" class="nav-item active" data-page="overview" title="See aviation growth indicators and national trends" aria-current="page"><span class="nav-icon" aria-hidden="true">▤</span> Overview</button>
+    <button type="button" class="nav-item" data-page="explorer" title="Explore airport-specific domestic and international passenger records"><span class="nav-icon" aria-hidden="true">◉</span> Airport explorer</button>
+    <button type="button" class="nav-item" data-page="models" title="Inspect clustering and forecast evaluation results"><span class="nav-icon" aria-hidden="true">⌁</span> Machine learning</button>
+    <button type="button" class="nav-item" data-page="method" title="Read model methodology, sources and limitations"><span class="nav-icon" aria-hidden="true">▣</span> Methodology</button>
+   </nav>
+   <div class="side-bottom">
+    <div class="smallcaps">COURSE ALIGNMENT</div>
+    <p>MDI4001<br>Machine Learning for Data Science</p>
+    <div class="side-line"></div>
+    <p>Data preparation · K-Means · Random Forest · Model evaluation</p>
+    <a href="../docs/PROJECT_REPORT.md" class="sidebar-link" title="Open local report draft; this link works from the project folder">Project report ↗</a>
+   </div>
+  </aside>
+  <main id="main" tabindex="-1">
+   <section id="page-overview" class="page active" aria-labelledby="overview-title">
+    <div class="eyebrow">01 / EXECUTIVE OVERVIEW</div>
+    <div class="hero">
+     <div><h1 id="overview-title">An expanding network.<br><span>Uneven traffic volumes.</span></h1>
+      <p class="lead">A reproducible study of passenger movements across Indian airports, with transparent machine learning and evidence-based interpretation.</p></div>
+     <div class="hero-context"><span class="smallcaps">STUDY PERIOD</span><strong>2016—2025</strong><span>Annual national series</span><span class="smallcaps" style="margin-top:16px">LAST COMPLETE YEAR</span><strong>2025</strong><span>Airport-level model analysis</span></div>
+    </div>
+    <div class="section-label"><h2>Key indicators</h2><span>Hover a figure for its definition</span></div>
+    <div class="metric-grid" id="metrics"></div>
+    <div class="split-grid">
+     <article class="panel">
+      <div class="panel-head"><div><h2>Passenger movements over time</h2><p>Domestic and international movements, 2016–2025</p></div><span class="pill" title="These are passengers arriving and departing at airports, not unique individuals">Annual · millions</span></div>
+      <div class="chart-wrap" id="trendChart" role="img" aria-label="Annual traffic line graph for domestic and international passenger movements"></div>
+      <div class="chart-legend"><span><i class="legend-line domestic"></i> Domestic</span><span><i class="legend-line international"></i> International</span></div>
+     </article>
+     <article class="panel insight-panel">
+      <div class="panel-head"><div><h2>Research observations</h2><p>Facts and interpretation are kept separate</p></div></div>
+      <div class="insight-block"><span class="insight-no">01</span><div><h3>Infrastructure is not the same as active service</h3><p>Government operational-airport totals and airports reporting passenger movements use different definitions.</p></div></div>
+      <div class="insight-block"><span class="insight-no">02</span><div><h3>International traffic is concentrated</h3><p>Airports classified as international do not necessarily receive substantial international passenger volumes.</p></div></div>
+      <div class="insight-block"><span class="insight-no">03</span><div><h3>A useful simple benchmark</h3><p>The Random Forest is evaluated against a prior-year forecast, not just in isolation.</p></div></div>
+     </article>
+    </div>
+    <div class="disclaimer"><span class="disclaimer-mark">i</span><div><strong>Reading the figures correctly.</strong> National annual totals are DGCA-derived airport passenger movements. The 2014 and 2026 operational-airport counts come from the Ministry of Civil Aviation and include a different set of facilities. Do not interpret them as a consistent annual count of new airport buildings.</div></div>
+   </section>
+
+   <section id="page-explorer" class="page" aria-labelledby="explorer-title" hidden>
+    <div class="eyebrow">02 / GEOGRAPHIC & AIRPORT EXPLORER</div>
+    <div class="page-intro"><h1 id="explorer-title">Airport explorer</h1><p>Examine recorded domestic and international traffic. The map shows airports with matched geographic coordinates; the table includes every airport in the study dataset.</p></div>
+    <div class="toolbar"><label>Year <select id="exploreYear" title="Change the year shown on the map and in the table"><option>2025</option><option>2024</option><option>2023</option><option>2022</option></select></label>
+      <label>Traffic group <select id="clusterFilter" title="Filter 2025 K-Means groups; groups apply only to 2025"><option value="all">All groups</option><option value="0">Lower traffic</option><option value="1">Intermediate traffic</option><option value="2">Major gateways</option></select></label>
+      <label class="search-field">Airport code <input id="airportSearch" type="search" autocomplete="off" placeholder="Search e.g. COK, DEL" title="Type an IATA code to filter airport results" aria-label="Search by airport IATA code" /></label>
+      <button class="subtle-btn" id="resetExplorer" title="Restore 2025, all groups and clear the search">Clear filters</button>
+    </div>
+    <div class="split-grid map-split">
+     <article class="panel map-panel"><div class="panel-head"><div><h2>India airport map</h2><p>Geographic positions of airports with matched coordinates</p></div><span class="pill" id="mapCount" title="Not all airport codes have coordinates in the supplementary dataset">—</span></div>
+      <div class="map-stage" id="airportMap" role="img" aria-label="Map outline of India and airport location markers"></div>
+      <div class="map-key"><span><i class="dot low"></i> Lower</span><span><i class="dot middle"></i> Intermediate</span><span><i class="dot high"></i> Gateway</span><small>2025 group colours; 2022–2024 use neutral markers.</small></div>
+     </article>
+     <article class="panel list-panel"><div class="panel-head"><div><h2>Airport records</h2><p id="tableSubtitle">Ranked by recorded passenger movements</p></div><button id="downloadCSV" class="text-btn" title="Export the currently filtered records as a CSV file">Export CSV ↧</button></div>
+      <div class="table-scroll"><table><thead><tr><th scope="col">Airport</th><th scope="col" class="numeric">Domestic</th><th scope="col" class="numeric">International</th><th scope="col" class="numeric">Total</th></tr></thead><tbody id="airportRows"></tbody></table></div>
+      <div class="table-foot"><span id="recordCount">—</span><button id="showMore" class="subtle-btn" title="Show 20 additional airport records">Show more ↓</button></div>
+     </article>
+    </div>
+    <div class="disclaimer"><span class="disclaimer-mark">i</span><div>Missing international records are shown as zero <em>recorded in this dataset</em>; this does not establish that international flights are prohibited. This map uses a simplified geographic outline and is not a distance-accessibility model.</div></div>
+   </section>
+
+   <section id="page-models" class="page" aria-labelledby="models-title" hidden>
+    <div class="eyebrow">03 / MODEL RESULTS</div>
+    <div class="page-intro"><h1 id="models-title">Machine learning analysis</h1><p>Two scikit-learn techniques, fixed random seeds, explicit features and an unseen chronological test year.</p></div>
+    <div class="model-banner"><span class="model-tag">UNSUPERVISED LEARNING</span><h2>K-Means airport segmentation</h2><p>2025 traffic patterns grouped by log-transformed, standardised domestic and international annual passenger movements.</p></div>
+    <div class="metric-grid model-metrics" id="clusterMetrics"></div>
+    <div class="split-grid">
+     <article class="panel"><div class="panel-head"><div><h2>Airport groups</h2><p>Group sizes from the fitted 2025 clustering model</p></div></div><div id="clusterBars" class="cluster-bars"></div><div class="chart-note">Cluster names are interpretations assigned after fitting; they were not supplied as labels to the model.</div></article>
+     <article class="panel"><div class="panel-head"><div><h2>What distinguishes the groups?</h2><p>Median passenger volume by group</p></div></div><div id="clusterDetails"></div></article>
+    </div>
+    <div class="model-banner forest-banner"><span class="model-tag">SUPERVISED LEARNING</span><h2>Random Forest traffic regression</h2><p>Predict 2025 annual domestic passenger movements from the previous two years. Train on 2024 targets; test on unseen 2025 targets.</p></div>
+    <div class="split-grid">
+     <article class="panel"><div class="panel-head"><div><h2>Evaluation against the baseline</h2><p>Lower errors are better; higher R² is better</p></div></div><div id="modelMetrics"></div></article>
+     <article class="panel"><div class="panel-head"><div><h2>Actual versus predicted</h2><p>Selected highest-traffic airports from the 2025 holdout</p></div></div><div id="predictionChart" class="prediction-chart"></div></article>
+    </div>
+    <div class="disclaimer model-warning"><span class="disclaimer-mark">!</span><div><strong>Negative results count as results.</strong> The Random Forest is not assumed to outperform the baseline. A tree ensemble can struggle to extrapolate passenger volumes at the largest hubs, particularly with a small annual training sample. Check the observed metrics, not the algorithm's reputation.</div></div>
+   </section>
+
+   <section id="page-method" class="page" aria-labelledby="method-title" hidden>
+    <div class="eyebrow">04 / SOURCES & REPRODUCIBILITY</div>
+    <div class="page-intro"><h1 id="method-title">Research methodology</h1><p>Data provenance, processing decisions, validation strategy, limitations and sources.</p></div>
+    <div class="method-layout"><div class="method-main">
+     <article class="panel method-card"><h2>1. Data and provenance</h2><p>The airport-level input is a subset of <em>India Aviation Stats</em>, a cleaned dataset derived from DGCA workbooks. The application bundles actual annual domestic and international traffic for 2022–2025 and a separately calculated national annual series for 2016–2025.</p><p>The secondary location source is an MIT-licensed airport coordinate compilation. Coordinates are not included for every IATA code; unmatched records remain accessible in the table.</p></article>
+     <article class="panel method-card"><h2>2. Analytical workflow</h2><div class="pipeline"><span>Source CSV</span><b>→</b><span>Validation</span><b>→</b><span>Airport–year table</span><b>→</b><span>ML models</span><b>→</b><span>Website</span></div><p>Input is checked for unique airport/year/category keys, nonnegative passenger counts and exact agreement with source national totals. All model outputs are generated before the website is opened.</p></article>
+     <article class="panel method-card"><h2>3. Model design</h2><h3>K-Means</h3><p>Features: log(1 + domestic) and log(1 + international) passenger movements in 2025; standard scaling; k = 3; random seed 37; 20 initialisations. Evaluated with the Silhouette Score.</p><h3>Random Forest regression</h3><p>Features: log(1 + preceding annual domestic traffic) and log(1 + traffic two years earlier). Target: log(1 + domestic movements in the target year). Train target year: 2024. Test year: 2025. Evaluation in original passenger units using MAE, RMSE and R².</p><p>The baseline predicts that next year's movements equal the preceding year's movements.</p></article>
+     <article class="panel method-card"><h2>4. Interpretation limits</h2><ul class="method-list"><li>Airport passenger movements count arrivals and departures, not unique travellers.</li><li>Operational-airport counts, traffic-reporting airports and newly constructed airports are different concepts.</li><li>Low observed traffic does not independently establish infrastructure underutilisation or cause.</li><li>Missing international movements do not imply that foreign flights are legally forbidden.</li><li>This model predicts observed annual volume, not flight route approvals or future airport openings.</li><li>2020–2021 national totals reflect the pandemic shock; annual trends should not be interpreted as purely policy-driven.</li></ul></article>
+    </div><aside class="method-side"><div class="source-box"><h3>Reference sources</h3><a target="_blank" rel="noopener noreferrer" title="Open the original DGCA-derived clean data repository" href="https://github.com/mkubicek/india-aviation-stats">Kubicek (2026), India Aviation Stats ↗</a><a target="_blank" rel="noopener noreferrer" title="Open the operational-airport listing of the Ministry of Civil Aviation" href="https://www.civilaviation.gov.in/index.php/node/4628">Ministry of Civil Aviation, airports ↗</a><a target="_blank" rel="noopener noreferrer" title="Read the source data use terms" href="https://github.com/brandonhimpfen/airports">Airport coordinate data ↗</a><a target="_blank" rel="noopener noreferrer" title="Open the syllabus for MDI4001 from the local project if copied" href="../docs/SYLLABUS_ALIGNMENT.md">Syllabus alignment ↗</a></div><div class="source-box"><h3>Technical details</h3><dl class="definition-list"><dt>Architecture</dt><dd>Static HTML / CSS / JavaScript</dd><dt>Training</dt><dd>Python + scikit-learn, offline</dd><dt>Test split</dt><dd>Chronological by year</dd><dt>Runtime dependencies</dt><dd>None / fully offline</dd><dt>Build reproducibility</dt><dd><code>python src/build.py</code></dd></dl></div></aside></div>
+   </section>
+   <footer class="footer"><span>AirConnect India · Academic project prototype · 2026</span><span>Methods and limitations are disclosed · Data: DGCA-derived aviation statistics</span></footer>
+  </main>
+ </div>
+ <div id="liveRegion" class="sr-only" role="status" aria-live="polite"></div>
+</body></html>

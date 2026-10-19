@@ -1,0 +1,5653 @@
+{
+  "metadata": {
+    "name": "AirConnect India",
+    "version": "1.0.0",
+    "traffic_scope": "airport passenger movements (arrival + departure)",
+    "years_airport": [
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "national_years": [
+      2016,
+      2025
+    ],
+    "source": "Kubicek (2026), cleaned DGCA aviation data",
+    "airport_coord_source": "Brandon Himpfen airports dataset (MIT)",
+    "reporting_airports_2025": 129,
+    "coordinates_coverage_2025": 93,
+    "random_seed": 37
+  },
+  "historical": [
+    {
+      "year": 2016,
+      "domestic": 198946866,
+      "international": 53673140,
+      "domestic_reporting_airports": 78,
+      "international_reporting_airports": 24
+    },
+    {
+      "year": 2017,
+      "domestic": 233547462,
+      "international": 58941573,
+      "domestic_reporting_airports": 90,
+      "international_reporting_airports": 25
+    },
+    {
+      "year": 2018,
+      "domestic": 277396568,
+      "international": 63210841,
+      "domestic_reporting_airports": 100,
+      "international_reporting_airports": 27
+    },
+    {
+      "year": 2019,
+      "domestic": 287472512,
+      "international": 63661178,
+      "domestic_reporting_airports": 102,
+      "international_reporting_airports": 31
+    },
+    {
+      "year": 2020,
+      "domestic": 125704022,
+      "international": 17092876,
+      "domestic_reporting_airports": 105,
+      "international_reporting_airports": 31
+    },
+    {
+      "year": 2021,
+      "domestic": 165490158,
+      "international": 16973678,
+      "domestic_reporting_airports": 109,
+      "international_reporting_airports": 28
+    },
+    {
+      "year": 2022,
+      "domestic": 246484028,
+      "international": 46920910,
+      "domestic_reporting_airports": 113,
+      "international_reporting_airports": 30
+    },
+    {
+      "year": 2023,
+      "domestic": 304080934,
+      "international": 63881888,
+      "domestic_reporting_airports": 121,
+      "international_reporting_airports": 31
+    },
+    {
+      "year": 2024,
+      "domestic": 322650506,
+      "international": 72210403,
+      "domestic_reporting_airports": 128,
+      "international_reporting_airports": 31
+    },
+    {
+      "year": 2025,
+      "domestic": 333873006,
+      "international": 77979936,
+      "domestic_reporting_airports": 129,
+      "international_reporting_airports": 31
+    }
+  ],
+  "government": {
+    "operational_2014": 74,
+    "operational_2026": 165,
+    "as_of": "7 July 2026",
+    "note": "All operational aviation facilities, which may include heliports and water aerodromes; NOT equivalent to DGCA reporting airport counts."
+  },
+  "airports": [
+    {
+      "year": 2022,
+      "code": "AGR",
+      "domestic": 114413,
+      "international": 0,
+      "total": 114413,
+      "share": 0.0,
+      "lat": 27.15,
+      "lon": 77.95
+    },
+    {
+      "year": 2022,
+      "code": "AGX",
+      "domestic": 40629,
+      "international": 0,
+      "total": 40629,
+      "share": 0.0,
+      "lat": 10.824,
+      "lon": 72.176
+    },
+    {
+      "year": 2022,
+      "code": "AJL",
+      "domestic": 304641,
+      "international": 0,
+      "total": 304641,
+      "share": 0.0,
+      "lat": 23.733,
+      "lon": 92.8
+    },
+    {
+      "year": 2022,
+      "code": "AMD",
+      "domestic": 7444003,
+      "international": 1206105,
+      "total": 8650108,
+      "share": 0.139432,
+      "lat": 23.071,
+      "lon": 72.626
+    },
+    {
+      "year": 2022,
+      "code": "ATQ",
+      "domestic": 1617770,
+      "international": 636636,
+      "total": 2254406,
+      "share": 0.282396,
+      "lat": 31.704,
+      "lon": 74.802
+    },
+    {
+      "year": 2022,
+      "code": "BBI",
+      "domestic": 3272462,
+      "international": 0,
+      "total": 3272462,
+      "share": 0.0,
+      "lat": 20.247,
+      "lon": 85.819
+    },
+    {
+      "year": 2022,
+      "code": "BDQ",
+      "domestic": 999048,
+      "international": 0,
+      "total": 999048,
+      "share": 0.0,
+      "lat": 22.329,
+      "lon": 73.219
+    },
+    {
+      "year": 2022,
+      "code": "BEK",
+      "domestic": 147160,
+      "international": 0,
+      "total": 147160,
+      "share": 0.0
+    },
+    {
+      "year": 2022,
+      "code": "BHJ",
+      "domestic": 36363,
+      "international": 0,
+      "total": 36363,
+      "share": 0.0,
+      "lat": 23.287,
+      "lon": 69.67
+    },
+    {
+      "year": 2022,
+      "code": "BHO",
+      "domestic": 1026696,
+      "international": 0,
+      "total": 1026696,
+      "share": 0.0,
+      "lat": 23.287,
+      "lon": 77.337
+    },
+    {
+      "year": 2022,
+      "code": "BHU",
+      "domestic": 55724,
+      "international": 0,
+      "total": 55724,
+      "share": 0.0,
+      "lat": 21.754,
+      "lon": 72.191
+    },
+    {
+      "year": 2022,
+      "code": "BKB",
+      "domestic": 27402,
+      "international": 0,
+      "total": 27402,
+      "share": 0.0
+    },
+    {
+      "year": 2022,
+      "code": "BLR",
+      "domestic": 24371031,
+      "international": 2863833,
+      "total": 27234864,
+      "share": 0.105153,
+      "lat": 12.952,
+      "lon": 77.665
+    },
+    {
+      "year": 2022,
+      "code": "BOM",
+      "domestic": 29742476,
+      "international": 8584909,
+      "total": 38327385,
+      "share": 0.223989,
+      "lat": 19.091,
+      "lon": 72.867
+    },
+    {
+      "year": 2022,
+      "code": "CCJ",
+      "domestic": 514682,
+      "international": 2264856,
+      "total": 2779538,
+      "share": 0.814832,
+      "lat": 11.138,
+      "lon": 75.95
+    },
+    {
+      "year": 2022,
+      "code": "CCU",
+      "domestic": 14854294,
+      "international": 1535423,
+      "total": 16389717,
+      "share": 0.093682,
+      "lat": 22.653,
+      "lon": 88.449
+    },
+    {
+      "year": 2022,
+      "code": "CDP",
+      "domestic": 47641,
+      "international": 0,
+      "total": 47641,
+      "share": 0.0
+    },
+    {
+      "year": 2022,
+      "code": "CJB",
+      "domestic": 2178963,
+      "international": 166835,
+      "total": 2345798,
+      "share": 0.071121,
+      "lat": 11.027,
+      "lon": 77.042
+    },
+    {
+      "year": 2022,
+      "code": "COK",
+      "domestic": 4078245,
+      "international": 3724155,
+      "total": 7802400,
+      "share": 0.477309,
+      "lat": 10.154,
+      "lon": 76.407
+    },
+    {
+      "year": 2022,
+      "code": "DBR",
+      "domestic": 630097,
+      "international": 0,
+      "total": 630097,
+      "share": 0.0
+    },
+    {
+      "year": 2022,
+      "code": "DED",
+      "domestic": 1523301,
+      "international": 0,
+      "total": 1523301,
+      "share": 0.0,
+      "lat": 30.187,
+      "lon": 78.18
+    },
+    {
+      "year": 2022,
+      "code": "DEL",
+      "domestic": 46144544,
+      "international": 13151586,
+      "total": 59296130,
+      "share": 0.221795,
+      "lat": 28.569,
+      "lon": 77.112
+    },
+    {
+      "year": 2022,
+      "code": "DEP",
+      "domestic": 45051,
+      "international": 0,
+      "total": 45051,
+      "share": 0.0
+    },
+    {
+      "year": 2022,
+      "code": "DGH",
+      "domestic": 459253,
+      "international": 0,
+      "total": 459253,
+      "share": 0.0
+    },
+    {
+      "year": 2022,
+      "code": "DHM",
+      "domestic": 176380,
+      "international": 0,
+      "total": 176380,
+      "share": 0.0,
+      "lat": 32.165,
+      "lon": 76.263
+    },
+    {
+      "year": 2022,
+      "code": "DIB",
+      "domestic": 654364,
+      "international": 0,
+      "total": 654364,
+      "share": 0.0,
+      "lat": 27.481,
+      "lon": 95.018
+    },
+    {
+      "year": 2022,
+      "code": "DIU",
+      "domestic": 38160,
+      "international": 0,
+      "total": 38160,
+      "share": 0.0,
+      "lat": 20.717,
+      "lon": 70.917
+    },
+    {
+      "year": 2022,
+      "code": "DMU",
+      "domestic": 270518,
+      "international": 0,
+      "total": 270518,
+      "share": 0.0,
+      "lat": 25.885,
+      "lon": 93.77
+    },
+    {
+      "year": 2022,
+      "code": "GAU",
+      "domestic": 4834326,
+      "international": 266,
+      "total": 4834592,
+      "share": 5.5e-05,
+      "lat": 26.104,
+      "lon": 91.589
+    },
+    {
+      "year": 2022,
+      "code": "GAY",
+      "domestic": 119885,
+      "international": 18742,
+      "total": 138627,
+      "share": 0.135197,
+      "lat": 24.748,
+      "lon": 84.942
+    },
+    {
+      "year": 2022,
+      "code": "GBI",
+      "domestic": 84038,
+      "international": 0,
+      "total": 84038,
+      "share": 0.0
+    },
+    {
+      "year": 2022,
+      "code": "GDB",
+      "domestic": 19057,
+      "international": 0,
+      "total": 19057,
+      "share": 0.0
+    },
+    {
+      "year": 2022,
+      "code": "GOI",
+      "domestic": 7536171,
+      "international": 0,
+      "total": 7536171,
+      "share": 0.0,
+      "lat": 15.38,
+      "lon": 73.828
+    },
+    {
+      "year": 2022,
+      "code": "GOP",
+      "domestic": 684823,
+      "international": 0,
+      "total": 684823,
+      "share": 0.0,
+      "lat": 26.74,
+      "lon": 83.45
+    },
+    {
+      "year": 2022,
+      "code": "GWL",
+      "domestic": 223474,
+      "international": 0,
+      "total": 223474,
+      "share": 0.0,
+      "lat": 26.293,
+      "lon": 78.228
+    },
+    {
+      "year": 2022,
+      "code": "HBX",
+      "domestic": 271348,
+      "international": 0,
+      "total": 271348,
+      "share": 0.0,
+      "lat": 15.362,
+      "lon": 75.085
+    },
+    {
+      "year": 2022,
+      "code": "HDO",
+      "domestic": 26600,
+      "international": 0,
+      "total": 26600,
+      "share": 0.0
+    },
+    {
+      "year": 2022,
+      "code": "HGI",
+      "domestic": 7346,
+      "international": 0,
+      "total": 7346,
+      "share": 0.0
+    },
+    {
+      "year": 2022,
+      "code": "HJR",
+      "domestic": 17972,
+      "international": 0,
+      "total": 17972,
+      "share": 0.0,
+      "lat": 24.819,
+      "lon": 79.92
+    },
+    {
+      "year": 2022,
+      "code": "HYD",
+      "domestic": 15990734,
+      "international": 3009325,
+      "total": 19000059,
+      "share": 0.158385,
+      "lat": 17.453,
+      "lon": 78.462
+    },
+    {
+      "year": 2022,
+      "code": "IDR",
+      "domestic": 2518489,
+      "international": 13968,
+      "total": 2532457,
+      "share": 0.005516,
+      "lat": 22.723,
+      "lon": 75.806
+    },
+    {
+      "year": 2022,
+      "code": "IMF",
+      "domestic": 1080796,
+      "international": 0,
+      "total": 1080796,
+      "share": 0.0,
+      "lat": 24.764,
+      "lon": 93.903
+    },
+    {
+      "year": 2022,
+      "code": "ISK",
+      "domestic": 101703,
+      "international": 0,
+      "total": 101703,
+      "share": 0.0,
+      "lat": 19.964,
+      "lon": 73.808
+    },
+    {
+      "year": 2022,
+      "code": "IXA",
+      "domestic": 1278068,
+      "international": 0,
+      "total": 1278068,
+      "share": 0.0,
+      "lat": 23.877,
+      "lon": 91.24
+    },
+    {
+      "year": 2022,
+      "code": "IXB",
+      "domestic": 2536567,
+      "international": 1435,
+      "total": 2538002,
+      "share": 0.000565,
+      "lat": 26.683,
+      "lon": 88.333
+    },
+    {
+      "year": 2022,
+      "code": "IXC",
+      "domestic": 3302468,
+      "international": 114638,
+      "total": 3417106,
+      "share": 0.033548,
+      "lat": 30.667,
+      "lon": 76.783
+    },
+    {
+      "year": 2022,
+      "code": "IXD",
+      "domestic": 547184,
+      "international": 0,
+      "total": 547184,
+      "share": 0.0,
+      "lat": 25.44,
+      "lon": 81.737
+    },
+    {
+      "year": 2022,
+      "code": "IXE",
+      "domestic": 1175780,
+      "international": 500601,
+      "total": 1676381,
+      "share": 0.29862,
+      "lat": 12.962,
+      "lon": 74.89
+    },
+    {
+      "year": 2022,
+      "code": "IXG",
+      "domestic": 330062,
+      "international": 0,
+      "total": 330062,
+      "share": 0.0,
+      "lat": 15.859,
+      "lon": 74.618
+    },
+    {
+      "year": 2022,
+      "code": "IXI",
+      "domestic": 30271,
+      "international": 0,
+      "total": 30271,
+      "share": 0.0,
+      "lat": 27.291,
+      "lon": 94.097
+    },
+    {
+      "year": 2022,
+      "code": "IXJ",
+      "domestic": 1567606,
+      "international": 0,
+      "total": 1567606,
+      "share": 0.0,
+      "lat": 32.689,
+      "lon": 74.837
+    },
+    {
+      "year": 2022,
+      "code": "IXK",
+      "domestic": 4212,
+      "international": 0,
+      "total": 4212,
+      "share": 0.0,
+      "lat": 21.314,
+      "lon": 70.269
+    },
+    {
+      "year": 2022,
+      "code": "IXL",
+      "domestic": 1119623,
+      "international": 0,
+      "total": 1119623,
+      "share": 0.0,
+      "lat": 34.136,
+      "lon": 77.546
+    },
+    {
+      "year": 2022,
+      "code": "IXM",
+      "domestic": 831947,
+      "international": 173076,
+      "total": 1005023,
+      "share": 0.172211,
+      "lat": 9.834,
+      "lon": 78.089
+    },
+    {
+      "year": 2022,
+      "code": "IXP",
+      "domestic": 7727,
+      "international": 0,
+      "total": 7727,
+      "share": 0.0
+    },
+    {
+      "year": 2022,
+      "code": "IXR",
+      "domestic": 2224837,
+      "international": 0,
+      "total": 2224837,
+      "share": 0.0,
+      "lat": 23.314,
+      "lon": 85.321
+    },
+    {
+      "year": 2022,
+      "code": "IXS",
+      "domestic": 383628,
+      "international": 0,
+      "total": 383628,
+      "share": 0.0,
+      "lat": 24.912,
+      "lon": 92.98
+    },
+    {
+      "year": 2022,
+      "code": "IXT",
+      "domestic": 11837,
+      "international": 0,
+      "total": 11837,
+      "share": 0.0,
+      "lat": 28.1,
+      "lon": 95.383
+    },
+    {
+      "year": 2022,
+      "code": "IXU",
+      "domestic": 397413,
+      "international": 0,
+      "total": 397413,
+      "share": 0.0,
+      "lat": 19.864,
+      "lon": 75.399
+    },
+    {
+      "year": 2022,
+      "code": "IXX",
+      "domestic": 7385,
+      "international": 0,
+      "total": 7385,
+      "share": 0.0
+    },
+    {
+      "year": 2022,
+      "code": "IXY",
+      "domestic": 97307,
+      "international": 0,
+      "total": 97307,
+      "share": 0.0,
+      "lat": 23.112,
+      "lon": 70.101
+    },
+    {
+      "year": 2022,
+      "code": "IXZ",
+      "domestic": 1144625,
+      "international": 0,
+      "total": 1144625,
+      "share": 0.0,
+      "lat": 11.647,
+      "lon": 92.735
+    },
+    {
+      "year": 2022,
+      "code": "JAI",
+      "domestic": 3906984,
+      "international": 357330,
+      "total": 4264314,
+      "share": 0.083795,
+      "lat": 26.824,
+      "lon": 75.803
+    },
+    {
+      "year": 2022,
+      "code": "JDH",
+      "domestic": 845444,
+      "international": 0,
+      "total": 845444,
+      "share": 0.0,
+      "lat": 26.267,
+      "lon": 73.05
+    },
+    {
+      "year": 2022,
+      "code": "JGA",
+      "domestic": 110823,
+      "international": 0,
+      "total": 110823,
+      "share": 0.0,
+      "lat": 22.467,
+      "lon": 70.167
+    },
+    {
+      "year": 2022,
+      "code": "JGB",
+      "domestic": 61056,
+      "international": 0,
+      "total": 61056,
+      "share": 0.0
+    },
+    {
+      "year": 2022,
+      "code": "JLG",
+      "domestic": 1854,
+      "international": 0,
+      "total": 1854,
+      "share": 0.0
+    },
+    {
+      "year": 2022,
+      "code": "JLR",
+      "domestic": 430887,
+      "international": 0,
+      "total": 430887,
+      "share": 0.0,
+      "lat": 23.183,
+      "lon": 80.062
+    },
+    {
+      "year": 2022,
+      "code": "JRG",
+      "domestic": 236551,
+      "international": 0,
+      "total": 236551,
+      "share": 0.0
+    },
+    {
+      "year": 2022,
+      "code": "JRH",
+      "domestic": 134628,
+      "international": 0,
+      "total": 134628,
+      "share": 0.0,
+      "lat": 26.732,
+      "lon": 94.175
+    },
+    {
+      "year": 2022,
+      "code": "JSA",
+      "domestic": 79655,
+      "international": 0,
+      "total": 79655,
+      "share": 0.0,
+      "lat": 26.889,
+      "lon": 70.865
+    },
+    {
+      "year": 2022,
+      "code": "KBK",
+      "domestic": 26459,
+      "international": 0,
+      "total": 26459,
+      "share": 0.0
+    },
+    {
+      "year": 2022,
+      "code": "KJB",
+      "domestic": 37039,
+      "international": 0,
+      "total": 37039,
+      "share": 0.0
+    },
+    {
+      "year": 2022,
+      "code": "KLH",
+      "domestic": 123415,
+      "international": 0,
+      "total": 123415,
+      "share": 0.0,
+      "lat": 16.665,
+      "lon": 74.291
+    },
+    {
+      "year": 2022,
+      "code": "KNU",
+      "domestic": 255011,
+      "international": 0,
+      "total": 255011,
+      "share": 0.0,
+      "lat": 26.44,
+      "lon": 80.365
+    },
+    {
+      "year": 2022,
+      "code": "KQH",
+      "domestic": 90279,
+      "international": 0,
+      "total": 90279,
+      "share": 0.0
+    },
+    {
+      "year": 2022,
+      "code": "KUU",
+      "domestic": 18105,
+      "international": 0,
+      "total": 18105,
+      "share": 0.0,
+      "lat": 31.877,
+      "lon": 77.155
+    },
+    {
+      "year": 2022,
+      "code": "LKO",
+      "domestic": 4042019,
+      "international": 858477,
+      "total": 4900496,
+      "share": 0.175182,
+      "lat": 26.762,
+      "lon": 80.885
+    },
+    {
+      "year": 2022,
+      "code": "MAA",
+      "domestic": 12286140,
+      "international": 4029011,
+      "total": 16315151,
+      "share": 0.246949,
+      "lat": 12.995,
+      "lon": 80.175
+    },
+    {
+      "year": 2022,
+      "code": "MAQ",
+      "domestic": 377901,
+      "international": 779749,
+      "total": 1157650,
+      "share": 0.673562
+    },
+    {
+      "year": 2022,
+      "code": "MYQ",
+      "domestic": 166251,
+      "international": 0,
+      "total": 166251,
+      "share": 0.0,
+      "lat": 12.307,
+      "lon": 76.65
+    },
+    {
+      "year": 2022,
+      "code": "NAG",
+      "domestic": 2212862,
+      "international": 50768,
+      "total": 2263630,
+      "share": 0.022428,
+      "lat": 21.092,
+      "lon": 79.048
+    },
+    {
+      "year": 2022,
+      "code": "NDC",
+      "domestic": 4974,
+      "international": 0,
+      "total": 4974,
+      "share": 0.0,
+      "lat": 19.182,
+      "lon": 77.319
+    },
+    {
+      "year": 2022,
+      "code": "PAB",
+      "domestic": 31549,
+      "international": 0,
+      "total": 31549,
+      "share": 0.0,
+      "lat": 22.0,
+      "lon": 82.067
+    },
+    {
+      "year": 2022,
+      "code": "PAT",
+      "domestic": 3655042,
+      "international": 0,
+      "total": 3655042,
+      "share": 0.0,
+      "lat": 25.594,
+      "lon": 85.092
+    },
+    {
+      "year": 2022,
+      "code": "PBD",
+      "domestic": 20726,
+      "international": 0,
+      "total": 20726,
+      "share": 0.0,
+      "lat": 21.65,
+      "lon": 69.659
+    },
+    {
+      "year": 2022,
+      "code": "PGH",
+      "domestic": 70314,
+      "international": 0,
+      "total": 70314,
+      "share": 0.0,
+      "lat": 29.032,
+      "lon": 78.472
+    },
+    {
+      "year": 2022,
+      "code": "PNQ",
+      "domestic": 7080483,
+      "international": 111845,
+      "total": 7192328,
+      "share": 0.015551,
+      "lat": 18.583,
+      "lon": 73.933
+    },
+    {
+      "year": 2022,
+      "code": "PNY",
+      "domestic": 62758,
+      "international": 0,
+      "total": 62758,
+      "share": 0.0,
+      "lat": 11.967,
+      "lon": 79.817
+    },
+    {
+      "year": 2022,
+      "code": "PYB",
+      "domestic": 1133,
+      "international": 0,
+      "total": 1133,
+      "share": 0.0
+    },
+    {
+      "year": 2022,
+      "code": "PYG",
+      "domestic": 36946,
+      "international": 0,
+      "total": 36946,
+      "share": 0.0
+    },
+    {
+      "year": 2022,
+      "code": "RAJ",
+      "domestic": 705040,
+      "international": 0,
+      "total": 705040,
+      "share": 0.0,
+      "lat": 22.309,
+      "lon": 70.779
+    },
+    {
+      "year": 2022,
+      "code": "RJA",
+      "domestic": 377568,
+      "international": 0,
+      "total": 377568,
+      "share": 0.0,
+      "lat": 17.108,
+      "lon": 81.821
+    },
+    {
+      "year": 2022,
+      "code": "RPR",
+      "domestic": 2098625,
+      "international": 0,
+      "total": 2098625,
+      "share": 0.0,
+      "lat": 21.18,
+      "lon": 81.74
+    },
+    {
+      "year": 2022,
+      "code": "RUP",
+      "domestic": 48831,
+      "international": 0,
+      "total": 48831,
+      "share": 0.0,
+      "lat": 26.14,
+      "lon": 89.91
+    },
+    {
+      "year": 2022,
+      "code": "SAG",
+      "domestic": 657827,
+      "international": 0,
+      "total": 657827,
+      "share": 0.0
+    },
+    {
+      "year": 2022,
+      "code": "SDW",
+      "domestic": 37507,
+      "international": 0,
+      "total": 37507,
+      "share": 0.0
+    },
+    {
+      "year": 2022,
+      "code": "SHL",
+      "domestic": 102390,
+      "international": 0,
+      "total": 102390,
+      "share": 0.0,
+      "lat": 25.704,
+      "lon": 91.978
+    },
+    {
+      "year": 2022,
+      "code": "SLV",
+      "domestic": 5063,
+      "international": 0,
+      "total": 5063,
+      "share": 0.0,
+      "lat": 31.078,
+      "lon": 77.073
+    },
+    {
+      "year": 2022,
+      "code": "STV",
+      "domestic": 1153217,
+      "international": 29312,
+      "total": 1182529,
+      "share": 0.024788,
+      "lat": 21.114,
+      "lon": 72.742
+    },
+    {
+      "year": 2022,
+      "code": "SXR",
+      "domestic": 4221612,
+      "international": 937,
+      "total": 4222549,
+      "share": 0.000222,
+      "lat": 33.983,
+      "lon": 74.783
+    },
+    {
+      "year": 2022,
+      "code": "TCR",
+      "domestic": 188233,
+      "international": 0,
+      "total": 188233,
+      "share": 0.0,
+      "lat": 8.783,
+      "lon": 78.133
+    },
+    {
+      "year": 2022,
+      "code": "TEI",
+      "domestic": 20551,
+      "international": 0,
+      "total": 20551,
+      "share": 0.0
+    },
+    {
+      "year": 2022,
+      "code": "TEZ",
+      "domestic": 4601,
+      "international": 0,
+      "total": 4601,
+      "share": 0.0
+    },
+    {
+      "year": 2022,
+      "code": "TIR",
+      "domestic": 894481,
+      "international": 0,
+      "total": 894481,
+      "share": 0.0,
+      "lat": 13.633,
+      "lon": 79.542
+    },
+    {
+      "year": 2022,
+      "code": "TRV",
+      "domestic": 1463458,
+      "international": 1586689,
+      "total": 3050147,
+      "share": 0.520201,
+      "lat": 8.48,
+      "lon": 76.92
+    },
+    {
+      "year": 2022,
+      "code": "TRZ",
+      "domestic": 331239,
+      "international": 970857,
+      "total": 1302096,
+      "share": 0.745611,
+      "lat": 10.766,
+      "lon": 78.715
+    },
+    {
+      "year": 2022,
+      "code": "UDR",
+      "domestic": 1180600,
+      "international": 0,
+      "total": 1180600,
+      "share": 0.0,
+      "lat": 24.618,
+      "lon": 73.894
+    },
+    {
+      "year": 2022,
+      "code": "VDY",
+      "domestic": 9425,
+      "international": 0,
+      "total": 9425,
+      "share": 0.0,
+      "lat": 22.533,
+      "lon": 72.9
+    },
+    {
+      "year": 2022,
+      "code": "VGA",
+      "domestic": 801368,
+      "international": 28094,
+      "total": 829462,
+      "share": 0.03387,
+      "lat": 16.527,
+      "lon": 80.797
+    },
+    {
+      "year": 2022,
+      "code": "VNS",
+      "domestic": 2225452,
+      "international": 100032,
+      "total": 2325484,
+      "share": 0.043016,
+      "lat": 25.451,
+      "lon": 82.859
+    },
+    {
+      "year": 2022,
+      "code": "VTZ",
+      "domestic": 2218863,
+      "international": 51420,
+      "total": 2270283,
+      "share": 0.022649,
+      "lat": 17.721,
+      "lon": 83.225
+    },
+    {
+      "year": 2022,
+      "code": "ZER",
+      "domestic": 169,
+      "international": 0,
+      "total": 169,
+      "share": 0.0
+    },
+    {
+      "year": 2023,
+      "code": "AGR",
+      "domestic": 153567,
+      "international": 0,
+      "total": 153567,
+      "share": 0.0,
+      "lat": 27.15,
+      "lon": 77.95
+    },
+    {
+      "year": 2023,
+      "code": "AGX",
+      "domestic": 38610,
+      "international": 0,
+      "total": 38610,
+      "share": 0.0,
+      "lat": 10.824,
+      "lon": 72.176
+    },
+    {
+      "year": 2023,
+      "code": "AIP",
+      "domestic": 271,
+      "international": 0,
+      "total": 271,
+      "share": 0.0
+    },
+    {
+      "year": 2023,
+      "code": "AJL",
+      "domestic": 379218,
+      "international": 0,
+      "total": 379218,
+      "share": 0.0,
+      "lat": 23.733,
+      "lon": 92.8
+    },
+    {
+      "year": 2023,
+      "code": "AMD",
+      "domestic": 9908563,
+      "international": 1540488,
+      "total": 11449051,
+      "share": 0.134552,
+      "lat": 23.071,
+      "lon": 72.626
+    },
+    {
+      "year": 2023,
+      "code": "ATQ",
+      "domestic": 2022671,
+      "international": 921036,
+      "total": 2943707,
+      "share": 0.312883,
+      "lat": 31.704,
+      "lon": 74.802
+    },
+    {
+      "year": 2023,
+      "code": "AYJ",
+      "domestic": 424,
+      "international": 0,
+      "total": 424,
+      "share": 0.0
+    },
+    {
+      "year": 2023,
+      "code": "BBI",
+      "domestic": 4469830,
+      "international": 68141,
+      "total": 4537971,
+      "share": 0.015016,
+      "lat": 20.247,
+      "lon": 85.819
+    },
+    {
+      "year": 2023,
+      "code": "BDQ",
+      "domestic": 1205150,
+      "international": 0,
+      "total": 1205150,
+      "share": 0.0,
+      "lat": 22.329,
+      "lon": 73.219
+    },
+    {
+      "year": 2023,
+      "code": "BEK",
+      "domestic": 126360,
+      "international": 0,
+      "total": 126360,
+      "share": 0.0
+    },
+    {
+      "year": 2023,
+      "code": "BHJ",
+      "domestic": 58092,
+      "international": 0,
+      "total": 58092,
+      "share": 0.0,
+      "lat": 23.287,
+      "lon": 69.67
+    },
+    {
+      "year": 2023,
+      "code": "BHO",
+      "domestic": 1305807,
+      "international": 0,
+      "total": 1305807,
+      "share": 0.0,
+      "lat": 23.287,
+      "lon": 77.337
+    },
+    {
+      "year": 2023,
+      "code": "BHU",
+      "domestic": 78081,
+      "international": 0,
+      "total": 78081,
+      "share": 0.0,
+      "lat": 21.754,
+      "lon": 72.191
+    },
+    {
+      "year": 2023,
+      "code": "BKB",
+      "domestic": 6300,
+      "international": 0,
+      "total": 6300,
+      "share": 0.0
+    },
+    {
+      "year": 2023,
+      "code": "BLR",
+      "domestic": 32543235,
+      "international": 4200675,
+      "total": 36743910,
+      "share": 0.114323,
+      "lat": 12.952,
+      "lon": 77.665
+    },
+    {
+      "year": 2023,
+      "code": "BOM",
+      "domestic": 37858792,
+      "international": 12848587,
+      "total": 50707379,
+      "share": 0.253387,
+      "lat": 19.091,
+      "lon": 72.867
+    },
+    {
+      "year": 2023,
+      "code": "BUP",
+      "domestic": 2949,
+      "international": 0,
+      "total": 2949,
+      "share": 0.0
+    },
+    {
+      "year": 2023,
+      "code": "CCJ",
+      "domestic": 613318,
+      "international": 2573824,
+      "total": 3187142,
+      "share": 0.807565,
+      "lat": 11.138,
+      "lon": 75.95
+    },
+    {
+      "year": 2023,
+      "code": "CCU",
+      "domestic": 17105802,
+      "international": 2316854,
+      "total": 19422656,
+      "share": 0.119286,
+      "lat": 22.653,
+      "lon": 88.449
+    },
+    {
+      "year": 2023,
+      "code": "CDP",
+      "domestic": 73290,
+      "international": 0,
+      "total": 73290,
+      "share": 0.0
+    },
+    {
+      "year": 2023,
+      "code": "CJB",
+      "domestic": 2680711,
+      "international": 205314,
+      "total": 2886025,
+      "share": 0.071141,
+      "lat": 11.027,
+      "lon": 77.042
+    },
+    {
+      "year": 2023,
+      "code": "COH",
+      "domestic": 2079,
+      "international": 0,
+      "total": 2079,
+      "share": 0.0,
+      "lat": 26.33,
+      "lon": 89.417
+    },
+    {
+      "year": 2023,
+      "code": "COK",
+      "domestic": 5542641,
+      "international": 4659358,
+      "total": 10201999,
+      "share": 0.45671,
+      "lat": 10.154,
+      "lon": 76.407
+    },
+    {
+      "year": 2023,
+      "code": "DBR",
+      "domestic": 582172,
+      "international": 0,
+      "total": 582172,
+      "share": 0.0
+    },
+    {
+      "year": 2023,
+      "code": "DED",
+      "domestic": 1610387,
+      "international": 0,
+      "total": 1610387,
+      "share": 0.0,
+      "lat": 30.187,
+      "lon": 78.18
+    },
+    {
+      "year": 2023,
+      "code": "DEL",
+      "domestic": 53728950,
+      "international": 17768387,
+      "total": 71497337,
+      "share": 0.248518,
+      "lat": 28.569,
+      "lon": 77.112
+    },
+    {
+      "year": 2023,
+      "code": "DEP",
+      "domestic": 157824,
+      "international": 0,
+      "total": 157824,
+      "share": 0.0
+    },
+    {
+      "year": 2023,
+      "code": "DGH",
+      "domestic": 544870,
+      "international": 0,
+      "total": 544870,
+      "share": 0.0
+    },
+    {
+      "year": 2023,
+      "code": "DHM",
+      "domestic": 205457,
+      "international": 0,
+      "total": 205457,
+      "share": 0.0,
+      "lat": 32.165,
+      "lon": 76.263
+    },
+    {
+      "year": 2023,
+      "code": "DIB",
+      "domestic": 719966,
+      "international": 0,
+      "total": 719966,
+      "share": 0.0,
+      "lat": 27.481,
+      "lon": 95.018
+    },
+    {
+      "year": 2023,
+      "code": "DIU",
+      "domestic": 43741,
+      "international": 0,
+      "total": 43741,
+      "share": 0.0,
+      "lat": 20.717,
+      "lon": 70.917
+    },
+    {
+      "year": 2023,
+      "code": "DMU",
+      "domestic": 308742,
+      "international": 0,
+      "total": 308742,
+      "share": 0.0,
+      "lat": 25.885,
+      "lon": 93.77
+    },
+    {
+      "year": 2023,
+      "code": "GAU",
+      "domestic": 5978762,
+      "international": 9486,
+      "total": 5988248,
+      "share": 0.001584,
+      "lat": 26.104,
+      "lon": 91.589
+    },
+    {
+      "year": 2023,
+      "code": "GAY",
+      "domestic": 207558,
+      "international": 62985,
+      "total": 270543,
+      "share": 0.23281,
+      "lat": 24.748,
+      "lon": 84.942
+    },
+    {
+      "year": 2023,
+      "code": "GBI",
+      "domestic": 58303,
+      "international": 0,
+      "total": 58303,
+      "share": 0.0
+    },
+    {
+      "year": 2023,
+      "code": "GDB",
+      "domestic": 1603,
+      "international": 0,
+      "total": 1603,
+      "share": 0.0
+    },
+    {
+      "year": 2023,
+      "code": "GOI",
+      "domestic": 6994520,
+      "international": 0,
+      "total": 6994520,
+      "share": 0.0,
+      "lat": 15.38,
+      "lon": 73.828
+    },
+    {
+      "year": 2023,
+      "code": "GOP",
+      "domestic": 728959,
+      "international": 0,
+      "total": 728959,
+      "share": 0.0,
+      "lat": 26.74,
+      "lon": 83.45
+    },
+    {
+      "year": 2023,
+      "code": "GOX",
+      "domestic": 3755021,
+      "international": 427437,
+      "total": 4182458,
+      "share": 0.102198
+    },
+    {
+      "year": 2023,
+      "code": "GWL",
+      "domestic": 275532,
+      "international": 0,
+      "total": 275532,
+      "share": 0.0,
+      "lat": 26.293,
+      "lon": 78.228
+    },
+    {
+      "year": 2023,
+      "code": "HBX",
+      "domestic": 361729,
+      "international": 0,
+      "total": 361729,
+      "share": 0.0,
+      "lat": 15.362,
+      "lon": 75.085
+    },
+    {
+      "year": 2023,
+      "code": "HDO",
+      "domestic": 2198,
+      "international": 0,
+      "total": 2198,
+      "share": 0.0
+    },
+    {
+      "year": 2023,
+      "code": "HGI",
+      "domestic": 136010,
+      "international": 0,
+      "total": 136010,
+      "share": 0.0
+    },
+    {
+      "year": 2023,
+      "code": "HJR",
+      "domestic": 57312,
+      "international": 0,
+      "total": 57312,
+      "share": 0.0,
+      "lat": 24.819,
+      "lon": 79.92
+    },
+    {
+      "year": 2023,
+      "code": "HSR",
+      "domestic": 325213,
+      "international": 0,
+      "total": 325213,
+      "share": 0.0
+    },
+    {
+      "year": 2023,
+      "code": "HYD",
+      "domestic": 20211371,
+      "international": 4219877,
+      "total": 24431248,
+      "share": 0.172725,
+      "lat": 17.453,
+      "lon": 78.462
+    },
+    {
+      "year": 2023,
+      "code": "IDR",
+      "domestic": 3441537,
+      "international": 35172,
+      "total": 3476709,
+      "share": 0.010116,
+      "lat": 22.723,
+      "lon": 75.806
+    },
+    {
+      "year": 2023,
+      "code": "IMF",
+      "domestic": 1227606,
+      "international": 0,
+      "total": 1227606,
+      "share": 0.0,
+      "lat": 24.764,
+      "lon": 93.903
+    },
+    {
+      "year": 2023,
+      "code": "ISK",
+      "domestic": 225119,
+      "international": 0,
+      "total": 225119,
+      "share": 0.0,
+      "lat": 19.964,
+      "lon": 73.808
+    },
+    {
+      "year": 2023,
+      "code": "IXA",
+      "domestic": 1414089,
+      "international": 0,
+      "total": 1414089,
+      "share": 0.0,
+      "lat": 23.877,
+      "lon": 91.24
+    },
+    {
+      "year": 2023,
+      "code": "IXB",
+      "domestic": 3119602,
+      "international": 7429,
+      "total": 3127031,
+      "share": 0.002376,
+      "lat": 26.683,
+      "lon": 88.333
+    },
+    {
+      "year": 2023,
+      "code": "IXC",
+      "domestic": 3583672,
+      "international": 149618,
+      "total": 3733290,
+      "share": 0.040077,
+      "lat": 30.667,
+      "lon": 76.783
+    },
+    {
+      "year": 2023,
+      "code": "IXD",
+      "domestic": 638806,
+      "international": 0,
+      "total": 638806,
+      "share": 0.0,
+      "lat": 25.44,
+      "lon": 81.737
+    },
+    {
+      "year": 2023,
+      "code": "IXE",
+      "domestic": 1394088,
+      "international": 515721,
+      "total": 1909809,
+      "share": 0.270038,
+      "lat": 12.962,
+      "lon": 74.89
+    },
+    {
+      "year": 2023,
+      "code": "IXG",
+      "domestic": 283518,
+      "international": 0,
+      "total": 283518,
+      "share": 0.0,
+      "lat": 15.859,
+      "lon": 74.618
+    },
+    {
+      "year": 2023,
+      "code": "IXI",
+      "domestic": 32249,
+      "international": 0,
+      "total": 32249,
+      "share": 0.0,
+      "lat": 27.291,
+      "lon": 94.097
+    },
+    {
+      "year": 2023,
+      "code": "IXJ",
+      "domestic": 1510588,
+      "international": 0,
+      "total": 1510588,
+      "share": 0.0,
+      "lat": 32.689,
+      "lon": 74.837
+    },
+    {
+      "year": 2023,
+      "code": "IXK",
+      "domestic": 13052,
+      "international": 0,
+      "total": 13052,
+      "share": 0.0,
+      "lat": 21.314,
+      "lon": 70.269
+    },
+    {
+      "year": 2023,
+      "code": "IXL",
+      "domestic": 1041522,
+      "international": 0,
+      "total": 1041522,
+      "share": 0.0,
+      "lat": 34.136,
+      "lon": 77.546
+    },
+    {
+      "year": 2023,
+      "code": "IXM",
+      "domestic": 1049522,
+      "international": 218297,
+      "total": 1267819,
+      "share": 0.172183,
+      "lat": 9.834,
+      "lon": 78.089
+    },
+    {
+      "year": 2023,
+      "code": "IXR",
+      "domestic": 2593825,
+      "international": 0,
+      "total": 2593825,
+      "share": 0.0,
+      "lat": 23.314,
+      "lon": 85.321
+    },
+    {
+      "year": 2023,
+      "code": "IXS",
+      "domestic": 406796,
+      "international": 0,
+      "total": 406796,
+      "share": 0.0,
+      "lat": 24.912,
+      "lon": 92.98
+    },
+    {
+      "year": 2023,
+      "code": "IXT",
+      "domestic": 8630,
+      "international": 0,
+      "total": 8630,
+      "share": 0.0,
+      "lat": 28.1,
+      "lon": 95.383
+    },
+    {
+      "year": 2023,
+      "code": "IXU",
+      "domestic": 600162,
+      "international": 0,
+      "total": 600162,
+      "share": 0.0,
+      "lat": 19.864,
+      "lon": 75.399
+    },
+    {
+      "year": 2023,
+      "code": "IXW",
+      "domestic": 6945,
+      "international": 0,
+      "total": 6945,
+      "share": 0.0,
+      "lat": 22.817,
+      "lon": 86.167
+    },
+    {
+      "year": 2023,
+      "code": "IXX",
+      "domestic": 20461,
+      "international": 0,
+      "total": 20461,
+      "share": 0.0
+    },
+    {
+      "year": 2023,
+      "code": "IXY",
+      "domestic": 79757,
+      "international": 0,
+      "total": 79757,
+      "share": 0.0,
+      "lat": 23.112,
+      "lon": 70.101
+    },
+    {
+      "year": 2023,
+      "code": "IXZ",
+      "domestic": 1377570,
+      "international": 0,
+      "total": 1377570,
+      "share": 0.0,
+      "lat": 11.647,
+      "lon": 92.735
+    },
+    {
+      "year": 2023,
+      "code": "JAI",
+      "domestic": 4913168,
+      "international": 381937,
+      "total": 5295105,
+      "share": 0.07213,
+      "lat": 26.824,
+      "lon": 75.803
+    },
+    {
+      "year": 2023,
+      "code": "JDH",
+      "domestic": 1104780,
+      "international": 0,
+      "total": 1104780,
+      "share": 0.0,
+      "lat": 26.267,
+      "lon": 73.05
+    },
+    {
+      "year": 2023,
+      "code": "JGA",
+      "domestic": 150327,
+      "international": 0,
+      "total": 150327,
+      "share": 0.0,
+      "lat": 22.467,
+      "lon": 70.167
+    },
+    {
+      "year": 2023,
+      "code": "JGB",
+      "domestic": 65071,
+      "international": 0,
+      "total": 65071,
+      "share": 0.0
+    },
+    {
+      "year": 2023,
+      "code": "JLR",
+      "domestic": 360889,
+      "international": 0,
+      "total": 360889,
+      "share": 0.0,
+      "lat": 23.183,
+      "lon": 80.062
+    },
+    {
+      "year": 2023,
+      "code": "JRG",
+      "domestic": 226278,
+      "international": 0,
+      "total": 226278,
+      "share": 0.0
+    },
+    {
+      "year": 2023,
+      "code": "JRH",
+      "domestic": 163861,
+      "international": 0,
+      "total": 163861,
+      "share": 0.0,
+      "lat": 26.732,
+      "lon": 94.175
+    },
+    {
+      "year": 2023,
+      "code": "JSA",
+      "domestic": 117139,
+      "international": 0,
+      "total": 117139,
+      "share": 0.0,
+      "lat": 26.889,
+      "lon": 70.865
+    },
+    {
+      "year": 2023,
+      "code": "KBK",
+      "domestic": 22246,
+      "international": 0,
+      "total": 22246,
+      "share": 0.0
+    },
+    {
+      "year": 2023,
+      "code": "KJB",
+      "domestic": 38516,
+      "international": 0,
+      "total": 38516,
+      "share": 0.0
+    },
+    {
+      "year": 2023,
+      "code": "KLH",
+      "domestic": 157296,
+      "international": 0,
+      "total": 157296,
+      "share": 0.0,
+      "lat": 16.665,
+      "lon": 74.291
+    },
+    {
+      "year": 2023,
+      "code": "KNU",
+      "domestic": 278841,
+      "international": 0,
+      "total": 278841,
+      "share": 0.0,
+      "lat": 26.44,
+      "lon": 80.365
+    },
+    {
+      "year": 2023,
+      "code": "KQH",
+      "domestic": 25325,
+      "international": 0,
+      "total": 25325,
+      "share": 0.0
+    },
+    {
+      "year": 2023,
+      "code": "KUU",
+      "domestic": 16114,
+      "international": 0,
+      "total": 16114,
+      "share": 0.0,
+      "lat": 31.877,
+      "lon": 77.155
+    },
+    {
+      "year": 2023,
+      "code": "LKO",
+      "domestic": 5495133,
+      "international": 859567,
+      "total": 6354700,
+      "share": 0.135265,
+      "lat": 26.762,
+      "lon": 80.885
+    },
+    {
+      "year": 2023,
+      "code": "LUH",
+      "domestic": 656,
+      "international": 0,
+      "total": 656,
+      "share": 0.0,
+      "lat": 30.853,
+      "lon": 75.957
+    },
+    {
+      "year": 2023,
+      "code": "MAA",
+      "domestic": 15176906,
+      "international": 5452034,
+      "total": 20628940,
+      "share": 0.264291,
+      "lat": 12.995,
+      "lon": 80.175
+    },
+    {
+      "year": 2023,
+      "code": "MAQ",
+      "domestic": 404831,
+      "international": 809887,
+      "total": 1214718,
+      "share": 0.666728
+    },
+    {
+      "year": 2023,
+      "code": "MYQ",
+      "domestic": 134416,
+      "international": 0,
+      "total": 134416,
+      "share": 0.0,
+      "lat": 12.307,
+      "lon": 76.65
+    },
+    {
+      "year": 2023,
+      "code": "NAG",
+      "domestic": 2802995,
+      "international": 91131,
+      "total": 2894126,
+      "share": 0.031488,
+      "lat": 21.092,
+      "lon": 79.048
+    },
+    {
+      "year": 2023,
+      "code": "PAB",
+      "domestic": 31608,
+      "international": 0,
+      "total": 31608,
+      "share": 0.0,
+      "lat": 22.0,
+      "lon": 82.067
+    },
+    {
+      "year": 2023,
+      "code": "PAT",
+      "domestic": 3641578,
+      "international": 0,
+      "total": 3641578,
+      "share": 0.0,
+      "lat": 25.594,
+      "lon": 85.092
+    },
+    {
+      "year": 2023,
+      "code": "PGH",
+      "domestic": 104500,
+      "international": 0,
+      "total": 104500,
+      "share": 0.0,
+      "lat": 29.032,
+      "lon": 78.472
+    },
+    {
+      "year": 2023,
+      "code": "PNQ",
+      "domestic": 9537785,
+      "international": 174464,
+      "total": 9712249,
+      "share": 0.017963,
+      "lat": 18.583,
+      "lon": 73.933
+    },
+    {
+      "year": 2023,
+      "code": "PNY",
+      "domestic": 51969,
+      "international": 0,
+      "total": 51969,
+      "share": 0.0,
+      "lat": 11.967,
+      "lon": 79.817
+    },
+    {
+      "year": 2023,
+      "code": "PYB",
+      "domestic": 9966,
+      "international": 0,
+      "total": 9966,
+      "share": 0.0
+    },
+    {
+      "year": 2023,
+      "code": "PYG",
+      "domestic": 10227,
+      "international": 0,
+      "total": 10227,
+      "share": 0.0
+    },
+    {
+      "year": 2023,
+      "code": "RAJ",
+      "domestic": 596241,
+      "international": 0,
+      "total": 596241,
+      "share": 0.0,
+      "lat": 22.309,
+      "lon": 70.779
+    },
+    {
+      "year": 2023,
+      "code": "RJA",
+      "domestic": 408014,
+      "international": 0,
+      "total": 408014,
+      "share": 0.0,
+      "lat": 17.108,
+      "lon": 81.821
+    },
+    {
+      "year": 2023,
+      "code": "RPR",
+      "domestic": 2449676,
+      "international": 0,
+      "total": 2449676,
+      "share": 0.0,
+      "lat": 21.18,
+      "lon": 81.74
+    },
+    {
+      "year": 2023,
+      "code": "RQY",
+      "domestic": 19400,
+      "international": 0,
+      "total": 19400,
+      "share": 0.0
+    },
+    {
+      "year": 2023,
+      "code": "RRK",
+      "domestic": 27267,
+      "international": 0,
+      "total": 27267,
+      "share": 0.0,
+      "lat": 22.261,
+      "lon": 84.81
+    },
+    {
+      "year": 2023,
+      "code": "RUP",
+      "domestic": 44785,
+      "international": 0,
+      "total": 44785,
+      "share": 0.0,
+      "lat": 26.14,
+      "lon": 89.91
+    },
+    {
+      "year": 2023,
+      "code": "SAG",
+      "domestic": 726132,
+      "international": 0,
+      "total": 726132,
+      "share": 0.0
+    },
+    {
+      "year": 2023,
+      "code": "SDW",
+      "domestic": 16874,
+      "international": 0,
+      "total": 16874,
+      "share": 0.0
+    },
+    {
+      "year": 2023,
+      "code": "SHL",
+      "domestic": 147029,
+      "international": 0,
+      "total": 147029,
+      "share": 0.0,
+      "lat": 25.704,
+      "lon": 91.978
+    },
+    {
+      "year": 2023,
+      "code": "SLV",
+      "domestic": 17847,
+      "international": 0,
+      "total": 17847,
+      "share": 0.0,
+      "lat": 31.078,
+      "lon": 77.073
+    },
+    {
+      "year": 2023,
+      "code": "STV",
+      "domestic": 1287642,
+      "international": 56215,
+      "total": 1343857,
+      "share": 0.041831,
+      "lat": 21.114,
+      "lon": 72.742
+    },
+    {
+      "year": 2023,
+      "code": "SXR",
+      "domestic": 4106130,
+      "international": 0,
+      "total": 4106130,
+      "share": 0.0,
+      "lat": 33.983,
+      "lon": 74.783
+    },
+    {
+      "year": 2023,
+      "code": "SXV",
+      "domestic": 15864,
+      "international": 0,
+      "total": 15864,
+      "share": 0.0,
+      "lat": 11.783,
+      "lon": 78.066
+    },
+    {
+      "year": 2023,
+      "code": "TCR",
+      "domestic": 195436,
+      "international": 0,
+      "total": 195436,
+      "share": 0.0,
+      "lat": 8.783,
+      "lon": 78.133
+    },
+    {
+      "year": 2023,
+      "code": "TEI",
+      "domestic": 31569,
+      "international": 0,
+      "total": 31569,
+      "share": 0.0
+    },
+    {
+      "year": 2023,
+      "code": "TEZ",
+      "domestic": 28044,
+      "international": 0,
+      "total": 28044,
+      "share": 0.0
+    },
+    {
+      "year": 2023,
+      "code": "TIR",
+      "domestic": 895145,
+      "international": 0,
+      "total": 895145,
+      "share": 0.0,
+      "lat": 13.633,
+      "lon": 79.542
+    },
+    {
+      "year": 2023,
+      "code": "TRV",
+      "domestic": 2187548,
+      "international": 1840146,
+      "total": 4027694,
+      "share": 0.456873,
+      "lat": 8.48,
+      "lon": 76.92
+    },
+    {
+      "year": 2023,
+      "code": "TRZ",
+      "domestic": 433174,
+      "international": 1253745,
+      "total": 1686919,
+      "share": 0.743216,
+      "lat": 10.766,
+      "lon": 78.715
+    },
+    {
+      "year": 2023,
+      "code": "UDR",
+      "domestic": 1522490,
+      "international": 0,
+      "total": 1522490,
+      "share": 0.0,
+      "lat": 24.618,
+      "lon": 73.894
+    },
+    {
+      "year": 2023,
+      "code": "UKE",
+      "domestic": 551,
+      "international": 0,
+      "total": 551,
+      "share": 0.0
+    },
+    {
+      "year": 2023,
+      "code": "VDY",
+      "domestic": 42153,
+      "international": 0,
+      "total": 42153,
+      "share": 0.0,
+      "lat": 22.533,
+      "lon": 72.9
+    },
+    {
+      "year": 2023,
+      "code": "VGA",
+      "domestic": 950113,
+      "international": 34423,
+      "total": 984536,
+      "share": 0.034964,
+      "lat": 16.527,
+      "lon": 80.797
+    },
+    {
+      "year": 2023,
+      "code": "VNS",
+      "domestic": 2795804,
+      "international": 112768,
+      "total": 2908572,
+      "share": 0.038771,
+      "lat": 25.451,
+      "lon": 82.859
+    },
+    {
+      "year": 2023,
+      "code": "VTZ",
+      "domestic": 2852206,
+      "international": 66885,
+      "total": 2919091,
+      "share": 0.022913,
+      "lat": 17.721,
+      "lon": 83.225
+    },
+    {
+      "year": 2023,
+      "code": "ZER",
+      "domestic": 302,
+      "international": 0,
+      "total": 302,
+      "share": 0.0
+    },
+    {
+      "year": 2024,
+      "code": "AGR",
+      "domestic": 169177,
+      "international": 0,
+      "total": 169177,
+      "share": 0.0,
+      "lat": 27.15,
+      "lon": 77.95
+    },
+    {
+      "year": 2024,
+      "code": "AGX",
+      "domestic": 86256,
+      "international": 0,
+      "total": 86256,
+      "share": 0.0,
+      "lat": 10.824,
+      "lon": 72.176
+    },
+    {
+      "year": 2024,
+      "code": "AHA",
+      "domestic": 109,
+      "international": 0,
+      "total": 109,
+      "share": 0.0
+    },
+    {
+      "year": 2024,
+      "code": "AIP",
+      "domestic": 25974,
+      "international": 0,
+      "total": 25974,
+      "share": 0.0
+    },
+    {
+      "year": 2024,
+      "code": "AJL",
+      "domestic": 467098,
+      "international": 0,
+      "total": 467098,
+      "share": 0.0,
+      "lat": 23.733,
+      "lon": 92.8
+    },
+    {
+      "year": 2024,
+      "code": "AMD",
+      "domestic": 10602357,
+      "international": 1945804,
+      "total": 12548161,
+      "share": 0.155067,
+      "lat": 23.071,
+      "lon": 72.626
+    },
+    {
+      "year": 2024,
+      "code": "ATQ",
+      "domestic": 2278219,
+      "international": 1072055,
+      "total": 3350274,
+      "share": 0.31999,
+      "lat": 31.704,
+      "lon": 74.802
+    },
+    {
+      "year": 2024,
+      "code": "AYJ",
+      "domestic": 997677,
+      "international": 0,
+      "total": 997677,
+      "share": 0.0
+    },
+    {
+      "year": 2024,
+      "code": "AZH",
+      "domestic": 1045,
+      "international": 0,
+      "total": 1045,
+      "share": 0.0
+    },
+    {
+      "year": 2024,
+      "code": "BBI",
+      "domestic": 4441560,
+      "international": 123995,
+      "total": 4565555,
+      "share": 0.027159,
+      "lat": 20.247,
+      "lon": 85.819
+    },
+    {
+      "year": 2024,
+      "code": "BDQ",
+      "domestic": 1220411,
+      "international": 0,
+      "total": 1220411,
+      "share": 0.0,
+      "lat": 22.329,
+      "lon": 73.219
+    },
+    {
+      "year": 2024,
+      "code": "BEK",
+      "domestic": 118591,
+      "international": 0,
+      "total": 118591,
+      "share": 0.0
+    },
+    {
+      "year": 2024,
+      "code": "BHJ",
+      "domestic": 148718,
+      "international": 0,
+      "total": 148718,
+      "share": 0.0,
+      "lat": 23.287,
+      "lon": 69.67
+    },
+    {
+      "year": 2024,
+      "code": "BHO",
+      "domestic": 1520743,
+      "international": 0,
+      "total": 1520743,
+      "share": 0.0,
+      "lat": 23.287,
+      "lon": 77.337
+    },
+    {
+      "year": 2024,
+      "code": "BHU",
+      "domestic": 75239,
+      "international": 0,
+      "total": 75239,
+      "share": 0.0,
+      "lat": 21.754,
+      "lon": 72.191
+    },
+    {
+      "year": 2024,
+      "code": "BKB",
+      "domestic": 8623,
+      "international": 0,
+      "total": 8623,
+      "share": 0.0
+    },
+    {
+      "year": 2024,
+      "code": "BLR",
+      "domestic": 34840848,
+      "international": 5077997,
+      "total": 39918845,
+      "share": 0.127208,
+      "lat": 12.952,
+      "lon": 77.665
+    },
+    {
+      "year": 2024,
+      "code": "BOM",
+      "domestic": 38896142,
+      "international": 14531324,
+      "total": 53427466,
+      "share": 0.271982,
+      "lat": 19.091,
+      "lon": 72.867
+    },
+    {
+      "year": 2024,
+      "code": "BUP",
+      "domestic": 28373,
+      "international": 0,
+      "total": 28373,
+      "share": 0.0
+    },
+    {
+      "year": 2024,
+      "code": "CCJ",
+      "domestic": 689785,
+      "international": 2787014,
+      "total": 3476799,
+      "share": 0.801603,
+      "lat": 11.138,
+      "lon": 75.95
+    },
+    {
+      "year": 2024,
+      "code": "CCU",
+      "domestic": 18556259,
+      "international": 2309190,
+      "total": 20865449,
+      "share": 0.110671,
+      "lat": 22.653,
+      "lon": 88.449
+    },
+    {
+      "year": 2024,
+      "code": "CDP",
+      "domestic": 45408,
+      "international": 0,
+      "total": 45408,
+      "share": 0.0
+    },
+    {
+      "year": 2024,
+      "code": "CJB",
+      "domestic": 2864269,
+      "international": 226385,
+      "total": 3090654,
+      "share": 0.073248,
+      "lat": 11.027,
+      "lon": 77.042
+    },
+    {
+      "year": 2024,
+      "code": "COH",
+      "domestic": 5080,
+      "international": 0,
+      "total": 5080,
+      "share": 0.0,
+      "lat": 26.33,
+      "lon": 89.417
+    },
+    {
+      "year": 2024,
+      "code": "COK",
+      "domestic": 5664138,
+      "international": 5010577,
+      "total": 10674715,
+      "share": 0.469387,
+      "lat": 10.154,
+      "lon": 76.407
+    },
+    {
+      "year": 2024,
+      "code": "CWK",
+      "domestic": 1267,
+      "international": 0,
+      "total": 1267,
+      "share": 0.0
+    },
+    {
+      "year": 2024,
+      "code": "DBR",
+      "domestic": 483134,
+      "international": 0,
+      "total": 483134,
+      "share": 0.0
+    },
+    {
+      "year": 2024,
+      "code": "DED",
+      "domestic": 1637541,
+      "international": 0,
+      "total": 1637541,
+      "share": 0.0,
+      "lat": 30.187,
+      "lon": 78.18
+    },
+    {
+      "year": 2024,
+      "code": "DEL",
+      "domestic": 55842125,
+      "international": 20569261,
+      "total": 76411386,
+      "share": 0.269191,
+      "lat": 28.569,
+      "lon": 77.112
+    },
+    {
+      "year": 2024,
+      "code": "DEP",
+      "domestic": 228270,
+      "international": 0,
+      "total": 228270,
+      "share": 0.0
+    },
+    {
+      "year": 2024,
+      "code": "DGH",
+      "domestic": 478873,
+      "international": 0,
+      "total": 478873,
+      "share": 0.0
+    },
+    {
+      "year": 2024,
+      "code": "DHM",
+      "domestic": 205250,
+      "international": 0,
+      "total": 205250,
+      "share": 0.0,
+      "lat": 32.165,
+      "lon": 76.263
+    },
+    {
+      "year": 2024,
+      "code": "DIB",
+      "domestic": 808125,
+      "international": 0,
+      "total": 808125,
+      "share": 0.0,
+      "lat": 27.481,
+      "lon": 95.018
+    },
+    {
+      "year": 2024,
+      "code": "DIU",
+      "domestic": 98794,
+      "international": 0,
+      "total": 98794,
+      "share": 0.0,
+      "lat": 20.717,
+      "lon": 70.917
+    },
+    {
+      "year": 2024,
+      "code": "DMU",
+      "domestic": 314839,
+      "international": 0,
+      "total": 314839,
+      "share": 0.0,
+      "lat": 25.885,
+      "lon": 93.77
+    },
+    {
+      "year": 2024,
+      "code": "GAU",
+      "domestic": 6130495,
+      "international": 51839,
+      "total": 6182334,
+      "share": 0.008385,
+      "lat": 26.104,
+      "lon": 91.589
+    },
+    {
+      "year": 2024,
+      "code": "GAY",
+      "domestic": 223908,
+      "international": 74368,
+      "total": 298276,
+      "share": 0.249326,
+      "lat": 24.748,
+      "lon": 84.942
+    },
+    {
+      "year": 2024,
+      "code": "GBI",
+      "domestic": 40829,
+      "international": 0,
+      "total": 40829,
+      "share": 0.0
+    },
+    {
+      "year": 2024,
+      "code": "GDB",
+      "domestic": 30107,
+      "international": 0,
+      "total": 30107,
+      "share": 0.0
+    },
+    {
+      "year": 2024,
+      "code": "GOI",
+      "domestic": 6612053,
+      "international": 0,
+      "total": 6612053,
+      "share": 0.0,
+      "lat": 15.38,
+      "lon": 73.828
+    },
+    {
+      "year": 2024,
+      "code": "GOP",
+      "domestic": 741137,
+      "international": 0,
+      "total": 741137,
+      "share": 0.0,
+      "lat": 26.74,
+      "lon": 83.45
+    },
+    {
+      "year": 2024,
+      "code": "GOX",
+      "domestic": 4457212,
+      "international": 478285,
+      "total": 4935497,
+      "share": 0.096907
+    },
+    {
+      "year": 2024,
+      "code": "GWL",
+      "domestic": 389377,
+      "international": 0,
+      "total": 389377,
+      "share": 0.0,
+      "lat": 26.293,
+      "lon": 78.228
+    },
+    {
+      "year": 2024,
+      "code": "HBX",
+      "domestic": 334827,
+      "international": 0,
+      "total": 334827,
+      "share": 0.0,
+      "lat": 15.362,
+      "lon": 75.085
+    },
+    {
+      "year": 2024,
+      "code": "HDO",
+      "domestic": 74547,
+      "international": 0,
+      "total": 74547,
+      "share": 0.0
+    },
+    {
+      "year": 2024,
+      "code": "HGI",
+      "domestic": 167287,
+      "international": 0,
+      "total": 167287,
+      "share": 0.0
+    },
+    {
+      "year": 2024,
+      "code": "HJR",
+      "domestic": 51638,
+      "international": 0,
+      "total": 51638,
+      "share": 0.0,
+      "lat": 24.819,
+      "lon": 79.92
+    },
+    {
+      "year": 2024,
+      "code": "HRH",
+      "domestic": 1408,
+      "international": 0,
+      "total": 1408,
+      "share": 0.0
+    },
+    {
+      "year": 2024,
+      "code": "HSR",
+      "domestic": 1036274,
+      "international": 0,
+      "total": 1036274,
+      "share": 0.0
+    },
+    {
+      "year": 2024,
+      "code": "HYD",
+      "domestic": 23175949,
+      "international": 4752032,
+      "total": 27927981,
+      "share": 0.170153,
+      "lat": 17.453,
+      "lon": 78.462
+    },
+    {
+      "year": 2024,
+      "code": "IDR",
+      "domestic": 3703619,
+      "international": 47888,
+      "total": 3751507,
+      "share": 0.012765,
+      "lat": 22.723,
+      "lon": 75.806
+    },
+    {
+      "year": 2024,
+      "code": "IMF",
+      "domestic": 1272846,
+      "international": 0,
+      "total": 1272846,
+      "share": 0.0,
+      "lat": 24.764,
+      "lon": 93.903
+    },
+    {
+      "year": 2024,
+      "code": "ISK",
+      "domestic": 304127,
+      "international": 0,
+      "total": 304127,
+      "share": 0.0,
+      "lat": 19.964,
+      "lon": 73.808
+    },
+    {
+      "year": 2024,
+      "code": "IXA",
+      "domestic": 1368104,
+      "international": 0,
+      "total": 1368104,
+      "share": 0.0,
+      "lat": 23.877,
+      "lon": 91.24
+    },
+    {
+      "year": 2024,
+      "code": "IXB",
+      "domestic": 3247237,
+      "international": 8030,
+      "total": 3255267,
+      "share": 0.002467,
+      "lat": 26.683,
+      "lon": 88.333
+    },
+    {
+      "year": 2024,
+      "code": "IXC",
+      "domestic": 3675066,
+      "international": 168767,
+      "total": 3843833,
+      "share": 0.043906,
+      "lat": 30.667,
+      "lon": 76.783
+    },
+    {
+      "year": 2024,
+      "code": "IXD",
+      "domestic": 574000,
+      "international": 0,
+      "total": 574000,
+      "share": 0.0,
+      "lat": 25.44,
+      "lon": 81.737
+    },
+    {
+      "year": 2024,
+      "code": "IXE",
+      "domestic": 1655195,
+      "international": 567532,
+      "total": 2222727,
+      "share": 0.255331,
+      "lat": 12.962,
+      "lon": 74.89
+    },
+    {
+      "year": 2024,
+      "code": "IXG",
+      "domestic": 329076,
+      "international": 0,
+      "total": 329076,
+      "share": 0.0,
+      "lat": 15.859,
+      "lon": 74.618
+    },
+    {
+      "year": 2024,
+      "code": "IXI",
+      "domestic": 35330,
+      "international": 0,
+      "total": 35330,
+      "share": 0.0,
+      "lat": 27.291,
+      "lon": 94.097
+    },
+    {
+      "year": 2024,
+      "code": "IXJ",
+      "domestic": 1525431,
+      "international": 0,
+      "total": 1525431,
+      "share": 0.0,
+      "lat": 32.689,
+      "lon": 74.837
+    },
+    {
+      "year": 2024,
+      "code": "IXK",
+      "domestic": 16527,
+      "international": 0,
+      "total": 16527,
+      "share": 0.0,
+      "lat": 21.314,
+      "lon": 70.269
+    },
+    {
+      "year": 2024,
+      "code": "IXL",
+      "domestic": 1040813,
+      "international": 0,
+      "total": 1040813,
+      "share": 0.0,
+      "lat": 34.136,
+      "lon": 77.546
+    },
+    {
+      "year": 2024,
+      "code": "IXM",
+      "domestic": 1036527,
+      "international": 228282,
+      "total": 1264809,
+      "share": 0.180487,
+      "lat": 9.834,
+      "lon": 78.089
+    },
+    {
+      "year": 2024,
+      "code": "IXR",
+      "domestic": 2551385,
+      "international": 0,
+      "total": 2551385,
+      "share": 0.0,
+      "lat": 23.314,
+      "lon": 85.321
+    },
+    {
+      "year": 2024,
+      "code": "IXS",
+      "domestic": 444069,
+      "international": 0,
+      "total": 444069,
+      "share": 0.0,
+      "lat": 24.912,
+      "lon": 92.98
+    },
+    {
+      "year": 2024,
+      "code": "IXT",
+      "domestic": 8286,
+      "international": 0,
+      "total": 8286,
+      "share": 0.0,
+      "lat": 28.1,
+      "lon": 95.383
+    },
+    {
+      "year": 2024,
+      "code": "IXU",
+      "domestic": 687422,
+      "international": 0,
+      "total": 687422,
+      "share": 0.0,
+      "lat": 19.864,
+      "lon": 75.399
+    },
+    {
+      "year": 2024,
+      "code": "IXW",
+      "domestic": 8736,
+      "international": 0,
+      "total": 8736,
+      "share": 0.0,
+      "lat": 22.817,
+      "lon": 86.167
+    },
+    {
+      "year": 2024,
+      "code": "IXY",
+      "domestic": 63150,
+      "international": 0,
+      "total": 63150,
+      "share": 0.0,
+      "lat": 23.112,
+      "lon": 70.101
+    },
+    {
+      "year": 2024,
+      "code": "IXZ",
+      "domestic": 1593972,
+      "international": 0,
+      "total": 1593972,
+      "share": 0.0,
+      "lat": 11.647,
+      "lon": 92.735
+    },
+    {
+      "year": 2024,
+      "code": "JAI",
+      "domestic": 5290137,
+      "international": 423832,
+      "total": 5713969,
+      "share": 0.074175,
+      "lat": 26.824,
+      "lon": 75.803
+    },
+    {
+      "year": 2024,
+      "code": "JDH",
+      "domestic": 1025143,
+      "international": 0,
+      "total": 1025143,
+      "share": 0.0,
+      "lat": 26.267,
+      "lon": 73.05
+    },
+    {
+      "year": 2024,
+      "code": "JGA",
+      "domestic": 155612,
+      "international": 0,
+      "total": 155612,
+      "share": 0.0,
+      "lat": 22.467,
+      "lon": 70.167
+    },
+    {
+      "year": 2024,
+      "code": "JGB",
+      "domestic": 70036,
+      "international": 0,
+      "total": 70036,
+      "share": 0.0
+    },
+    {
+      "year": 2024,
+      "code": "JLG",
+      "domestic": 64501,
+      "international": 0,
+      "total": 64501,
+      "share": 0.0
+    },
+    {
+      "year": 2024,
+      "code": "JLR",
+      "domestic": 355503,
+      "international": 0,
+      "total": 355503,
+      "share": 0.0,
+      "lat": 23.183,
+      "lon": 80.062
+    },
+    {
+      "year": 2024,
+      "code": "JRG",
+      "domestic": 287935,
+      "international": 0,
+      "total": 287935,
+      "share": 0.0
+    },
+    {
+      "year": 2024,
+      "code": "JRH",
+      "domestic": 137318,
+      "international": 0,
+      "total": 137318,
+      "share": 0.0,
+      "lat": 26.732,
+      "lon": 94.175
+    },
+    {
+      "year": 2024,
+      "code": "JSA",
+      "domestic": 129508,
+      "international": 0,
+      "total": 129508,
+      "share": 0.0,
+      "lat": 26.889,
+      "lon": 70.865
+    },
+    {
+      "year": 2024,
+      "code": "KJB",
+      "domestic": 21818,
+      "international": 0,
+      "total": 21818,
+      "share": 0.0
+    },
+    {
+      "year": 2024,
+      "code": "KLH",
+      "domestic": 154667,
+      "international": 0,
+      "total": 154667,
+      "share": 0.0,
+      "lat": 16.665,
+      "lon": 74.291
+    },
+    {
+      "year": 2024,
+      "code": "KNU",
+      "domestic": 281291,
+      "international": 0,
+      "total": 281291,
+      "share": 0.0,
+      "lat": 26.44,
+      "lon": 80.365
+    },
+    {
+      "year": 2024,
+      "code": "KQH",
+      "domestic": 80528,
+      "international": 0,
+      "total": 80528,
+      "share": 0.0
+    },
+    {
+      "year": 2024,
+      "code": "KUU",
+      "domestic": 27781,
+      "international": 0,
+      "total": 27781,
+      "share": 0.0,
+      "lat": 31.877,
+      "lon": 77.155
+    },
+    {
+      "year": 2024,
+      "code": "LKO",
+      "domestic": 5577335,
+      "international": 1119449,
+      "total": 6696784,
+      "share": 0.167162,
+      "lat": 26.762,
+      "lon": 80.885
+    },
+    {
+      "year": 2024,
+      "code": "LUH",
+      "domestic": 1744,
+      "international": 0,
+      "total": 1744,
+      "share": 0.0,
+      "lat": 30.853,
+      "lon": 75.957
+    },
+    {
+      "year": 2024,
+      "code": "MAA",
+      "domestic": 15997038,
+      "international": 5628373,
+      "total": 21625411,
+      "share": 0.260267,
+      "lat": 12.995,
+      "lon": 80.175
+    },
+    {
+      "year": 2024,
+      "code": "MAQ",
+      "domestic": 377812,
+      "international": 914768,
+      "total": 1292580,
+      "share": 0.707707
+    },
+    {
+      "year": 2024,
+      "code": "MYQ",
+      "domestic": 87711,
+      "international": 0,
+      "total": 87711,
+      "share": 0.0,
+      "lat": 12.307,
+      "lon": 76.65
+    },
+    {
+      "year": 2024,
+      "code": "MZS",
+      "domestic": 514,
+      "international": 0,
+      "total": 514,
+      "share": 0.0
+    },
+    {
+      "year": 2024,
+      "code": "NAG",
+      "domestic": 2675029,
+      "international": 99457,
+      "total": 2774486,
+      "share": 0.035847,
+      "lat": 21.092,
+      "lon": 79.048
+    },
+    {
+      "year": 2024,
+      "code": "NDC",
+      "domestic": 105718,
+      "international": 0,
+      "total": 105718,
+      "share": 0.0,
+      "lat": 19.182,
+      "lon": 77.319
+    },
+    {
+      "year": 2024,
+      "code": "NNS",
+      "domestic": 7659,
+      "international": 0,
+      "total": 7659,
+      "share": 0.0
+    },
+    {
+      "year": 2024,
+      "code": "PAB",
+      "domestic": 36725,
+      "international": 0,
+      "total": 36725,
+      "share": 0.0,
+      "lat": 22.0,
+      "lon": 82.067
+    },
+    {
+      "year": 2024,
+      "code": "PAT",
+      "domestic": 3612720,
+      "international": 0,
+      "total": 3612720,
+      "share": 0.0,
+      "lat": 25.594,
+      "lon": 85.092
+    },
+    {
+      "year": 2024,
+      "code": "PGH",
+      "domestic": 99613,
+      "international": 0,
+      "total": 99613,
+      "share": 0.0,
+      "lat": 29.032,
+      "lon": 78.472
+    },
+    {
+      "year": 2024,
+      "code": "PNQ",
+      "domestic": 10188597,
+      "international": 202694,
+      "total": 10391291,
+      "share": 0.019506,
+      "lat": 18.583,
+      "lon": 73.933
+    },
+    {
+      "year": 2024,
+      "code": "PNY",
+      "domestic": 26387,
+      "international": 0,
+      "total": 26387,
+      "share": 0.0,
+      "lat": 11.967,
+      "lon": 79.817
+    },
+    {
+      "year": 2024,
+      "code": "PYB",
+      "domestic": 11209,
+      "international": 0,
+      "total": 11209,
+      "share": 0.0
+    },
+    {
+      "year": 2024,
+      "code": "PYG",
+      "domestic": 12829,
+      "international": 0,
+      "total": 12829,
+      "share": 0.0
+    },
+    {
+      "year": 2024,
+      "code": "REW",
+      "domestic": 313,
+      "international": 0,
+      "total": 313,
+      "share": 0.0
+    },
+    {
+      "year": 2024,
+      "code": "RJA",
+      "domestic": 436009,
+      "international": 0,
+      "total": 436009,
+      "share": 0.0,
+      "lat": 17.108,
+      "lon": 81.821
+    },
+    {
+      "year": 2024,
+      "code": "RPR",
+      "domestic": 2509872,
+      "international": 0,
+      "total": 2509872,
+      "share": 0.0,
+      "lat": 21.18,
+      "lon": 81.74
+    },
+    {
+      "year": 2024,
+      "code": "RQY",
+      "domestic": 96640,
+      "international": 0,
+      "total": 96640,
+      "share": 0.0
+    },
+    {
+      "year": 2024,
+      "code": "RRK",
+      "domestic": 40774,
+      "international": 0,
+      "total": 40774,
+      "share": 0.0,
+      "lat": 22.261,
+      "lon": 84.81
+    },
+    {
+      "year": 2024,
+      "code": "RUP",
+      "domestic": 5130,
+      "international": 0,
+      "total": 5130,
+      "share": 0.0,
+      "lat": 26.14,
+      "lon": 89.91
+    },
+    {
+      "year": 2024,
+      "code": "SAG",
+      "domestic": 757303,
+      "international": 0,
+      "total": 757303,
+      "share": 0.0
+    },
+    {
+      "year": 2024,
+      "code": "SDW",
+      "domestic": 20185,
+      "international": 0,
+      "total": 20185,
+      "share": 0.0
+    },
+    {
+      "year": 2024,
+      "code": "SHL",
+      "domestic": 157250,
+      "international": 0,
+      "total": 157250,
+      "share": 0.0,
+      "lat": 25.704,
+      "lon": 91.978
+    },
+    {
+      "year": 2024,
+      "code": "SLV",
+      "domestic": 23592,
+      "international": 0,
+      "total": 23592,
+      "share": 0.0,
+      "lat": 31.078,
+      "lon": 77.073
+    },
+    {
+      "year": 2024,
+      "code": "STV",
+      "domestic": 1550317,
+      "international": 142963,
+      "total": 1693280,
+      "share": 0.08443,
+      "lat": 21.114,
+      "lon": 72.742
+    },
+    {
+      "year": 2024,
+      "code": "SXR",
+      "domestic": 4194328,
+      "international": 0,
+      "total": 4194328,
+      "share": 0.0,
+      "lat": 33.983,
+      "lon": 74.783
+    },
+    {
+      "year": 2024,
+      "code": "SXV",
+      "domestic": 122087,
+      "international": 0,
+      "total": 122087,
+      "share": 0.0,
+      "lat": 11.783,
+      "lon": 78.066
+    },
+    {
+      "year": 2024,
+      "code": "TCR",
+      "domestic": 218056,
+      "international": 0,
+      "total": 218056,
+      "share": 0.0,
+      "lat": 8.783,
+      "lon": 78.133
+    },
+    {
+      "year": 2024,
+      "code": "TEI",
+      "domestic": 6076,
+      "international": 0,
+      "total": 6076,
+      "share": 0.0
+    },
+    {
+      "year": 2024,
+      "code": "TEZ",
+      "domestic": 48091,
+      "international": 0,
+      "total": 48091,
+      "share": 0.0
+    },
+    {
+      "year": 2024,
+      "code": "TIR",
+      "domestic": 930194,
+      "international": 0,
+      "total": 930194,
+      "share": 0.0,
+      "lat": 13.633,
+      "lon": 79.542
+    },
+    {
+      "year": 2024,
+      "code": "TRV",
+      "domestic": 2598887,
+      "international": 2070018,
+      "total": 4668905,
+      "share": 0.443363,
+      "lat": 8.48,
+      "lon": 76.92
+    },
+    {
+      "year": 2024,
+      "code": "TRZ",
+      "domestic": 580030,
+      "international": 1323883,
+      "total": 1903913,
+      "share": 0.695348,
+      "lat": 10.766,
+      "lon": 78.715
+    },
+    {
+      "year": 2024,
+      "code": "UDR",
+      "domestic": 1581428,
+      "international": 0,
+      "total": 1581428,
+      "share": 0.0,
+      "lat": 24.618,
+      "lon": 73.894
+    },
+    {
+      "year": 2024,
+      "code": "UKE",
+      "domestic": 2317,
+      "international": 0,
+      "total": 2317,
+      "share": 0.0
+    },
+    {
+      "year": 2024,
+      "code": "VDY",
+      "domestic": 52005,
+      "international": 0,
+      "total": 52005,
+      "share": 0.0,
+      "lat": 22.533,
+      "lon": 72.9
+    },
+    {
+      "year": 2024,
+      "code": "VGA",
+      "domestic": 1171366,
+      "international": 27851,
+      "total": 1199217,
+      "share": 0.023224,
+      "lat": 16.527,
+      "lon": 80.797
+    },
+    {
+      "year": 2024,
+      "code": "VNS",
+      "domestic": 3483638,
+      "international": 117702,
+      "total": 3601340,
+      "share": 0.032683,
+      "lat": 25.451,
+      "lon": 82.859
+    },
+    {
+      "year": 2024,
+      "code": "VSV",
+      "domestic": 742,
+      "international": 0,
+      "total": 742,
+      "share": 0.0
+    },
+    {
+      "year": 2024,
+      "code": "VTZ",
+      "domestic": 2704901,
+      "international": 108788,
+      "total": 2813689,
+      "share": 0.038664,
+      "lat": 17.721,
+      "lon": 83.225
+    },
+    {
+      "year": 2024,
+      "code": "ZER",
+      "domestic": 274,
+      "international": 0,
+      "total": 274,
+      "share": 0.0
+    },
+    {
+      "year": 2025,
+      "code": "AGR",
+      "domestic": 230831,
+      "international": 0,
+      "total": 230831,
+      "share": 0.0,
+      "cluster": 1,
+      "lat": 27.15,
+      "lon": 77.95
+    },
+    {
+      "year": 2025,
+      "code": "AGX",
+      "domestic": 117114,
+      "international": 0,
+      "total": 117114,
+      "share": 0.0,
+      "cluster": 1,
+      "lat": 10.824,
+      "lon": 72.176
+    },
+    {
+      "year": 2025,
+      "code": "AHA",
+      "domestic": 1356,
+      "international": 0,
+      "total": 1356,
+      "share": 0.0,
+      "cluster": 0
+    },
+    {
+      "year": 2025,
+      "code": "AIP",
+      "domestic": 79570,
+      "international": 0,
+      "total": 79570,
+      "share": 0.0,
+      "cluster": 1
+    },
+    {
+      "year": 2025,
+      "code": "AJL",
+      "domestic": 416466,
+      "international": 0,
+      "total": 416466,
+      "share": 0.0,
+      "cluster": 1,
+      "lat": 23.733,
+      "lon": 92.8
+    },
+    {
+      "year": 2025,
+      "code": "AMD",
+      "domestic": 11376444,
+      "international": 2205111,
+      "total": 13581555,
+      "share": 0.162361,
+      "cluster": 2,
+      "lat": 23.071,
+      "lon": 72.626
+    },
+    {
+      "year": 2025,
+      "code": "ATQ",
+      "domestic": 1999518,
+      "international": 1066995,
+      "total": 3066513,
+      "share": 0.347951,
+      "cluster": 2,
+      "lat": 31.704,
+      "lon": 74.802
+    },
+    {
+      "year": 2025,
+      "code": "AVR",
+      "domestic": 6952,
+      "international": 0,
+      "total": 6952,
+      "share": 0.0,
+      "cluster": 0
+    },
+    {
+      "year": 2025,
+      "code": "AYJ",
+      "domestic": 1052204,
+      "international": 0,
+      "total": 1052204,
+      "share": 0.0,
+      "cluster": 1
+    },
+    {
+      "year": 2025,
+      "code": "BBI",
+      "domestic": 4973913,
+      "international": 136872,
+      "total": 5110785,
+      "share": 0.026781,
+      "cluster": 2,
+      "lat": 20.247,
+      "lon": 85.819
+    },
+    {
+      "year": 2025,
+      "code": "BDQ",
+      "domestic": 1243810,
+      "international": 0,
+      "total": 1243810,
+      "share": 0.0,
+      "cluster": 1,
+      "lat": 22.329,
+      "lon": 73.219
+    },
+    {
+      "year": 2025,
+      "code": "BEK",
+      "domestic": 120293,
+      "international": 0,
+      "total": 120293,
+      "share": 0.0,
+      "cluster": 1
+    },
+    {
+      "year": 2025,
+      "code": "BHJ",
+      "domestic": 252131,
+      "international": 0,
+      "total": 252131,
+      "share": 0.0,
+      "cluster": 1,
+      "lat": 23.287,
+      "lon": 69.67
+    },
+    {
+      "year": 2025,
+      "code": "BHO",
+      "domestic": 1576781,
+      "international": 0,
+      "total": 1576781,
+      "share": 0.0,
+      "cluster": 1,
+      "lat": 23.287,
+      "lon": 77.337
+    },
+    {
+      "year": 2025,
+      "code": "BHU",
+      "domestic": 32618,
+      "international": 0,
+      "total": 32618,
+      "share": 0.0,
+      "cluster": 0,
+      "lat": 21.754,
+      "lon": 72.191
+    },
+    {
+      "year": 2025,
+      "code": "BKB",
+      "domestic": 40966,
+      "international": 0,
+      "total": 40966,
+      "share": 0.0,
+      "cluster": 0
+    },
+    {
+      "year": 2025,
+      "code": "BLR",
+      "domestic": 36094845,
+      "international": 6610892,
+      "total": 42705737,
+      "share": 0.154801,
+      "cluster": 2,
+      "lat": 12.952,
+      "lon": 77.665
+    },
+    {
+      "year": 2025,
+      "code": "BOM",
+      "domestic": 38383692,
+      "international": 15647741,
+      "total": 54031433,
+      "share": 0.289604,
+      "cluster": 2,
+      "lat": 19.091,
+      "lon": 72.867
+    },
+    {
+      "year": 2025,
+      "code": "BUP",
+      "domestic": 17464,
+      "international": 0,
+      "total": 17464,
+      "share": 0.0,
+      "cluster": 0
+    },
+    {
+      "year": 2025,
+      "code": "CCJ",
+      "domestic": 846826,
+      "international": 2969788,
+      "total": 3816614,
+      "share": 0.778121,
+      "cluster": 2,
+      "lat": 11.138,
+      "lon": 75.95
+    },
+    {
+      "year": 2025,
+      "code": "CCU",
+      "domestic": 18700094,
+      "international": 2209997,
+      "total": 20910091,
+      "share": 0.10569,
+      "cluster": 2,
+      "lat": 22.653,
+      "lon": 88.449
+    },
+    {
+      "year": 2025,
+      "code": "CDP",
+      "domestic": 68388,
+      "international": 0,
+      "total": 68388,
+      "share": 0.0,
+      "cluster": 0
+    },
+    {
+      "year": 2025,
+      "code": "CJB",
+      "domestic": 3134936,
+      "international": 319663,
+      "total": 3454599,
+      "share": 0.092533,
+      "cluster": 2,
+      "lat": 11.027,
+      "lon": 77.042
+    },
+    {
+      "year": 2025,
+      "code": "COH",
+      "domestic": 5623,
+      "international": 0,
+      "total": 5623,
+      "share": 0.0,
+      "cluster": 0,
+      "lat": 26.33,
+      "lon": 89.417
+    },
+    {
+      "year": 2025,
+      "code": "COK",
+      "domestic": 5861973,
+      "international": 5258547,
+      "total": 11120520,
+      "share": 0.472869,
+      "cluster": 2,
+      "lat": 10.154,
+      "lon": 76.407
+    },
+    {
+      "year": 2025,
+      "code": "DBR",
+      "domestic": 719258,
+      "international": 0,
+      "total": 719258,
+      "share": 0.0,
+      "cluster": 1
+    },
+    {
+      "year": 2025,
+      "code": "DED",
+      "domestic": 1799771,
+      "international": 0,
+      "total": 1799771,
+      "share": 0.0,
+      "cluster": 1,
+      "lat": 30.187,
+      "lon": 78.18
+    },
+    {
+      "year": 2025,
+      "code": "DEL",
+      "domestic": 54897557,
+      "international": 21092257,
+      "total": 75989814,
+      "share": 0.277567,
+      "cluster": 2,
+      "lat": 28.569,
+      "lon": 77.112
+    },
+    {
+      "year": 2025,
+      "code": "DEP",
+      "domestic": 371384,
+      "international": 0,
+      "total": 371384,
+      "share": 0.0,
+      "cluster": 1
+    },
+    {
+      "year": 2025,
+      "code": "DGH",
+      "domestic": 535727,
+      "international": 0,
+      "total": 535727,
+      "share": 0.0,
+      "cluster": 1
+    },
+    {
+      "year": 2025,
+      "code": "DHM",
+      "domestic": 160490,
+      "international": 0,
+      "total": 160490,
+      "share": 0.0,
+      "cluster": 1,
+      "lat": 32.165,
+      "lon": 76.263
+    },
+    {
+      "year": 2025,
+      "code": "DIB",
+      "domestic": 795924,
+      "international": 0,
+      "total": 795924,
+      "share": 0.0,
+      "cluster": 1,
+      "lat": 27.481,
+      "lon": 95.018
+    },
+    {
+      "year": 2025,
+      "code": "DIU",
+      "domestic": 116259,
+      "international": 0,
+      "total": 116259,
+      "share": 0.0,
+      "cluster": 1,
+      "lat": 20.717,
+      "lon": 70.917
+    },
+    {
+      "year": 2025,
+      "code": "DMU",
+      "domestic": 373054,
+      "international": 0,
+      "total": 373054,
+      "share": 0.0,
+      "cluster": 1,
+      "lat": 25.885,
+      "lon": 93.77
+    },
+    {
+      "year": 2025,
+      "code": "DPP",
+      "domestic": 825,
+      "international": 0,
+      "total": 825,
+      "share": 0.0,
+      "cluster": 0
+    },
+    {
+      "year": 2025,
+      "code": "GAU",
+      "domestic": 6683766,
+      "international": 47599,
+      "total": 6731365,
+      "share": 0.007071,
+      "cluster": 2,
+      "lat": 26.104,
+      "lon": 91.589
+    },
+    {
+      "year": 2025,
+      "code": "GAY",
+      "domestic": 241377,
+      "international": 45060,
+      "total": 286437,
+      "share": 0.157312,
+      "cluster": 2,
+      "lat": 24.748,
+      "lon": 84.942
+    },
+    {
+      "year": 2025,
+      "code": "GBI",
+      "domestic": 18908,
+      "international": 0,
+      "total": 18908,
+      "share": 0.0,
+      "cluster": 0
+    },
+    {
+      "year": 2025,
+      "code": "GDB",
+      "domestic": 32850,
+      "international": 0,
+      "total": 32850,
+      "share": 0.0,
+      "cluster": 0
+    },
+    {
+      "year": 2025,
+      "code": "GOI",
+      "domestic": 6238974,
+      "international": 0,
+      "total": 6238974,
+      "share": 0.0,
+      "cluster": 1,
+      "lat": 15.38,
+      "lon": 73.828
+    },
+    {
+      "year": 2025,
+      "code": "GOP",
+      "domestic": 1152245,
+      "international": 0,
+      "total": 1152245,
+      "share": 0.0,
+      "cluster": 1,
+      "lat": 26.74,
+      "lon": 83.45
+    },
+    {
+      "year": 2025,
+      "code": "GOX",
+      "domestic": 4678632,
+      "international": 490476,
+      "total": 5169108,
+      "share": 0.094886,
+      "cluster": 2
+    },
+    {
+      "year": 2025,
+      "code": "GWL",
+      "domestic": 292535,
+      "international": 0,
+      "total": 292535,
+      "share": 0.0,
+      "cluster": 1,
+      "lat": 26.293,
+      "lon": 78.228
+    },
+    {
+      "year": 2025,
+      "code": "HBX",
+      "domestic": 363730,
+      "international": 0,
+      "total": 363730,
+      "share": 0.0,
+      "cluster": 1,
+      "lat": 15.362,
+      "lon": 75.085
+    },
+    {
+      "year": 2025,
+      "code": "HDO",
+      "domestic": 997190,
+      "international": 0,
+      "total": 997190,
+      "share": 0.0,
+      "cluster": 1
+    },
+    {
+      "year": 2025,
+      "code": "HGI",
+      "domestic": 183177,
+      "international": 0,
+      "total": 183177,
+      "share": 0.0,
+      "cluster": 1
+    },
+    {
+      "year": 2025,
+      "code": "HJR",
+      "domestic": 51214,
+      "international": 0,
+      "total": 51214,
+      "share": 0.0,
+      "cluster": 0,
+      "lat": 24.819,
+      "lon": 79.92
+    },
+    {
+      "year": 2025,
+      "code": "HSR",
+      "domestic": 1039262,
+      "international": 0,
+      "total": 1039262,
+      "share": 0.0,
+      "cluster": 1
+    },
+    {
+      "year": 2025,
+      "code": "HSS",
+      "domestic": 6408,
+      "international": 0,
+      "total": 6408,
+      "share": 0.0,
+      "cluster": 0
+    },
+    {
+      "year": 2025,
+      "code": "HYD",
+      "domestic": 25356636,
+      "international": 5289819,
+      "total": 30646455,
+      "share": 0.172608,
+      "cluster": 2,
+      "lat": 17.453,
+      "lon": 78.462
+    },
+    {
+      "year": 2025,
+      "code": "IDR",
+      "domestic": 4196156,
+      "international": 61204,
+      "total": 4257360,
+      "share": 0.014376,
+      "cluster": 2,
+      "lat": 22.723,
+      "lon": 75.806
+    },
+    {
+      "year": 2025,
+      "code": "IMF",
+      "domestic": 1255086,
+      "international": 0,
+      "total": 1255086,
+      "share": 0.0,
+      "cluster": 1,
+      "lat": 24.764,
+      "lon": 93.903
+    },
+    {
+      "year": 2025,
+      "code": "ISK",
+      "domestic": 401142,
+      "international": 0,
+      "total": 401142,
+      "share": 0.0,
+      "cluster": 1,
+      "lat": 19.964,
+      "lon": 73.808
+    },
+    {
+      "year": 2025,
+      "code": "IXA",
+      "domestic": 1515413,
+      "international": 0,
+      "total": 1515413,
+      "share": 0.0,
+      "cluster": 1,
+      "lat": 23.877,
+      "lon": 91.24
+    },
+    {
+      "year": 2025,
+      "code": "IXB",
+      "domestic": 3440084,
+      "international": 7324,
+      "total": 3447408,
+      "share": 0.002124,
+      "cluster": 2,
+      "lat": 26.683,
+      "lon": 88.333
+    },
+    {
+      "year": 2025,
+      "code": "IXC",
+      "domestic": 3727822,
+      "international": 167687,
+      "total": 3895509,
+      "share": 0.043046,
+      "cluster": 2,
+      "lat": 30.667,
+      "lon": 76.783
+    },
+    {
+      "year": 2025,
+      "code": "IXD",
+      "domestic": 1048049,
+      "international": 0,
+      "total": 1048049,
+      "share": 0.0,
+      "cluster": 1,
+      "lat": 25.44,
+      "lon": 81.737
+    },
+    {
+      "year": 2025,
+      "code": "IXE",
+      "domestic": 1812466,
+      "international": 700495,
+      "total": 2512961,
+      "share": 0.278753,
+      "cluster": 2,
+      "lat": 12.962,
+      "lon": 74.89
+    },
+    {
+      "year": 2025,
+      "code": "IXG",
+      "domestic": 298366,
+      "international": 0,
+      "total": 298366,
+      "share": 0.0,
+      "cluster": 1,
+      "lat": 15.859,
+      "lon": 74.618
+    },
+    {
+      "year": 2025,
+      "code": "IXI",
+      "domestic": 12146,
+      "international": 0,
+      "total": 12146,
+      "share": 0.0,
+      "cluster": 0,
+      "lat": 27.291,
+      "lon": 94.097
+    },
+    {
+      "year": 2025,
+      "code": "IXJ",
+      "domestic": 1387209,
+      "international": 0,
+      "total": 1387209,
+      "share": 0.0,
+      "cluster": 1,
+      "lat": 32.689,
+      "lon": 74.837
+    },
+    {
+      "year": 2025,
+      "code": "IXK",
+      "domestic": 7404,
+      "international": 0,
+      "total": 7404,
+      "share": 0.0,
+      "cluster": 0,
+      "lat": 21.314,
+      "lon": 70.269
+    },
+    {
+      "year": 2025,
+      "code": "IXL",
+      "domestic": 907646,
+      "international": 0,
+      "total": 907646,
+      "share": 0.0,
+      "cluster": 1,
+      "lat": 34.136,
+      "lon": 77.546
+    },
+    {
+      "year": 2025,
+      "code": "IXM",
+      "domestic": 1164074,
+      "international": 204786,
+      "total": 1368860,
+      "share": 0.149603,
+      "cluster": 2,
+      "lat": 9.834,
+      "lon": 78.089
+    },
+    {
+      "year": 2025,
+      "code": "IXR",
+      "domestic": 2696680,
+      "international": 0,
+      "total": 2696680,
+      "share": 0.0,
+      "cluster": 1,
+      "lat": 23.314,
+      "lon": 85.321
+    },
+    {
+      "year": 2025,
+      "code": "IXS",
+      "domestic": 422951,
+      "international": 0,
+      "total": 422951,
+      "share": 0.0,
+      "cluster": 1,
+      "lat": 24.912,
+      "lon": 92.98
+    },
+    {
+      "year": 2025,
+      "code": "IXT",
+      "domestic": 4259,
+      "international": 0,
+      "total": 4259,
+      "share": 0.0,
+      "cluster": 0,
+      "lat": 28.1,
+      "lon": 95.383
+    },
+    {
+      "year": 2025,
+      "code": "IXU",
+      "domestic": 631380,
+      "international": 0,
+      "total": 631380,
+      "share": 0.0,
+      "cluster": 1,
+      "lat": 19.864,
+      "lon": 75.399
+    },
+    {
+      "year": 2025,
+      "code": "IXW",
+      "domestic": 8728,
+      "international": 0,
+      "total": 8728,
+      "share": 0.0,
+      "cluster": 0,
+      "lat": 22.817,
+      "lon": 86.167
+    },
+    {
+      "year": 2025,
+      "code": "IXX",
+      "domestic": 22381,
+      "international": 0,
+      "total": 22381,
+      "share": 0.0,
+      "cluster": 0
+    },
+    {
+      "year": 2025,
+      "code": "IXY",
+      "domestic": 34909,
+      "international": 0,
+      "total": 34909,
+      "share": 0.0,
+      "cluster": 0,
+      "lat": 23.112,
+      "lon": 70.101
+    },
+    {
+      "year": 2025,
+      "code": "IXZ",
+      "domestic": 1759680,
+      "international": 0,
+      "total": 1759680,
+      "share": 0.0,
+      "cluster": 1,
+      "lat": 11.647,
+      "lon": 92.735
+    },
+    {
+      "year": 2025,
+      "code": "JAI",
+      "domestic": 5023520,
+      "international": 555408,
+      "total": 5578928,
+      "share": 0.099555,
+      "cluster": 2,
+      "lat": 26.824,
+      "lon": 75.803
+    },
+    {
+      "year": 2025,
+      "code": "JDH",
+      "domestic": 1021656,
+      "international": 0,
+      "total": 1021656,
+      "share": 0.0,
+      "cluster": 1,
+      "lat": 26.267,
+      "lon": 73.05
+    },
+    {
+      "year": 2025,
+      "code": "JGA",
+      "domestic": 121893,
+      "international": 0,
+      "total": 121893,
+      "share": 0.0,
+      "cluster": 1,
+      "lat": 22.467,
+      "lon": 70.167
+    },
+    {
+      "year": 2025,
+      "code": "JGB",
+      "domestic": 58845,
+      "international": 0,
+      "total": 58845,
+      "share": 0.0,
+      "cluster": 0
+    },
+    {
+      "year": 2025,
+      "code": "JLG",
+      "domestic": 126566,
+      "international": 0,
+      "total": 126566,
+      "share": 0.0,
+      "cluster": 1
+    },
+    {
+      "year": 2025,
+      "code": "JLR",
+      "domestic": 490280,
+      "international": 0,
+      "total": 490280,
+      "share": 0.0,
+      "cluster": 1,
+      "lat": 23.183,
+      "lon": 80.062
+    },
+    {
+      "year": 2025,
+      "code": "JRG",
+      "domestic": 429041,
+      "international": 0,
+      "total": 429041,
+      "share": 0.0,
+      "cluster": 1
+    },
+    {
+      "year": 2025,
+      "code": "JRH",
+      "domestic": 142890,
+      "international": 0,
+      "total": 142890,
+      "share": 0.0,
+      "cluster": 1,
+      "lat": 26.732,
+      "lon": 94.175
+    },
+    {
+      "year": 2025,
+      "code": "JSA",
+      "domestic": 162519,
+      "international": 0,
+      "total": 162519,
+      "share": 0.0,
+      "cluster": 1,
+      "lat": 26.889,
+      "lon": 70.865
+    },
+    {
+      "year": 2025,
+      "code": "KJB",
+      "domestic": 19693,
+      "international": 0,
+      "total": 19693,
+      "share": 0.0,
+      "cluster": 0
+    },
+    {
+      "year": 2025,
+      "code": "KLH",
+      "domestic": 164834,
+      "international": 0,
+      "total": 164834,
+      "share": 0.0,
+      "cluster": 1,
+      "lat": 16.665,
+      "lon": 74.291
+    },
+    {
+      "year": 2025,
+      "code": "KNU",
+      "domestic": 355684,
+      "international": 0,
+      "total": 355684,
+      "share": 0.0,
+      "cluster": 1,
+      "lat": 26.44,
+      "lon": 80.365
+    },
+    {
+      "year": 2025,
+      "code": "KQH",
+      "domestic": 122487,
+      "international": 0,
+      "total": 122487,
+      "share": 0.0,
+      "cluster": 1
+    },
+    {
+      "year": 2025,
+      "code": "KUU",
+      "domestic": 18233,
+      "international": 0,
+      "total": 18233,
+      "share": 0.0,
+      "cluster": 0,
+      "lat": 31.877,
+      "lon": 77.155
+    },
+    {
+      "year": 2025,
+      "code": "LKO",
+      "domestic": 5081463,
+      "international": 1152334,
+      "total": 6233797,
+      "share": 0.184853,
+      "cluster": 2,
+      "lat": 26.762,
+      "lon": 80.885
+    },
+    {
+      "year": 2025,
+      "code": "LUH",
+      "domestic": 631,
+      "international": 0,
+      "total": 631,
+      "share": 0.0,
+      "cluster": 0,
+      "lat": 30.853,
+      "lon": 75.957
+    },
+    {
+      "year": 2025,
+      "code": "MAA",
+      "domestic": 16856200,
+      "international": 6075739,
+      "total": 22931939,
+      "share": 0.264947,
+      "cluster": 2,
+      "lat": 12.995,
+      "lon": 80.175
+    },
+    {
+      "year": 2025,
+      "code": "MAQ",
+      "domestic": 455636,
+      "international": 1040923,
+      "total": 1496559,
+      "share": 0.695544,
+      "cluster": 2
+    },
+    {
+      "year": 2025,
+      "code": "MYQ",
+      "domestic": 85856,
+      "international": 0,
+      "total": 85856,
+      "share": 0.0,
+      "cluster": 1,
+      "lat": 12.307,
+      "lon": 76.65
+    },
+    {
+      "year": 2025,
+      "code": "NAG",
+      "domestic": 2805404,
+      "international": 94859,
+      "total": 2900263,
+      "share": 0.032707,
+      "cluster": 2,
+      "lat": 21.092,
+      "lon": 79.048
+    },
+    {
+      "year": 2025,
+      "code": "NDC",
+      "domestic": 163662,
+      "international": 0,
+      "total": 163662,
+      "share": 0.0,
+      "cluster": 1,
+      "lat": 19.182,
+      "lon": 77.319
+    },
+    {
+      "year": 2025,
+      "code": "NNS",
+      "domestic": 10271,
+      "international": 0,
+      "total": 10271,
+      "share": 0.0,
+      "cluster": 0
+    },
+    {
+      "year": 2025,
+      "code": "PAB",
+      "domestic": 39778,
+      "international": 0,
+      "total": 39778,
+      "share": 0.0,
+      "cluster": 0,
+      "lat": 22.0,
+      "lon": 82.067
+    },
+    {
+      "year": 2025,
+      "code": "PAT",
+      "domestic": 4287762,
+      "international": 0,
+      "total": 4287762,
+      "share": 0.0,
+      "cluster": 1,
+      "lat": 25.594,
+      "lon": 85.092
+    },
+    {
+      "year": 2025,
+      "code": "PBD",
+      "domestic": 6686,
+      "international": 0,
+      "total": 6686,
+      "share": 0.0,
+      "cluster": 0,
+      "lat": 21.65,
+      "lon": 69.659
+    },
+    {
+      "year": 2025,
+      "code": "PGH",
+      "domestic": 73203,
+      "international": 0,
+      "total": 73203,
+      "share": 0.0,
+      "cluster": 1,
+      "lat": 29.032,
+      "lon": 78.472
+    },
+    {
+      "year": 2025,
+      "code": "PNQ",
+      "domestic": 10724452,
+      "international": 347003,
+      "total": 11071455,
+      "share": 0.031342,
+      "cluster": 2,
+      "lat": 18.583,
+      "lon": 73.933
+    },
+    {
+      "year": 2025,
+      "code": "PNY",
+      "domestic": 96323,
+      "international": 0,
+      "total": 96323,
+      "share": 0.0,
+      "cluster": 1,
+      "lat": 11.967,
+      "lon": 79.817
+    },
+    {
+      "year": 2025,
+      "code": "PXN",
+      "domestic": 76747,
+      "international": 0,
+      "total": 76747,
+      "share": 0.0,
+      "cluster": 1
+    },
+    {
+      "year": 2025,
+      "code": "PYB",
+      "domestic": 14816,
+      "international": 0,
+      "total": 14816,
+      "share": 0.0,
+      "cluster": 0
+    },
+    {
+      "year": 2025,
+      "code": "RAJ",
+      "domestic": 114469,
+      "international": 0,
+      "total": 114469,
+      "share": 0.0,
+      "cluster": 1,
+      "lat": 22.309,
+      "lon": 70.779
+    },
+    {
+      "year": 2025,
+      "code": "REW",
+      "domestic": 5628,
+      "international": 0,
+      "total": 5628,
+      "share": 0.0,
+      "cluster": 0
+    },
+    {
+      "year": 2025,
+      "code": "RJA",
+      "domestic": 570321,
+      "international": 0,
+      "total": 570321,
+      "share": 0.0,
+      "cluster": 1,
+      "lat": 17.108,
+      "lon": 81.821
+    },
+    {
+      "year": 2025,
+      "code": "RPR",
+      "domestic": 2775629,
+      "international": 0,
+      "total": 2775629,
+      "share": 0.0,
+      "cluster": 1,
+      "lat": 21.18,
+      "lon": 81.74
+    },
+    {
+      "year": 2025,
+      "code": "RQY",
+      "domestic": 171881,
+      "international": 0,
+      "total": 171881,
+      "share": 0.0,
+      "cluster": 1
+    },
+    {
+      "year": 2025,
+      "code": "RRK",
+      "domestic": 15702,
+      "international": 0,
+      "total": 15702,
+      "share": 0.0,
+      "cluster": 0,
+      "lat": 22.261,
+      "lon": 84.81
+    },
+    {
+      "year": 2025,
+      "code": "RUP",
+      "domestic": 6914,
+      "international": 0,
+      "total": 6914,
+      "share": 0.0,
+      "cluster": 0,
+      "lat": 26.14,
+      "lon": 89.91
+    },
+    {
+      "year": 2025,
+      "code": "SAG",
+      "domestic": 656229,
+      "international": 0,
+      "total": 656229,
+      "share": 0.0,
+      "cluster": 1
+    },
+    {
+      "year": 2025,
+      "code": "SDW",
+      "domestic": 48829,
+      "international": 0,
+      "total": 48829,
+      "share": 0.0,
+      "cluster": 0
+    },
+    {
+      "year": 2025,
+      "code": "SHL",
+      "domestic": 92807,
+      "international": 0,
+      "total": 92807,
+      "share": 0.0,
+      "cluster": 1,
+      "lat": 25.704,
+      "lon": 91.978
+    },
+    {
+      "year": 2025,
+      "code": "SLV",
+      "domestic": 13825,
+      "international": 0,
+      "total": 13825,
+      "share": 0.0,
+      "cluster": 0,
+      "lat": 31.078,
+      "lon": 77.073
+    },
+    {
+      "year": 2025,
+      "code": "SSE",
+      "domestic": 16158,
+      "international": 0,
+      "total": 16158,
+      "share": 0.0,
+      "cluster": 0,
+      "lat": 17.628,
+      "lon": 75.935
+    },
+    {
+      "year": 2025,
+      "code": "STV",
+      "domestic": 1611853,
+      "international": 203206,
+      "total": 1815059,
+      "share": 0.111956,
+      "cluster": 2,
+      "lat": 21.114,
+      "lon": 72.742
+    },
+    {
+      "year": 2025,
+      "code": "SXR",
+      "domestic": 3316131,
+      "international": 0,
+      "total": 3316131,
+      "share": 0.0,
+      "cluster": 1,
+      "lat": 33.983,
+      "lon": 74.783
+    },
+    {
+      "year": 2025,
+      "code": "SXV",
+      "domestic": 118740,
+      "international": 0,
+      "total": 118740,
+      "share": 0.0,
+      "cluster": 1,
+      "lat": 11.783,
+      "lon": 78.066
+    },
+    {
+      "year": 2025,
+      "code": "TCR",
+      "domestic": 279666,
+      "international": 0,
+      "total": 279666,
+      "share": 0.0,
+      "cluster": 1,
+      "lat": 8.783,
+      "lon": 78.133
+    },
+    {
+      "year": 2025,
+      "code": "TEI",
+      "domestic": 11433,
+      "international": 0,
+      "total": 11433,
+      "share": 0.0,
+      "cluster": 0
+    },
+    {
+      "year": 2025,
+      "code": "TIR",
+      "domestic": 1253062,
+      "international": 0,
+      "total": 1253062,
+      "share": 0.0,
+      "cluster": 1,
+      "lat": 13.633,
+      "lon": 79.542
+    },
+    {
+      "year": 2025,
+      "code": "TRV",
+      "domestic": 2292339,
+      "international": 2315851,
+      "total": 4608190,
+      "share": 0.502551,
+      "cluster": 2,
+      "lat": 8.48,
+      "lon": 76.92
+    },
+    {
+      "year": 2025,
+      "code": "TRZ",
+      "domestic": 784094,
+      "international": 1384436,
+      "total": 2168530,
+      "share": 0.638421,
+      "cluster": 2,
+      "lat": 10.766,
+      "lon": 78.715
+    },
+    {
+      "year": 2025,
+      "code": "UDR",
+      "domestic": 1647983,
+      "international": 0,
+      "total": 1647983,
+      "share": 0.0,
+      "cluster": 1,
+      "lat": 24.618,
+      "lon": 73.894
+    },
+    {
+      "year": 2025,
+      "code": "UKE",
+      "domestic": 4457,
+      "international": 0,
+      "total": 4457,
+      "share": 0.0,
+      "cluster": 0
+    },
+    {
+      "year": 2025,
+      "code": "VDY",
+      "domestic": 13766,
+      "international": 0,
+      "total": 13766,
+      "share": 0.0,
+      "cluster": 0,
+      "lat": 22.533,
+      "lon": 72.9
+    },
+    {
+      "year": 2025,
+      "code": "VGA",
+      "domestic": 1356715,
+      "international": 32246,
+      "total": 1388961,
+      "share": 0.023216,
+      "cluster": 2,
+      "lat": 16.527,
+      "lon": 80.797
+    },
+    {
+      "year": 2025,
+      "code": "VNS",
+      "domestic": 4241133,
+      "international": 140950,
+      "total": 4382083,
+      "share": 0.032165,
+      "cluster": 2,
+      "lat": 25.451,
+      "lon": 82.859
+    },
+    {
+      "year": 2025,
+      "code": "VTZ",
+      "domestic": 2919481,
+      "international": 104668,
+      "total": 3024149,
+      "share": 0.034611,
+      "cluster": 2,
+      "lat": 17.721,
+      "lon": 83.225
+    },
+    {
+      "year": 2025,
+      "code": "ZER",
+      "domestic": 738,
+      "international": 0,
+      "total": 738,
+      "share": 0.0,
+      "cluster": 0
+    }
+  ],
+  "clusters": [
+    {
+      "id": 0,
+      "name": "Lower traffic",
+      "count": 36,
+      "median_domestic": 13795,
+      "median_international": 0,
+      "median_total": 13795,
+      "examples": [
+        "CDP",
+        "JGB",
+        "HJR"
+      ]
+    },
+    {
+      "id": 1,
+      "name": "Intermediate traffic",
+      "count": 62,
+      "median_domestic": 408804,
+      "median_international": 0,
+      "median_total": 408804,
+      "examples": [
+        "GOI",
+        "PAT",
+        "SXR"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Major gateways",
+      "count": 31,
+      "median_domestic": 4196156,
+      "median_international": 555408,
+      "median_total": 4382083,
+      "examples": [
+        "DEL",
+        "BOM",
+        "BLR"
+      ]
+    }
+  ],
+  "clustering": {
+    "k": 3,
+    "n": 129,
+    "silhouette": 0.6235,
+    "features": [
+      "log(1+domestic passengers)",
+      "log(1+international passengers)"
+    ],
+    "standardized": true
+  },
+  "regression": {
+    "train_year": 2024,
+    "test_year": 2025,
+    "train_n": 106,
+    "test_n": 116,
+    "model": "Random Forest regression",
+    "features": [
+      "Prior-year domestic passengers",
+      "Two-years-prior domestic passengers"
+    ],
+    "forest": {
+      "mae": 451551.93,
+      "rmse": 2044383.36,
+      "r2": 0.9282
+    },
+    "baseline": {
+      "mae": 182476.34,
+      "rmse": 354819.58,
+      "r2": 0.9978
+    },
+    "feature_importances": [
+      0.745,
+      0.255
+    ],
+    "predictions": [
+      {
+        "airport": "DEL",
+        "actual": 54897557,
+        "predicted": 34065661,
+        "baseline": 55842125
+      },
+      {
+        "airport": "BOM",
+        "actual": 38383692,
+        "predicted": 34065661,
+        "baseline": 38896142
+      },
+      {
+        "airport": "BLR",
+        "actual": 36094845,
+        "predicted": 33170835,
+        "baseline": 34840848
+      },
+      {
+        "airport": "HYD",
+        "actual": 25356636,
+        "predicted": 26752718,
+        "baseline": 23175949
+      },
+      {
+        "airport": "CCU",
+        "actual": 18700094,
+        "predicted": 21537116,
+        "baseline": 18556259
+      },
+      {
+        "airport": "MAA",
+        "actual": 16856200,
+        "predicted": 18725127,
+        "baseline": 15997038
+      },
+      {
+        "airport": "AMD",
+        "actual": 11376444,
+        "predicted": 12691088,
+        "baseline": 10602357
+      },
+      {
+        "airport": "PNQ",
+        "actual": 10724452,
+        "predicted": 10929636,
+        "baseline": 10188597
+      },
+      {
+        "airport": "GAU",
+        "actual": 6683766,
+        "predicted": 6806509,
+        "baseline": 6130495
+      },
+      {
+        "airport": "GOI",
+        "actual": 6238974,
+        "predicted": 7159947,
+        "baseline": 6612053
+      },
+      {
+        "airport": "COK",
+        "actual": 5861973,
+        "predicted": 6142167,
+        "baseline": 5664138
+      },
+      {
+        "airport": "LKO",
+        "actual": 5081463,
+        "predicted": 6142167,
+        "baseline": 5577335
+      },
+      {
+        "airport": "JAI",
+        "actual": 5023520,
+        "predicted": 5792501,
+        "baseline": 5290137
+      },
+      {
+        "airport": "BBI",
+        "actual": 4973913,
+        "predicted": 4683235,
+        "baseline": 4441560
+      },
+      {
+        "airport": "GOX",
+        "actual": 4678632,
+        "predicted": 4435471,
+        "baseline": 4457212
+      },
+      {
+        "airport": "PAT",
+        "actual": 4287762,
+        "predicted": 3770718,
+        "baseline": 3612720
+      },
+      {
+        "airport": "VNS",
+        "actual": 4241133,
+        "predicted": 3618203,
+        "baseline": 3483638
+      },
+      {
+        "airport": "IDR",
+        "actual": 4196156,
+        "predicted": 3719787,
+        "baseline": 3703619
+      },
+      {
+        "airport": "IXC",
+        "actual": 3727822,
+        "predicted": 3728469,
+        "baseline": 3675066
+      },
+      {
+        "airport": "IXB",
+        "actual": 3440084,
+        "predicted": 3507468,
+        "baseline": 3247237
+      },
+      {
+        "airport": "SXR",
+        "actual": 3316131,
+        "predicted": 4494428,
+        "baseline": 4194328
+      },
+      {
+        "airport": "CJB",
+        "actual": 3134936,
+        "predicted": 3291581,
+        "baseline": 2864269
+      },
+      {
+        "airport": "VTZ",
+        "actual": 2919481,
+        "predicted": 3246675,
+        "baseline": 2704901
+      },
+      {
+        "airport": "NAG",
+        "actual": 2805404,
+        "predicted": 3218702,
+        "baseline": 2675029
+      },
+      {
+        "airport": "RPR",
+        "actual": 2775629,
+        "predicted": 3196554,
+        "baseline": 2509872
+      },
+      {
+        "airport": "IXR",
+        "actual": 2696680,
+        "predicted": 3196554,
+        "baseline": 2551385
+      },
+      {
+        "airport": "TRV",
+        "actual": 2292339,
+        "predicted": 2603231,
+        "baseline": 2598887
+      },
+      {
+        "airport": "ATQ",
+        "actual": 1999518,
+        "predicted": 2507307,
+        "baseline": 2278219
+      },
+      {
+        "airport": "IXE",
+        "actual": 1812466,
+        "predicted": 1580884,
+        "baseline": 1655195
+      },
+      {
+        "airport": "DED",
+        "actual": 1799771,
+        "predicted": 1717558,
+        "baseline": 1637541
+      },
+      {
+        "airport": "IXZ",
+        "actual": 1759680,
+        "predicted": 1580884,
+        "baseline": 1593972
+      },
+      {
+        "airport": "UDR",
+        "actual": 1647983,
+        "predicted": 1599425,
+        "baseline": 1581428
+      },
+      {
+        "airport": "STV",
+        "actual": 1611853,
+        "predicted": 1542947,
+        "baseline": 1550317
+      },
+      {
+        "airport": "BHO",
+        "actual": 1576781,
+        "predicted": 1542947,
+        "baseline": 1520743
+      },
+      {
+        "airport": "IXA",
+        "actual": 1515413,
+        "predicted": 1561610,
+        "baseline": 1368104
+      },
+      {
+        "airport": "IXJ",
+        "actual": 1387209,
+        "predicted": 1595318,
+        "baseline": 1525431
+      },
+      {
+        "airport": "VGA",
+        "actual": 1356715,
+        "predicted": 1219948,
+        "baseline": 1171366
+      },
+      {
+        "airport": "IMF",
+        "actual": 1255086,
+        "predicted": 1511170,
+        "baseline": 1272846
+      },
+      {
+        "airport": "TIR",
+        "actual": 1253062,
+        "predicted": 1036952,
+        "baseline": 930194
+      },
+      {
+        "airport": "BDQ",
+        "actual": 1243810,
+        "predicted": 1330100,
+        "baseline": 1220411
+      },
+      {
+        "airport": "IXM",
+        "actual": 1164074,
+        "predicted": 1090812,
+        "baseline": 1036527
+      },
+      {
+        "airport": "GOP",
+        "actual": 1152245,
+        "predicted": 783918,
+        "baseline": 741137
+      },
+      {
+        "airport": "AYJ",
+        "actual": 1052204,
+        "predicted": 529317,
+        "baseline": 997677
+      },
+      {
+        "airport": "IXD",
+        "actual": 1048049,
+        "predicted": 560370,
+        "baseline": 574000
+      },
+      {
+        "airport": "HSR",
+        "actual": 1039262,
+        "predicted": 821299,
+        "baseline": 1036274
+      },
+      {
+        "airport": "JDH",
+        "actual": 1021656,
+        "predicted": 1092327,
+        "baseline": 1025143
+      },
+      {
+        "airport": "HDO",
+        "actual": 997190,
+        "predicted": 33685,
+        "baseline": 74547
+      },
+      {
+        "airport": "IXL",
+        "actual": 907646,
+        "predicted": 1090812,
+        "baseline": 1040813
+      },
+      {
+        "airport": "CCJ",
+        "actual": 846826,
+        "predicted": 715793,
+        "baseline": 689785
+      },
+      {
+        "airport": "DIB",
+        "actual": 795924,
+        "predicted": 845068,
+        "baseline": 808125
+      },
+      {
+        "airport": "TRZ",
+        "actual": 784094,
+        "predicted": 539967,
+        "baseline": 580030
+      },
+      {
+        "airport": "DBR",
+        "actual": 719258,
+        "predicted": 519960,
+        "baseline": 483134
+      },
+      {
+        "airport": "SAG",
+        "actual": 656229,
+        "predicted": 791617,
+        "baseline": 757303
+      },
+      {
+        "airport": "IXU",
+        "actual": 631380,
+        "predicted": 714457,
+        "baseline": 687422
+      },
+      {
+        "airport": "RJA",
+        "actual": 570321,
+        "predicted": 504695,
+        "baseline": 436009
+      },
+      {
+        "airport": "DGH",
+        "actual": 535727,
+        "predicted": 513353,
+        "baseline": 478873
+      },
+      {
+        "airport": "JLR",
+        "actual": 490280,
+        "predicted": 359001,
+        "baseline": 355503
+      },
+      {
+        "airport": "MAQ",
+        "actual": 455636,
+        "predicted": 407325,
+        "baseline": 377812
+      },
+      {
+        "airport": "JRG",
+        "actual": 429041,
+        "predicted": 321529,
+        "baseline": 287935
+      },
+      {
+        "airport": "IXS",
+        "actual": 422951,
+        "predicted": 504695,
+        "baseline": 444069
+      },
+      {
+        "airport": "AJL",
+        "actual": 416466,
+        "predicted": 503910,
+        "baseline": 467098
+      },
+      {
+        "airport": "ISK",
+        "actual": 401142,
+        "predicted": 319596,
+        "baseline": 304127
+      },
+      {
+        "airport": "DMU",
+        "actual": 373054,
+        "predicted": 337770,
+        "baseline": 314839
+      },
+      {
+        "airport": "DEP",
+        "actual": 371384,
+        "predicted": 271914,
+        "baseline": 228270
+      },
+      {
+        "airport": "HBX",
+        "actual": 363730,
+        "predicted": 349998,
+        "baseline": 334827
+      },
+      {
+        "airport": "KNU",
+        "actual": 355684,
+        "predicted": 326049,
+        "baseline": 281291
+      },
+      {
+        "airport": "IXG",
+        "actual": 298366,
+        "predicted": 326739,
+        "baseline": 329076
+      },
+      {
+        "airport": "GWL",
+        "actual": 292535,
+        "predicted": 405238,
+        "baseline": 389377
+      },
+      {
+        "airport": "TCR",
+        "actual": 279666,
+        "predicted": 279123,
+        "baseline": 218056
+      },
+      {
+        "airport": "BHJ",
+        "actual": 252131,
+        "predicted": 166866,
+        "baseline": 148718
+      },
+      {
+        "airport": "GAY",
+        "actual": 241377,
+        "predicted": 299042,
+        "baseline": 223908
+      },
+      {
+        "airport": "AGR",
+        "actual": 230831,
+        "predicted": 169705,
+        "baseline": 169177
+      },
+      {
+        "airport": "HGI",
+        "actual": 183177,
+        "predicted": 169831,
+        "baseline": 167287
+      },
+      {
+        "airport": "RQY",
+        "actual": 171881,
+        "predicted": 85605,
+        "baseline": 96640
+      },
+      {
+        "airport": "KLH",
+        "actual": 164834,
+        "predicted": 159816,
+        "baseline": 154667
+      },
+      {
+        "airport": "JSA",
+        "actual": 162519,
+        "predicted": 112304,
+        "baseline": 129508
+      },
+      {
+        "airport": "DHM",
+        "actual": 160490,
+        "predicted": 226592,
+        "baseline": 205250
+      },
+      {
+        "airport": "JRH",
+        "actual": 142890,
+        "predicted": 139813,
+        "baseline": 137318
+      },
+      {
+        "airport": "KQH",
+        "actual": 122487,
+        "predicted": 65982,
+        "baseline": 80528
+      },
+      {
+        "airport": "JGA",
+        "actual": 121893,
+        "predicted": 157503,
+        "baseline": 155612
+      },
+      {
+        "airport": "BEK",
+        "actual": 120293,
+        "predicted": 110383,
+        "baseline": 118591
+      },
+      {
+        "airport": "SXV",
+        "actual": 118740,
+        "predicted": 107283,
+        "baseline": 122087
+      },
+      {
+        "airport": "AGX",
+        "actual": 117114,
+        "predicted": 70515,
+        "baseline": 86256
+      },
+      {
+        "airport": "DIU",
+        "actual": 116259,
+        "predicted": 99723,
+        "baseline": 98794
+      },
+      {
+        "airport": "PNY",
+        "actual": 96323,
+        "predicted": 31897,
+        "baseline": 26387
+      },
+      {
+        "airport": "SHL",
+        "actual": 92807,
+        "predicted": 159588,
+        "baseline": 157250
+      },
+      {
+        "airport": "MYQ",
+        "actual": 85856,
+        "predicted": 66103,
+        "baseline": 87711
+      },
+      {
+        "airport": "AIP",
+        "actual": 79570,
+        "predicted": 9495,
+        "baseline": 25974
+      },
+      {
+        "airport": "PGH",
+        "actual": 73203,
+        "predicted": 99642,
+        "baseline": 99613
+      },
+      {
+        "airport": "CDP",
+        "actual": 68388,
+        "predicted": 23709,
+        "baseline": 45408
+      },
+      {
+        "airport": "JGB",
+        "actual": 58845,
+        "predicted": 54866,
+        "baseline": 70036
+      },
+      {
+        "airport": "HJR",
+        "actual": 51214,
+        "predicted": 26867,
+        "baseline": 51638
+      },
+      {
+        "airport": "SDW",
+        "actual": 48829,
+        "predicted": 21657,
+        "baseline": 20185
+      },
+      {
+        "airport": "BKB",
+        "actual": 40966,
+        "predicted": 12419,
+        "baseline": 8623
+      },
+      {
+        "airport": "PAB",
+        "actual": 39778,
+        "predicted": 32488,
+        "baseline": 36725
+      },
+      {
+        "airport": "IXY",
+        "actual": 34909,
+        "predicted": 54593,
+        "baseline": 63150
+      },
+      {
+        "airport": "GDB",
+        "actual": 32850,
+        "predicted": 8717,
+        "baseline": 30107
+      },
+      {
+        "airport": "BHU",
+        "actual": 32618,
+        "predicted": 54448,
+        "baseline": 75239
+      },
+      {
+        "airport": "KJB",
+        "actual": 19693,
+        "predicted": 31584,
+        "baseline": 21818
+      },
+      {
+        "airport": "GBI",
+        "actual": 18908,
+        "predicted": 40244,
+        "baseline": 40829
+      },
+      {
+        "airport": "KUU",
+        "actual": 18233,
+        "predicted": 26006,
+        "baseline": 27781
+      },
+      {
+        "airport": "BUP",
+        "actual": 17464,
+        "predicted": 20405,
+        "baseline": 28373
+      },
+      {
+        "airport": "RRK",
+        "actual": 15702,
+        "predicted": 46282,
+        "baseline": 40774
+      },
+      {
+        "airport": "PYB",
+        "actual": 14816,
+        "predicted": 14814,
+        "baseline": 11209
+      },
+      {
+        "airport": "SLV",
+        "actual": 13825,
+        "predicted": 25297,
+        "baseline": 23592
+      },
+      {
+        "airport": "VDY",
+        "actual": 13766,
+        "predicted": 36377,
+        "baseline": 52005
+      },
+      {
+        "airport": "IXI",
+        "actual": 12146,
+        "predicted": 32506,
+        "baseline": 35330
+      },
+      {
+        "airport": "TEI",
+        "actual": 11433,
+        "predicted": 12455,
+        "baseline": 6076
+      },
+      {
+        "airport": "IXW",
+        "actual": 8728,
+        "predicted": 13704,
+        "baseline": 8736
+      },
+      {
+        "airport": "IXK",
+        "actual": 7404,
+        "predicted": 21480,
+        "baseline": 16527
+      },
+      {
+        "airport": "RUP",
+        "actual": 6914,
+        "predicted": 14331,
+        "baseline": 5130
+      },
+      {
+        "airport": "COH",
+        "actual": 5623,
+        "predicted": 4254,
+        "baseline": 5080
+      },
+      {
+        "airport": "UKE",
+        "actual": 4457,
+        "predicted": 4992,
+        "baseline": 2317
+      },
+      {
+        "airport": "IXT",
+        "actual": 4259,
+        "predicted": 13011,
+        "baseline": 8286
+      },
+      {
+        "airport": "ZER",
+        "actual": 738,
+        "predicted": 4685,
+        "baseline": 274
+      },
+      {
+        "airport": "LUH",
+        "actual": 631,
+        "predicted": 4685,
+        "baseline": 1744
+      }
+    ]
+  }
+}
